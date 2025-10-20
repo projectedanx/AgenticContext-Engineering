@@ -2,6 +2,10 @@
 import React from 'react';
 import { BrainCircuitIcon } from './IconComponents';
 
+/**
+ * The header component for the application.
+ * @returns {React.ReactElement} The rendered header component.
+ */
 export const Header: React.FC = () => {
     return (
         <header className="p-4 md:p-6 border-b border-gray-700 flex items-center gap-4">

@@ -1,12 +1,23 @@
 
 import React from 'react';
 
+/**
+ * Props for the OutputPanel component.
+ * @property output - The output to display from the agent.
+ * @property isLoading - A boolean indicating whether the agent is currently generating a response.
+ * @property error - An error message to display if an error occurred.
+ */
 interface OutputPanelProps {
   output: string;
   isLoading: boolean;
   error: string | null;
 }
 
+/**
+ * A component for displaying the agent's response.
+ * @param {OutputPanelProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered output panel component.
+ */
 export const OutputPanel: React.FC<OutputPanelProps> = ({ output, isLoading, error }) => {
   return (
     <div className="flex-grow flex flex-col bg-gray-800 border border-gray-700 rounded-lg shadow-lg">

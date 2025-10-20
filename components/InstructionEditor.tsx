@@ -2,12 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ContextEditorCard } from './ContextEditorCard';
 import { BrainCircuitIcon } from './IconComponents';
 
+/**
+ * Props for the InstructionEditor component.
+ * @property value - The current value of the instruction editor.
+ * @property onChange - A callback function to handle changes to the instruction value.
+ * @property storageKey - The key to use for storing the instruction value in local storage.
+ */
 interface InstructionEditorProps {
   value: string;
   onChange: (value: string) => void;
   storageKey: string;
 }
 
+/**
+ * A component for editing the agent's core instructions.
+ * @param {InstructionEditorProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered instruction editor component.
+ */
 export const InstructionEditor: React.FC<InstructionEditorProps> = ({ value, onChange, storageKey }) => {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'unsaved' | 'saving' | 'saved'>('idle');
   const timerRef = useRef<number | null>(null);

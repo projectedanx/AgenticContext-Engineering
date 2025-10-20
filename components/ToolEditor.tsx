@@ -5,11 +5,21 @@ import { ContextEditorCard } from './ContextEditorCard';
 import { WrenchIcon } from './IconComponents';
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * Props for the ToolEditor component.
+ * @property tools - An array of tools to be displayed and edited.
+ * @property setTools - A callback function to update the tools array.
+ */
 interface ToolEditorProps {
   tools: Tool[];
   setTools: React.Dispatch<React.SetStateAction<Tool[]>>;
 }
 
+/**
+ * A component for editing the agent's tools.
+ * @param {ToolEditorProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered tool editor component.
+ */
 export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
   const addTool = () => {
     setTools([...tools, { id: uuidv4(), name: '', description: '', parameters: [] }]);

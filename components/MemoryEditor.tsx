@@ -2,12 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ContextEditorCard } from './ContextEditorCard';
 import { MemoryIcon } from './IconComponents';
 
+/**
+ * Props for the MemoryEditor component.
+ * @property value - The current value of the memory editor.
+ * @property onChange - A callback function to handle changes to the memory value.
+ * @property storageKey - The key to use for storing the memory value in local storage.
+ */
 interface MemoryEditorProps {
   value: string;
   onChange: (value: string) => void;
   storageKey: string;
 }
 
+/**
+ * A component for editing the agent's memory.
+ * @param {MemoryEditorProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered memory editor component.
+ */
 export const MemoryEditor: React.FC<MemoryEditorProps> = ({ value, onChange, storageKey }) => {
     const [saveStatus, setSaveStatus] = useState<'idle' | 'unsaved' | 'saving' | 'saved'>('idle');
     const timerRef = useRef<number | null>(null);

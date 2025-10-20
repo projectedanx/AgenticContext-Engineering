@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { summarizeDocument } from '../services/geminiService';
 import { FileTextIcon } from './IconComponents';
 
+/**
+ * A component that allows the user to input a document and get a summary.
+ * @returns {React.ReactElement} The rendered document summarizer component.
+ */
 export const DocumentSummarizer: React.FC = () => {
   const [documentText, setDocumentText] = useState('');
   const [summary, setSummary] = useState('');

@@ -7,6 +7,11 @@ if (!process.env.API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
+/**
+ * Formats a list of tools into a string representation for the agent's prompt.
+ * @param tools - An array of Tool objects to be formatted.
+ * @returns A string describing the available tools, their descriptions, and parameters.
+ */
 function formatTools(tools: Tool[]): string {
   if (tools.length === 0) {
     return "No tools available.";
@@ -21,6 +26,11 @@ Parameters:\n${params}`;
   }).join('\n\n');
 }
 
+/**
+ * Generates a response from the Gemini model based on the provided agent context.
+ * @param context - The agent's context, including instructions, knowledge, tools, memory, state, and the user query.
+ * @returns A promise that resolves to the Gemini model's response as a string.
+ */
 export const generateResponse = async (context: AgentContext): Promise<string> => {
   const model = 'gemini-2.5-pro';
 
@@ -75,6 +85,11 @@ ${context.query}
   }
 };
 
+/**
+ * Summarizes a given document using the Gemini model.
+ * @param documentText - The text of the document to be summarized.
+ * @returns A promise that resolves to the summary of the document as a string.
+ */
 export const summarizeDocument = async (documentText: string): Promise<string> => {
   const model = 'gemini-2.5-flash';
 

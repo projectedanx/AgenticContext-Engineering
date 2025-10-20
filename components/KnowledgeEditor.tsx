@@ -2,12 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ContextEditorCard } from './ContextEditorCard';
 import { BookIcon } from './IconComponents';
 
+/**
+ * Props for the KnowledgeEditor component.
+ * @property value - The current value of the knowledge editor.
+ * @property onChange - A callback function to handle changes to the knowledge value.
+ * @property storageKey - The key to use for storing the knowledge value in local storage.
+ */
 interface KnowledgeEditorProps {
   value: string;
   onChange: (value: string) => void;
   storageKey: string;
 }
 
+/**
+ * A component for editing the agent's knowledge base.
+ * @param {KnowledgeEditorProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered knowledge editor component.
+ */
 export const KnowledgeEditor: React.FC<KnowledgeEditorProps> = ({ value, onChange, storageKey }) => {
     const [saveStatus, setSaveStatus] = useState<'idle' | 'unsaved' | 'saving' | 'saved'>('idle');
     const timerRef = useRef<number | null>(null);

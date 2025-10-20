@@ -78,6 +78,10 @@ const defaultState = JSON.stringify({
   "specVersion": "0.1"
 }, null, 2);
 
+/**
+ * The main application component.
+ * @returns {React.ReactElement} The rendered App component.
+ */
 const App: React.FC = () => {
   // Agent Context State
   const [instructions, setInstructions] = useState<string>('');
