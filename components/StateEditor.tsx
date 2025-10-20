@@ -2,12 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ContextEditorCard } from './ContextEditorCard';
 import { ServerIcon } from './IconComponents';
 
+/**
+ * Props for the StateEditor component.
+ * @property value - The current value of the state editor.
+ * @property onChange - A callback function to handle changes to the state value.
+ * @property storageKey - The key to use for storing the state value in local storage.
+ */
 interface StateEditorProps {
   value: string;
   onChange: (value: string) => void;
   storageKey: string;
 }
 
+/**
+ * A component for editing the agent's state as a JSON object.
+ * @param {StateEditorProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered state editor component.
+ */
 export const StateEditor: React.FC<StateEditorProps> = ({ value, onChange, storageKey }) => {
   const [isValidJson, setIsValidJson] = useState(true);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'unsaved' | 'saving' | 'saved'>('idle');

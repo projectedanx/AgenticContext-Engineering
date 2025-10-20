@@ -2,6 +2,13 @@
 import React from 'react';
 import { WandIcon } from './IconComponents';
 
+/**
+ * Props for the QueryInput component.
+ * @property value - The current value of the query input.
+ * @property onChange - A callback function to handle changes to the query value.
+ * @property onGenerate - A callback function to handle the generate button click.
+ * @property isLoading - A boolean indicating whether the agent is currently generating a response.
+ */
 interface QueryInputProps {
   value: string;
   onChange: (value: string) => void;
@@ -9,6 +16,11 @@ interface QueryInputProps {
   isLoading: boolean;
 }
 
+/**
+ * A component for inputting the user's query and triggering the agent.
+ * @param {QueryInputProps} props - The props for the component.
+ * @returns {React.ReactElement} The rendered query input component.
+ */
 export const QueryInput: React.FC<QueryInputProps> = ({ value, onChange, onGenerate, isLoading }) => {
   return (
     <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 flex flex-col gap-4">
