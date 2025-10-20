@@ -1,0 +1,5 @@
+{
+  "name": "Agentic Context Engineering Workbench",
+  "description": "A foundational system for designing, managing, and testing deterministic AI agent contexts based on the principles of Context Engineering. Define instructions, knowledge, tools, memory, and state to architect reliable agent behavior.",
+  "requestFramePermissions": []
+}
