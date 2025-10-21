@@ -1,7 +1,22 @@
-
 import React, { useState } from 'react';
 import { summarizeDocument } from '../services/geminiService';
 import { FileTextIcon } from './IconComponents';
+
+/**
+ * Chunks a string into smaller pieces of a specified size.
+ *
+ * @param {string} text The text to chunk.
+ * @param {number} [chunkSize=2000] The size of each chunk.
+ * @returns {string[]} An array of text chunks.
+ */
+const chunkDocument = (text: string, chunkSize = 2000): string[] => {
+  if (!text) return [];
+  const chunks = [];
+  for (let i = 0; i < text.length; i += chunkSize) {
+    chunks.push(text.slice(i, i + chunkSize));
+  }
+  return chunks;
+};
 
 /**
  * A component that allows the user to input a document and get a summary.
@@ -22,8 +37,11 @@ export const DocumentSummarizer: React.FC = () => {
     setError(null);
     setSummary('');
     try {
-      const result = await summarizeDocument(documentText);
-      setSummary(result);
+      const chunks = chunkDocument(documentText);
+      const summaries = await Promise.all(
+        chunks.map(chunk => summarizeDocument(chunk))
+      );
+      setSummary(summaries.join('\n\n'));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred.');
     } finally {
@@ -52,7 +70,7 @@ export const DocumentSummarizer: React.FC = () => {
         </div>
         <button
           onClick={handleSummarize}
-          disabled={isLoading}
+          disabled={isLoading || !documentText.trim()}
           className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 disabled:bg-violet-900/50 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded-md transition-colors duration-200"
         >
           {isLoading ? 'Summarizing...' : 'Generate Summary'}
