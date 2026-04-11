@@ -9,8 +9,8 @@ import { FileTextIcon } from './IconComponents';
  * @param {number} [chunkSize=2000] The size of each chunk.
  * @returns {string[]} An array of text chunks.
  */
-const chunkDocument = (text: string, chunkSize = 2000): string[] => {
-  if (!text) return [];
+export const chunkDocument = (text: string, chunkSize = 2000): string[] => {
+  if (!text || chunkSize <= 0) return [];
   const chunks = [];
   for (let i = 0; i < text.length; i += chunkSize) {
     chunks.push(text.slice(i, i + chunkSize));
