@@ -9,6 +9,7 @@ import { StateEditor } from './components/StateEditor';
 import { QueryInput } from './components/QueryInput';
 import { OutputPanel } from './components/OutputPanel';
 import { DocumentSummarizer } from './components/DocumentSummarizer';
+import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { generateResponse } from './services/geminiService';
 import { Tool } from './types';
 import { v4 as uuidv4 } from 'uuid';
@@ -144,6 +145,7 @@ const App: React.FC = () => {
           <ToolEditor tools={tools} setTools={setTools} />
           <MemoryEditor value={memory} onChange={setMemory} storageKey={MEMORY_KEY} />
           <StateEditor value={state} onChange={setState} storageKey={STATE_KEY} />
+          <PluriversalFeatureDiscovery />
           <DocumentSummarizer />
         </div>
 
