@@ -29,7 +29,7 @@ export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
     setTools(tools.filter(t => t.id !== toolId));
   };
   
-  const updateTool = (toolId: string, field: keyof Tool, value: any) => {
+  const updateTool = <K extends keyof Tool>(toolId: string, field: K, value: Tool[K]) => {
     setTools(tools.map(t => t.id === toolId ? { ...t, [field]: value } : t));
   };
   
@@ -41,7 +41,7 @@ export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
       setTools(tools.map(t => t.id === toolId ? { ...t, parameters: t.parameters.filter(p => p.id !== paramId)} : t));
   };
   
-  const updateParameter = (toolId: string, paramId: string, field: keyof ToolParameter, value: any) => {
+  const updateParameter = <K extends keyof ToolParameter>(toolId: string, paramId: string, field: K, value: ToolParameter[K]) => {
     setTools(tools.map(t => {
       if (t.id === toolId) {
         return { ...t, parameters: t.parameters.map(p => p.id === paramId ? { ...p, [field]: value } : p) };
