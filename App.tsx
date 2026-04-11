@@ -11,6 +11,7 @@ import { OutputPanel } from './components/OutputPanel';
 import { DocumentSummarizer } from './components/DocumentSummarizer';
 import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { generateResponse } from './services/geminiService';
+import { safeJsonParse, isValidTools } from './services/storageUtils';
 import { Tool } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -102,7 +103,7 @@ const App: React.FC = () => {
     setInstructions(localStorage.getItem(INSTRUCTIONS_KEY) || defaultInstructions);
     setKnowledge(localStorage.getItem(KNOWLEDGE_KEY) || defaultKnowledge);
     const storedTools = localStorage.getItem(TOOLS_KEY);
-    setTools(storedTools ? JSON.parse(storedTools) : defaultTools);
+    setTools(safeJsonParse(storedTools, defaultTools, isValidTools));
     setMemory(localStorage.getItem(MEMORY_KEY) || '');
     setState(localStorage.getItem(STATE_KEY) || defaultState);
   }, []);
