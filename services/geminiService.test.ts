@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+// @ts-ignore
 import { mockGenerateContent } from '@google/genai';
 import { formatTools, generateResponse, summarizeDocument } from './geminiService';
 import { Tool, AgentContext } from '../types';

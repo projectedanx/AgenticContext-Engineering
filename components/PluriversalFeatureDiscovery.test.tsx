@@ -32,7 +32,7 @@ describe('PluriversalFeatureDiscovery', () => {
 
     it('calls generateResponse and displays result when button is clicked', async () => {
         const mockResponse = 'Mocked Cognitive Contract Output';
-        (generateResponse as vi.Mock).mockResolvedValue(mockResponse);
+        (generateResponse as import("vitest").Mock).mockResolvedValue(mockResponse);
 
         render(<PluriversalFeatureDiscovery />);
 
@@ -56,7 +56,7 @@ describe('PluriversalFeatureDiscovery', () => {
 
     it('displays an error message when generateResponse fails', async () => {
         const mockError = new Error('Test API Error');
-        (generateResponse as vi.Mock).mockRejectedValue(mockError);
+        (generateResponse as import("vitest").Mock).mockRejectedValue(mockError);
 
         render(<PluriversalFeatureDiscovery />);
 

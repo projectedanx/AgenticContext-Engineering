@@ -46,3 +46,33 @@ export interface AgentContext {
   state: string; // JSON as a string
   query: string;
 }
+
+/**
+ * Represents a project stakeholder with specific constraints.
+ */
+export interface Stakeholder {
+  id: string;
+  role: string;
+  constraints: string[];
+}
+
+/**
+ * Represents a decomposed user story.
+ */
+export interface UserStory {
+  id: string;
+  epicId: string;
+  description: string;
+  acceptanceCriteria: string[];
+  complexity: number;
+}
+
+/**
+ * Represents a high-level product epic.
+ */
+export interface Epic {
+  id: string;
+  name: string;
+  description: string;
+  status: 'Draft' | 'Decomposing' | 'Ready';
+}
