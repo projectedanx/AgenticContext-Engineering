@@ -72,7 +72,7 @@ describe('DocumentSummarizer component', () => {
   });
 
   it('calls summarizeDocument and displays the summary', async () => {
-    (summarizeDocument as vi.Mock).mockResolvedValue('This is a summary.');
+    (summarizeDocument as import("vitest").Mock).mockResolvedValue('This is a summary.');
 
     render(<DocumentSummarizer />);
     const textarea = screen.getByPlaceholderText('Paste a long document here...');
@@ -95,7 +95,7 @@ describe('DocumentSummarizer component', () => {
   });
 
   it('handles multiple chunks and joins summaries', async () => {
-    (summarizeDocument as vi.Mock)
+    (summarizeDocument as import("vitest").Mock)
       .mockResolvedValueOnce('Summary 1')
       .mockResolvedValueOnce('Summary 2');
 
@@ -117,7 +117,7 @@ describe('DocumentSummarizer component', () => {
   });
 
   it('displays an error message when summarization fails', async () => {
-    (summarizeDocument as vi.Mock).mockRejectedValue(new Error('API Failure'));
+    (summarizeDocument as import("vitest").Mock).mockRejectedValue(new Error('API Failure'));
 
     render(<DocumentSummarizer />);
     const textarea = screen.getByPlaceholderText('Paste a long document here...');
