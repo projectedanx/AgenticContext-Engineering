@@ -4,7 +4,7 @@ This file contains a list of suggestions for future enhancements to the Agentic 
 
 ## Features
 
--   **Import/Export Context**: Add the ability to import and export the entire agent context (instructions, knowledge, tools, memory, and state) as a JSON file. This would make it easier to share and reuse contexts.
+-   [x] **Import/Export Context**: Add the ability to import and export the entire agent context (instructions, knowledge, tools, memory, and state) as a JSON file. This would make it easier to share and reuse contexts.
 -   **Version History**: Implement a version history for the context editors, allowing users to revert to previous versions of their context.
 -   **Tool Validation**: Add validation to the Tool Editor to ensure that the tool definitions are valid and complete.
 -   **Real-time Collaboration**: Add support for real-time collaboration, allowing multiple users to work on the same agent context simultaneously.
