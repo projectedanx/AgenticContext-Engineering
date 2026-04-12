@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ContextEditorCard } from './ContextEditorCard';
-import { BrainCircuitIcon } from './IconComponents';
+import React from "react";
+import { ContextEditorCard } from "./ContextEditorCard";
+import { BrainCircuitIcon } from "./IconComponents";
+import { useAutoSave } from "../hooks/useAutoSave";
 
 /**
  * Props for the InstructionEditor component.
@@ -19,43 +20,24 @@ interface InstructionEditorProps {
  * @param {InstructionEditorProps} props - The props for the component.
  * @returns {React.ReactElement} The rendered instruction editor component.
  */
-export const InstructionEditor: React.FC<InstructionEditorProps> = ({ value, onChange, storageKey }) => {
-  const [saveStatus, setSaveStatus] = useState<'idle' | 'unsaved' | 'saving' | 'saved'>('idle');
-  const timerRef = useRef<number | null>(null);
+export const InstructionEditor: React.FC<InstructionEditorProps> = ({
+  value,
+  onChange,
+  storageKey,
+}) => {
+  const { saveStatus, handleValueChange } = useAutoSave({
+    value,
+    onChange,
+    storageKey,
+  });
 
-  useEffect(() => {
-    if (saveStatus === 'unsaved') {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-      setSaveStatus('saving');
-      timerRef.current = window.setTimeout(() => {
-        localStorage.setItem(storageKey, value);
-        setSaveStatus('saved');
-      }, 1000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, storageKey]);
-  
-  useEffect(() => {
-      if (saveStatus === 'saved') {
-          const timer = setTimeout(() => setSaveStatus('idle'), 2000);
-          return () => clearTimeout(timer);
-      }
-  }, [saveStatus]);
-
-  const handleValueChange = (newValue: string) => {
-    setSaveStatus('unsaved');
-    onChange(newValue);
-  };
-  
   const getStatusIndicator = () => {
-    switch(saveStatus) {
-      case 'unsaved':
+    switch (saveStatus) {
+      case "unsaved":
         return <span className="text-xs text-yellow-400">Unsaved changes</span>;
-      case 'saving':
+      case "saving":
         return <span className="text-xs text-blue-400">Saving...</span>;
-      case 'saved':
+      case "saved":
         return <span className="text-xs text-green-400">Saved</span>;
       default:
         return null;
@@ -63,8 +45,14 @@ export const InstructionEditor: React.FC<InstructionEditorProps> = ({ value, onC
   };
 
   return (
-    <ContextEditorCard title="Core Instructions" icon={<BrainCircuitIcon className="w-5 h-5" />} statusIndicator={getStatusIndicator()}>
-      <p className="text-sm text-gray-400 mb-3">Define the agent's persona, core directives, and operational rules.</p>
+    <ContextEditorCard
+      title="Core Instructions"
+      icon={<BrainCircuitIcon className="w-5 h-5" />}
+      statusIndicator={getStatusIndicator()}
+    >
+      <p className="text-sm text-gray-400 mb-3">
+        Define the agent's persona, core directives, and operational rules.
+      </p>
       <textarea
         value={value}
         onChange={(e) => handleValueChange(e.target.value)}
