@@ -113,7 +113,7 @@ describe('DocumentSummarizer component', () => {
       expect(summarizeDocument).toHaveBeenCalledTimes(2);
     });
 
-    expect(screen.getByText('Summary 1\n\nSummary 2')).toBeInTheDocument();
+    expect(await screen.findByText(/Summary 1\s+Summary 2/i)).toBeInTheDocument();
   });
 
   it('displays an error message when summarization fails', async () => {
