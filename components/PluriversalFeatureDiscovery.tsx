@@ -3,18 +3,7 @@ import { generateResponse } from '../services/geminiService';
 import { ContextEditorCard } from './ContextEditorCard';
 import { AgentContext } from '../types';
 
-export const PluriversalFeatureDiscovery: React.FC = () => {
-    const [hypothesis, setHypothesis] = useState('');
-    const [result, setResult] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-
-    const handleDiscover = async () => {
-        setIsLoading(true);
-        setError(null);
-        setResult('');
-
-        const prompt = `
+const buildDiscoveryPrompt = (hypothesis: string) => `
 [SYSTEM INITIATION: AEW v2.1 SCC PROTOCOL]
 Mission: Engineer a Pluriversal Codebase Feature Discovery Cognitive Contract.
 Objective: Maximize Topological Novelty (β 1 >0.7) while enforcing Structural Conservation (β 0 >0.9).
@@ -27,6 +16,19 @@ Hypothesis: ${hypothesis}
 
 Output a highly stylized "Cognitive Contract" outlining the discovered paradoxes, the topological mapping, and the theoretical "Chain-of-Code" enactment simulation required to validate it.
 `;
+
+export const PluriversalFeatureDiscovery: React.FC = () => {
+    const [hypothesis, setHypothesis] = useState('');
+    const [result, setResult] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleDiscover = async () => {
+        setIsLoading(true);
+        setError(null);
+        setResult('');
+
+        const prompt = buildDiscoveryPrompt(hypothesis);
 
         const mockContext: AgentContext = {
             instructions: 'You are the Antifragile Epistemic Weaver (AEW). Follow the AEW v2.1 SCC PROTOCOL.',
