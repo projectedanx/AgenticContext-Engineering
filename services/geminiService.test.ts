@@ -94,8 +94,7 @@ Parameters:
       ];
       const expected = `Tool: \`get_time\`
 Description: Get the current time
-Parameters:
-`;
+Parameters: None`;
       expect(formatTools(tools)).toBe(expected);
     });
 
@@ -128,6 +127,79 @@ Parameters:
       const expected = "No tools available.";
       expect(formatTools(tools)).toBe(expected);
     });
+
+    it("should handle tools with missing descriptions", () => {
+      const tools: Tool[] = [
+        {
+          id: "1",
+          name: "get_time",
+          description: "", // Missing description
+          parameters: [],
+        },
+      ];
+      const expected = `Tool: \`get_time\`
+Description: No description provided.
+Parameters: None`;
+      expect(formatTools(tools)).toBe(expected);
+    });
+
+    it("should handle parameters with missing descriptions", () => {
+      const tools: Tool[] = [
+        {
+          id: "1",
+          name: "get_weather",
+          description: "Get the current weather",
+          parameters: [
+            {
+              id: "1",
+              name: "location",
+              type: "string",
+              description: "", // Missing description
+              required: true,
+            },
+          ],
+        },
+      ];
+      const expected = `Tool: \`get_weather\`
+Description: Get the current weather
+Parameters:
+- location (string, required): No description provided.`;
+      expect(formatTools(tools)).toBe(expected);
+    });
+
+    it("should handle tools with no name gracefully (though this might be an edge case depending on the tool creation logic)", () => {
+        // Technically, according to type Tool, name is string, so it shouldn't be null/undefined,
+        // but if it's empty, it should format it.
+        const tools: Tool[] = [
+          {
+            id: "1",
+            name: "",
+            description: "Some description",
+            parameters: [],
+          },
+        ];
+        const expected = `Tool: \`\`
+Description: Some description
+Parameters: None`;
+        expect(formatTools(tools)).toBe(expected);
+    });
+
+    it("should handle invalid parameters without failing", () => {
+        const tools: Tool[] = [
+          {
+            id: "1",
+            name: "test_tool",
+            description: "test",
+            // @ts-ignore - testing runtime safety
+            parameters: [ null, undefined, { type: "string", description: "test" } ],
+          },
+        ];
+        const expected = `Tool: \`test_tool\`
+Description: test
+Parameters: None`;
+        expect(formatTools(tools)).toBe(expected);
+    });
+
   });
 
   describe("generateResponse", () => {
