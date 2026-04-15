@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Tool, ToolParameter } from '../types';
 import { ContextEditorCard } from './ContextEditorCard';
 import { WrenchIcon } from './IconComponents';
 import { v4 as uuidv4 } from 'uuid';
+
 
 /**
  * Props for the ToolEditor component.
@@ -21,6 +22,10 @@ interface ToolEditorProps {
  * @returns {React.ReactElement} The rendered tool editor component.
  */
 export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateName = (name: string) => /^[a-zA-Z0-9_]+$/.test(name);
+
   const addTool = () => {
     setTools([...tools, { id: uuidv4(), name: '', description: '', parameters: [] }]);
   };
@@ -30,6 +35,20 @@ export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
   };
   
   const updateTool = <K extends keyof Tool>(toolId: string, field: K, value: Tool[K]) => {
+    if (field === 'name') {
+      const nameVal = value as string;
+      if (!nameVal) {
+        setErrors(prev => ({...prev, [toolId]: 'Tool name is required'}));
+      } else if (!validateName(nameVal)) {
+        setErrors(prev => ({...prev, [toolId]: 'Tool name can only contain letters, numbers, and underscores'}));
+      } else {
+        setErrors(prev => {
+           const newErrors = {...prev};
+           delete newErrors[toolId];
+           return newErrors;
+        });
+      }
+    }
     setTools(tools.map(t => t.id === toolId ? { ...t, [field]: value } : t));
   };
   
@@ -57,7 +76,10 @@ export const ToolEditor: React.FC<ToolEditorProps> = ({ tools, setTools }) => {
         {tools.map((tool) => (
           <div key={tool.id} className="bg-gray-900/50 p-4 rounded-lg border border-gray-700">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <input type="text" value={tool.name} onChange={e => updateTool(tool.id, 'name', e.target.value)} placeholder="Tool Name" className="bg-gray-700 border border-gray-600 rounded p-2 text-sm w-full" />
+              <div>
+                <input type="text" value={tool.name} onChange={e => updateTool(tool.id, 'name', e.target.value)} placeholder="Tool Name" className="bg-gray-700 border border-gray-600 rounded p-2 text-sm w-full" />
+                {errors[tool.id] && <p className="text-red-500 text-xs mt-1">{errors[tool.id]}</p>}
+              </div>
               <input type="text" value={tool.description} onChange={e => updateTool(tool.id, 'description', e.target.value)} placeholder="Description" className="bg-gray-700 border border-gray-600 rounded p-2 text-sm w-full" />
             </div>
             <h4 className="text-sm font-semibold mb-2">Parameters</h4>
