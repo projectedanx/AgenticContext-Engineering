@@ -84,10 +84,9 @@ ${context.query}
     });
     return response.text;
   } catch (error) {
-    if (error instanceof Error) {
-      return `Error: ${error.message}`;
-    }
-    return "An unknown error occurred while contacting the AI model.";
+    // Sanitize error logging to prevent leaking sensitive information
+    console.error("Error calling Gemini API in generateResponse");
+    return "An error occurred while contacting the AI model. Please try again later.";
   }
 };
 
@@ -118,11 +117,8 @@ Summary:
     });
     return response.text;
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(`Error summarizing document: ${error.message}`);
-    }
-    throw new Error(
-      "An unknown error occurred while summarizing the document.",
-    );
+    // Sanitize error logging to prevent leaking sensitive information
+    console.error("Error calling Gemini API in summarizeDocument");
+    throw new Error("An error occurred while summarizing the document.");
   }
 };
