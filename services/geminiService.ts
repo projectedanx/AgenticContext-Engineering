@@ -20,13 +20,18 @@ export function formatTools(tools: Tool[]): string {
     .map((tool) => {
       const params = tool.parameters
         .map(
-          (p) =>
-            `- ${p.name} (${p.type}, ${p.required ? "required" : "optional"}): ${p.description}`,
+          (p) => {
+            if (!p || !p.name) return ""; // Handle invalid parameters gracefully
+            return `- ${p.name} (${p.type}, ${p.required ? "required" : "optional"}): ${p.description || "No description provided."}`;
+          }
         )
+        .filter((p) => p !== "")
         .join("\n");
+
+      const formattedParams = params ? `\nParameters:\n${params}` : "\nParameters: None";
+
       return `Tool: \`${tool.name}\`
-Description: ${tool.description}
-Parameters:\n${params}`;
+Description: ${tool.description || "No description provided."}${formattedParams}`;
     })
     .join("\n\n");
 }
