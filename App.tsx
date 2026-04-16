@@ -11,6 +11,7 @@ import { OutputPanel } from './components/OutputPanel';
 import { DocumentSummarizer } from './components/DocumentSummarizer';
 import { ImportExportContext } from './components/ImportExportContext';
 import { axiomInstructions, axiomKnowledge, axiomTools, axiomState } from './presets/axiom';
+import { kutInstructions, kutKnowledge, kutTools, kutState } from './presets/kut';
 import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { StakeholderMatrix } from './components/StakeholderMatrix';
 import { generateResponse } from './services/geminiService';
@@ -125,6 +126,14 @@ const App: React.FC = () => {
     setQuery("I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.");
   };
 
+  const loadKutPreset = () => {
+    setInstructions(kutInstructions);
+    setKnowledge(kutKnowledge);
+    setTools(kutTools);
+    setState(kutState);
+    setQuery("I have a 45-second tutorial video. The first cut is at 2.1 seconds, and my AVD is 55%. Can you give me an autopsy and a phase 1 plan?");
+  };
+
   const handleGenerate = async () => {
 
     setIsLoading(true);
@@ -166,12 +175,20 @@ const App: React.FC = () => {
           <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
             <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">SOVEREIGN AGENT PRESETS</h3>
             <p className="text-sm text-gray-400 mb-4">Load a pre-configured, identity-enforced agent schema.</p>
-            <button
-              onClick={loadAxiomPreset}
-              className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
-            >
-              [ LOAD AXIOM v1.0 ]
-            </button>
+            <div className="flex gap-4">
+              <button
+                onClick={loadAxiomPreset}
+                className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD AXIOM v1.0 ]
+              </button>
+              <button
+                onClick={loadKutPreset}
+                className="px-4 py-2 bg-red-900/50 text-red-400 border border-red-700 rounded hover:bg-red-800/50 hover:text-red-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD KUT v2.0 ]
+              </button>
+            </div>
           </div>
 
           <DocumentSummarizer />
