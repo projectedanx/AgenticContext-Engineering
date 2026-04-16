@@ -10,6 +10,7 @@ import { QueryInput } from './components/QueryInput';
 import { OutputPanel } from './components/OutputPanel';
 import { DocumentSummarizer } from './components/DocumentSummarizer';
 import { ImportExportContext } from './components/ImportExportContext';
+import { axiomInstructions, axiomKnowledge, axiomTools, axiomState } from './presets/axiom';
 import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { StakeholderMatrix } from './components/StakeholderMatrix';
 import { generateResponse } from './services/geminiService';
@@ -115,7 +116,17 @@ const App: React.FC = () => {
     localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
   }, [tools]);
   
+
+  const loadAxiomPreset = () => {
+    setInstructions(axiomInstructions);
+    setKnowledge(axiomKnowledge);
+    setTools(axiomTools);
+    setState(axiomState);
+    setQuery("I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.");
+  };
+
   const handleGenerate = async () => {
+
     setIsLoading(true);
     setError(null);
     setOutput('');
@@ -151,6 +162,18 @@ const App: React.FC = () => {
           <PluriversalFeatureDiscovery />
           <StakeholderMatrix />
           <ImportExportContext instructions={instructions} setInstructions={setInstructions} knowledge={knowledge} setKnowledge={setKnowledge} tools={tools} setTools={setTools} memory={memory} setMemory={setMemory} state={state} setState={setState} />
+
+          <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
+            <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">SOVEREIGN AGENT PRESETS</h3>
+            <p className="text-sm text-gray-400 mb-4">Load a pre-configured, identity-enforced agent schema.</p>
+            <button
+              onClick={loadAxiomPreset}
+              className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
+            >
+              [ LOAD AXIOM v1.0 ]
+            </button>
+          </div>
+
           <DocumentSummarizer />
         </div>
 
