@@ -12,6 +12,8 @@ import { DocumentSummarizer } from './components/DocumentSummarizer';
 import { ImportExportContext } from './components/ImportExportContext';
 import { axiomInstructions, axiomKnowledge, axiomTools, axiomState } from './presets/axiom';
 import { kutInstructions, kutKnowledge, kutTools, kutState } from './presets/kut';
+import { lexisSovereignInstructions, lexisSovereignKnowledge, lexisSovereignTools, lexisSovereignState } from './presets/lexis_sovereign';
+
 import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { StakeholderMatrix } from './components/StakeholderMatrix';
 import { generateResponse } from './services/geminiService';
@@ -134,6 +136,15 @@ const App: React.FC = () => {
     setQuery("I have a 45-second tutorial video. The first cut is at 2.1 seconds, and my AVD is 55%. Can you give me an autopsy and a phase 1 plan?");
   };
 
+  const loadLexisSovereignPreset = () => {
+    setInstructions(lexisSovereignInstructions);
+    setKnowledge(lexisSovereignKnowledge);
+    setTools(lexisSovereignTools);
+    setState(lexisSovereignState);
+    setQuery("I have a series of voice memos outlining my contrarian views on market consensus. I need to structure Chapter 4: 'Why Consensus Is The Enemy Of Insight' and generate the semantic draft.");
+  };
+
+
   const handleGenerate = async () => {
 
     setIsLoading(true);
@@ -187,6 +198,12 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-red-900/50 text-red-400 border border-red-700 rounded hover:bg-red-800/50 hover:text-red-300 font-mono text-sm transition-colors"
               >
                 [ LOAD KUT v2.0 ]
+              </button>
+              <button
+                onClick={loadLexisSovereignPreset}
+                className="px-4 py-2 bg-[#1A0A2E] text-[#C9A84C] border border-[#C9A84C]/50 rounded hover:bg-[#1A0A2E]/80 hover:text-[#E0C878] font-mono text-sm transition-colors"
+              >
+                [ LOAD LEXIS SOVEREIGN v1.4 ]
               </button>
             </div>
           </div>
