@@ -8,7 +8,7 @@ The Agentic Context Engineering Workbench is a powerful and intuitive web-based 
 
 ## Key Features
 
-- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician), designed for producing deterministic technical artifacts.
+- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician) for technical artifacts, KUT v2.0 (The Retention Architect) for video post-production, and LEXIS SOVEREIGN v1.4 (The Auteur Co-Author) for strategic book collaboration.
 
 - **Core Instruction Editor**: Define the agent's persona, core directives, and operational rules.
 - **Knowledge Base (RAG)**: Provide retrieved information from external sources to ground the agent.
