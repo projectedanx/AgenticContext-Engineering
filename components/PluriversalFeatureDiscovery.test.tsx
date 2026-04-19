@@ -6,6 +6,7 @@ import { generateResponse } from '../services/geminiService';
 
 vi.mock('../services/geminiService', () => ({
     generateResponse: vi.fn(),
+    sanitizePromptInput: vi.fn((input) => input),
 }));
 
 describe('PluriversalFeatureDiscovery', () => {

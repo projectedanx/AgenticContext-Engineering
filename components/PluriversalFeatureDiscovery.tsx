@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateResponse } from '../services/geminiService';
+import { generateResponse, sanitizePromptInput } from '../services/geminiService';
 import { ContextEditorCard } from './ContextEditorCard';
 import { AgentContext } from '../types';
 
@@ -28,7 +28,7 @@ export const PluriversalFeatureDiscovery: React.FC = () => {
         setError(null);
         setResult('');
 
-        const prompt = buildDiscoveryPrompt(hypothesis);
+        const prompt = buildDiscoveryPrompt(sanitizePromptInput(hypothesis));
 
         const mockContext: AgentContext = {
             instructions: 'You are the Antifragile Epistemic Weaver (AEW). Follow the AEW v2.1 SCC PROTOCOL.',

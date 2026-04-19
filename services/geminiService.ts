@@ -12,6 +12,20 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  * @param tools - An array of Tool objects to be formatted.
  * @returns A string describing the available tools, their descriptions, and parameters.
  */
+
+/**
+ * Sanitizes user input to prevent prompt injection attacks.
+ * Escapes project-specific delimiters and closing XML tags.
+ * @param input - The user input string.
+ * @returns The sanitized string.
+ */
+export const sanitizePromptInput = (input: string): string => {
+  if (!input) return input;
+  return input
+    .replace(/---/g, '\\-\\-\\-')
+    .replace(/<\//g, '<\\/');
+};
+
 export function formatTools(tools: Tool[]): string {
   if (tools.length === 0) {
     return "No tools available.";

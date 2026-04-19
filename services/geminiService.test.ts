@@ -5,6 +5,7 @@ import {
   formatTools,
   generateResponse,
   summarizeDocument,
+  sanitizePromptInput,
 } from "./geminiService";
 import { Tool, AgentContext } from "../types";
 
@@ -13,6 +14,26 @@ vi.mock("@google/genai");
 describe("geminiService", () => {
   beforeEach(() => {
     mockGenerateContent.mockClear();
+  });
+
+
+  describe("sanitizePromptInput", () => {
+    it("should escape markdown delimiters", () => {
+      const input = "This is a test --- with delimiters";
+      const expected = "This is a test \\-\\-\\- with delimiters";
+      expect(sanitizePromptInput(input)).toBe(expected);
+    });
+
+    it("should escape closing XML tags", () => {
+      const input = "Some text </knowledge>";
+      const expected = "Some text <\\/knowledge>";
+      expect(sanitizePromptInput(input)).toBe(expected);
+    });
+
+    it("should return the same string if no injection patterns are found", () => {
+      const input = "Safe input text";
+      expect(sanitizePromptInput(input)).toBe(input);
+    });
   });
 
   describe("formatTools", () => {
