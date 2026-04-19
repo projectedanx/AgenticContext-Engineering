@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import * as Y from 'yjs';
-import { WebrtcProvider } from 'y-webrtc';
+import React from 'react';
 
 export const CollaborationManager: React.FC = () => {
     return null;
