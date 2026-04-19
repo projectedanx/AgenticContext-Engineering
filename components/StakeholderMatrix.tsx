@@ -143,18 +143,21 @@ Do not wrap in markdown code blocks. Output ONLY valid JSON.
                                  </div>
                                  <p className="text-xs text-gray-400 mb-2">{epic.description}</p>
 
-                                 {stories.filter(s => s.epicId === epic.id).length > 0 && (
-                                     <div className="mt-3 pl-2 border-l border-gray-600 space-y-2">
-                                         {stories.filter(s => s.epicId === epic.id).map(story => (
-                                             <div key={story.id} className="bg-gray-900 p-2 rounded text-xs">
-                                                 <span className="font-bold text-gray-300 block mb-1">Story: {story.description} (Complexity: {story.complexity})</span>
-                                                 <ul className="list-disc pl-4 text-gray-400">
-                                                     {story.acceptanceCriteria.map((ac, i) => <li key={i}>{ac}</li>)}
-                                                 </ul>
-                                             </div>
-                                         ))}
-                                     </div>
-                                 )}
+                                 {(() => {
+                                     const epicStories = stories.filter(s => s.epicId === epic.id);
+                                     return epicStories.length > 0 && (
+                                         <div className="mt-3 pl-2 border-l border-gray-600 space-y-2">
+                                             {epicStories.map(story => (
+                                                 <div key={story.id} className="bg-gray-900 p-2 rounded text-xs">
+                                                     <span className="font-bold text-gray-300 block mb-1">Story: {story.description} (Complexity: {story.complexity})</span>
+                                                     <ul className="list-disc pl-4 text-gray-400">
+                                                         {story.acceptanceCriteria.map((ac, i) => <li key={i}>{ac}</li>)}
+                                                     </ul>
+                                                 </div>
+                                             ))}
+                                         </div>
+                                     );
+                                 })()}
                              </div>
                          ))}
                      </div>
