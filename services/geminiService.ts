@@ -1,17 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
-import { AgentContext, Tool, ToolParameter } from "../types";
-
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
-/**
- * Formats a list of tools into a string representation for the agent's prompt.
- * @param tools - An array of Tool objects to be formatted.
- * @returns A string describing the available tools, their descriptions, and parameters.
- */
+import { AgentContext, Tool } from "../types";
 
 /**
  * Sanitizes user input to prevent prompt injection attacks.
@@ -58,53 +45,24 @@ Description: ${tool.description || "No description provided."}${formattedParams}
 export const generateResponse = async (
   context: AgentContext,
 ): Promise<string> => {
-  const model = "gemini-2.5-pro";
-
-  const prompt = `
---- AGENT CONTEXT START ---
-
-## Core Instructions
-${context.instructions}
-
-## Knowledge Base (RAG)
-<knowledge>
-${context.knowledge || "No knowledge base provided."}
-</knowledge>
-
-## Available Tools
-The agent can invoke the following tools.
-<tools>
-${formatTools(context.tools)}
-</tools>
-
-## Conversation Memory (Short-Term)
-<memory>
-${context.memory || "No conversation history."}
-</memory>
-
-## Current State
-The current state of the environment is represented by this JSON object:
-<state>
-${context.state || "{}"}
-</state>
-
---- AGENT CONTEXT END ---
-
-Based on the complete context above, respond to the following user query.
-
-## User Query
-${context.query}
-  `;
-
   try {
-    const response = await ai.models.generateContent({
-      model: model,
-      contents: prompt,
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ context }),
     });
-    return response.text;
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.text;
   } catch (error) {
-    // Sanitize error logging to prevent leaking sensitive information
-    console.error("Error calling Gemini API in generateResponse");
+    console.error("Error calling backend API in generateResponse", error);
     return "An error occurred while contacting the AI model. Please try again later.";
   }
 };
@@ -117,27 +75,24 @@ ${context.query}
 export const summarizeDocument = async (
   documentText: string,
 ): Promise<string> => {
-  const model = "gemini-2.5-flash";
-
-  const prompt = `
-Please provide a concise summary of the following document. Focus on the main points, key arguments, and overall conclusion.
-
---- DOCUMENT START ---
-${documentText}
---- DOCUMENT END ---
-
-Summary:
-  `;
-
   try {
-    const response = await ai.models.generateContent({
-      model: model,
-      contents: prompt,
+    const response = await fetch('/api/summarize', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ documentText }),
     });
-    return response.text;
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.text;
   } catch (error) {
-    // Sanitize error logging to prevent leaking sensitive information
-    console.error("Error calling Gemini API in summarizeDocument");
+    console.error("Error calling backend API in summarizeDocument", error);
     throw new Error("An error occurred while summarizing the document.");
   }
 };

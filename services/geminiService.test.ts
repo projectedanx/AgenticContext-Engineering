@@ -1,6 +1,4 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-// @ts-ignore
-import { mockGenerateContent } from "@google/genai";
 import {
   formatTools,
   generateResponse,
@@ -9,13 +7,13 @@ import {
 } from "./geminiService";
 import { Tool, AgentContext } from "../types";
 
-vi.mock("@google/genai");
+const mockFetch = vi.fn();
+global.fetch = mockFetch;
 
 describe("geminiService", () => {
   beforeEach(() => {
-    mockGenerateContent.mockClear();
+    mockFetch.mockClear();
   });
-
 
   describe("sanitizePromptInput", () => {
     it("should escape markdown delimiters", () => {
@@ -188,9 +186,7 @@ Parameters:
       expect(formatTools(tools)).toBe(expected);
     });
 
-    it("should handle tools with no name gracefully (though this might be an edge case depending on the tool creation logic)", () => {
-        // Technically, according to type Tool, name is string, so it shouldn't be null/undefined,
-        // but if it's empty, it should format it.
+    it("should handle tools with no name gracefully", () => {
         const tools: Tool[] = [
           {
             id: "1",
@@ -224,9 +220,12 @@ Parameters: None`;
   });
 
   describe("generateResponse", () => {
-    it("should call the Gemini API with the correct prompt and return the response", async () => {
-      const mockResponse = { text: "This is the generated response." };
-      mockGenerateContent.mockResolvedValue(mockResponse);
+    it("should call the backend API with the correct body and return the response", async () => {
+      const mockResponseText = "This is the generated response.";
+      mockFetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({ text: mockResponseText })
+      });
 
       const context: AgentContext = {
         instructions: "Test instructions",
@@ -239,33 +238,42 @@ Parameters: None`;
 
       const response = await generateResponse(context);
 
-      expect(mockGenerateContent).toHaveBeenCalledTimes(1);
-      const calledWith = mockGenerateContent.mock.calls[0][0];
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      const [url, options] = mockFetch.mock.calls[0];
 
-      expect(calledWith.model).toBe("gemini-2.5-pro");
-      expect(calledWith.contents).toContain(
-        "## Core Instructions\nTest instructions",
-      );
-      expect(calledWith.contents).toContain(
-        "## Knowledge Base (RAG)\n<knowledge>\nTest knowledge\n</knowledge>",
-      );
-      expect(calledWith.contents).toContain(
-        "## Available Tools\nThe agent can invoke the following tools.\n<tools>\nNo tools available.\n</tools>",
-      );
-      expect(calledWith.contents).toContain(
-        "## Conversation Memory (Short-Term)\n<memory>\nTest memory\n</memory>",
-      );
-      expect(calledWith.contents).toContain(
-        '## Current State\nThe current state of the environment is represented by this JSON object:\n<state>\n{"key": "value"}\n</state>',
-      );
-      expect(calledWith.contents).toContain("## User Query\nTest query");
+      expect(url).toBe('/api/generate');
+      expect(options.method).toBe('POST');
+      const body = JSON.parse(options.body);
+      expect(body.context).toEqual(context);
 
-      expect(response).toBe(mockResponse.text);
+      expect(response).toBe(mockResponseText);
     });
 
     it("should handle API errors gracefully", async () => {
-      const mockError = new Error("API Error");
-      mockGenerateContent.mockRejectedValue(mockError);
+      mockFetch.mockRejectedValue(new Error("Network Error"));
+
+      const context: AgentContext = {
+        instructions: "",
+        knowledge: "",
+        tools: [],
+        memory: "",
+        state: "",
+        query: "test",
+      };
+
+      const response = await generateResponse(context);
+
+      expect(response).toBe(
+        "An error occurred while contacting the AI model. Please try again later.",
+      );
+    });
+
+    it("should handle non-ok responses gracefully", async () => {
+      mockFetch.mockResolvedValue({
+        ok: false,
+        status: 500,
+        json: async () => ({ error: "Server Error" })
+      });
 
       const context: AgentContext = {
         instructions: "",
@@ -285,26 +293,43 @@ Parameters: None`;
   });
 
   describe("summarizeDocument", () => {
-    it("should call the Gemini API with the correct prompt and return the summary", async () => {
-      const mockResponse = { text: "This is the summary." };
-      mockGenerateContent.mockResolvedValue(mockResponse);
+    it("should call the backend API with the correct body and return the summary", async () => {
+      const mockResponseText = "This is the summary.";
+      mockFetch.mockResolvedValue({
+        ok: true,
+        json: async () => ({ text: mockResponseText })
+      });
 
       const documentText = "This is a long document to summarize.";
       const response = await summarizeDocument(documentText);
 
-      expect(mockGenerateContent).toHaveBeenCalledTimes(1);
-      const calledWith = mockGenerateContent.mock.calls[0][0];
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      const [url, options] = mockFetch.mock.calls[0];
 
-      expect(calledWith.model).toBe("gemini-2.5-flash");
-      expect(calledWith.contents).toContain(
-        "--- DOCUMENT START ---\nThis is a long document to summarize.\n--- DOCUMENT END ---",
-      );
-      expect(response).toBe(mockResponse.text);
+      expect(url).toBe('/api/summarize');
+      expect(options.method).toBe('POST');
+      const body = JSON.parse(options.body);
+      expect(body.documentText).toEqual(documentText);
+
+      expect(response).toBe(mockResponseText);
     });
 
     it("should handle API errors gracefully during summarization", async () => {
-      const mockError = new Error("Summarization Error");
-      mockGenerateContent.mockRejectedValue(mockError);
+      mockFetch.mockRejectedValue(new Error("Summarization Error"));
+
+      const documentText = "This is a document.";
+
+      await expect(summarizeDocument(documentText)).rejects.toThrow(
+        "An error occurred while summarizing the document.",
+      );
+    });
+
+    it("should handle non-ok responses gracefully during summarization", async () => {
+      mockFetch.mockResolvedValue({
+        ok: false,
+        status: 500,
+        json: async () => ({ error: "Server Error" })
+      });
 
       const documentText = "This is a document.";
 
