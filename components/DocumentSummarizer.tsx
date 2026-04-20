@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { summarizeDocument } from '../services/geminiService';
-import { FileTextIcon } from './IconComponents';
+import React, { useState } from "react";
+import { summarizeDocument } from "../services/geminiService";
+import { FileTextIcon } from "./IconComponents";
 
 /**
  * Chunks a string into smaller pieces of a specified size.
@@ -23,27 +23,52 @@ export const chunkDocument = (text: string, chunkSize = 2000): string[] => {
  * @returns {React.ReactElement} The rendered document summarizer component.
  */
 export const DocumentSummarizer: React.FC = () => {
-  const [documentText, setDocumentText] = useState('');
-  const [summary, setSummary] = useState('');
+  const [documentText, setDocumentText] = useState("");
+  const [summary, setSummary] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSummarize = async () => {
     if (!documentText.trim()) {
-      setError('Please enter some text to summarize.');
+      setError("Please enter some text to summarize.");
       return;
     }
     setIsLoading(true);
     setError(null);
-    setSummary('');
+    setSummary("");
     try {
       const chunks = chunkDocument(documentText);
-      const summaries = await Promise.all(
-        chunks.map(chunk => summarizeDocument(chunk))
-      );
-      setSummary(summaries.join('\n\n'));
+
+      const CONCURRENCY_LIMIT = 5;
+      const summaries = new Array(chunks.length);
+      let index = 0;
+      let hasError = false;
+
+      const worker = async () => {
+        while (index < chunks.length && !hasError) {
+          const currentIndex = index++;
+          try {
+            summaries[currentIndex] = await summarizeDocument(
+              chunks[currentIndex],
+            );
+          } catch (e) {
+            hasError = true;
+            throw e;
+          }
+        }
+      };
+
+      const workers = Array(Math.min(CONCURRENCY_LIMIT, chunks.length))
+        .fill(0)
+        .map(() => worker());
+
+      await Promise.all(workers);
+
+      setSummary(summaries.join("\n\n"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unknown error occurred.');
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -53,11 +78,16 @@ export const DocumentSummarizer: React.FC = () => {
     <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
       <div className="flex items-center gap-3 p-4 border-b border-gray-700">
         <FileTextIcon className="w-5 h-5 text-violet-400" />
-        <h2 className="text-lg font-semibold text-gray-100">Document Summarizer</h2>
+        <h2 className="text-lg font-semibold text-gray-100">
+          Document Summarizer
+        </h2>
       </div>
       <div className="p-4 space-y-4">
         <div>
-          <label htmlFor="document-input" className="block text-sm font-medium text-gray-300 mb-2">
+          <label
+            htmlFor="document-input"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Document to Summarize
           </label>
           <textarea
@@ -73,14 +103,22 @@ export const DocumentSummarizer: React.FC = () => {
           disabled={isLoading || !documentText.trim()}
           className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 disabled:bg-violet-900/50 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded-md transition-colors duration-200"
         >
-          {isLoading ? 'Summarizing...' : 'Generate Summary'}
+          {isLoading ? "Summarizing..." : "Generate Summary"}
         </button>
-        {error && <div className="text-red-400 bg-red-900/20 p-3 rounded-md text-sm">{error}</div>}
+        {error && (
+          <div className="text-red-400 bg-red-900/20 p-3 rounded-md text-sm">
+            {error}
+          </div>
+        )}
         {summary && (
           <div>
-            <h3 className="text-md font-semibold text-gray-200 mb-2">Summary:</h3>
+            <h3 className="text-md font-semibold text-gray-200 mb-2">
+              Summary:
+            </h3>
             <div className="p-3 bg-gray-900/50 rounded-md border border-gray-700">
-                <p className="whitespace-pre-wrap text-sm text-gray-300 font-sans">{summary}</p>
+              <p className="whitespace-pre-wrap text-sm text-gray-300 font-sans">
+                {summary}
+              </p>
             </div>
           </div>
         )}
