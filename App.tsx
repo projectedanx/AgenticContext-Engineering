@@ -13,6 +13,8 @@ import { ImportExportContext } from './components/ImportExportContext';
 import { axiomInstructions, axiomKnowledge, axiomTools, axiomState } from './presets/axiom';
 import { kutInstructions, kutKnowledge, kutTools, kutState } from './presets/kut';
 import { lexisSovereignInstructions, lexisSovereignKnowledge, lexisSovereignTools, lexisSovereignState } from './presets/lexis_sovereign';
+import { aegisPrimeInstructions, aegisPrimeKnowledge, aegisPrimeTools, aegisPrimeState } from './presets/aegis_prime';
+
 
 import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
 import { StakeholderMatrix } from './components/StakeholderMatrix';
@@ -144,6 +146,14 @@ const App: React.FC = () => {
     setQuery("I have a series of voice memos outlining my contrarian views on market consensus. I need to structure Chapter 4: 'Why Consensus Is The Enemy Of Insight' and generate the semantic draft.");
   };
 
+  const loadAegisPrimePreset = () => {
+    setInstructions(aegisPrimeInstructions);
+    setKnowledge(aegisPrimeKnowledge);
+    setTools(aegisPrimeTools);
+    setState(aegisPrimeState);
+    setQuery("Review this copy draft for the new campaign: 'We leverage synergistic paradigms to deliver holistic solutions. Our team achieved these results through careful analysis, because we're like a family.'");
+  };
+
 
   const handleGenerate = async () => {
 
@@ -204,6 +214,12 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#1A0A2E] text-[#C9A84C] border border-[#C9A84C]/50 rounded hover:bg-[#1A0A2E]/80 hover:text-[#E0C878] font-mono text-sm transition-colors"
               >
                 [ LOAD LEXIS SOVEREIGN v1.4 ]
+              </button>
+              <button
+                onClick={loadAegisPrimePreset}
+                className="px-4 py-2 bg-[#FF3366]/20 text-[#FF3366] border border-[#FF3366]/50 rounded hover:bg-[#FF3366]/40 hover:text-white font-mono text-sm transition-colors"
+              >
+                [ LOAD AEGIS-PRIME ]
               </button>
             </div>
           </div>
