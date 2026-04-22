@@ -46,13 +46,12 @@ describe("ContextEditorCard", () => {
   });
 
   it("does not render statusIndicator when not provided", () => {
-    const { container } = render(
+    render(
       <ContextEditorCard {...defaultProps}>
         <div>Content</div>
       </ContextEditorCard>,
     );
 
-    // Ensure we don't have empty indicator wrapper rendering if not provided
-    expect(container.querySelector(".status-indicator")).toBeNull(); // Adjust if there's a specific wrapper class
+    expect(screen.queryByTestId("status-indicator")).not.toBeInTheDocument();
   });
 });
