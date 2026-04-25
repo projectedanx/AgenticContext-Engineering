@@ -1,5 +1,0 @@
-🧪 [testing improvement] Add test for error thrown by JSON.parse in safeJsonParse
-
-- 🎯 **What:** The `safeJsonParse` utility function lacked explicit testing for the scenario where `JSON.parse` throws an error.
-- 📊 **Coverage:** A new test case has been added that mocks `JSON.parse` to throw an error, explicitly asserting that the `catch` block correctly captures it, calls `console.error` with the custom error object, and cleanly returns the `defaultValue`.
-- ✨ **Result:** Improved test coverage and reliability for `safeJsonParse` by explicitly validating its internal error handling logic.
