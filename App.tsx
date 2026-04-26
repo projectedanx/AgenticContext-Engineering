@@ -45,6 +45,12 @@ import {
   vanceState,
   vanceTools,
 } from "./presets/vance";
+import {
+  aletheonInstructions,
+  aletheonKnowledge,
+  aletheonState,
+  aletheonTools,
+} from "./presets/aletheon";
 
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
 import { StakeholderMatrix } from "./components/StakeholderMatrix";
@@ -260,6 +266,16 @@ const App: React.FC = () => {
     );
   };
 
+  const loadAletheonPreset = () => {
+    setInstructions(aletheonInstructions);
+    setKnowledge(aletheonKnowledge);
+    setTools(aletheonTools);
+    setState(aletheonState);
+    setQuery(
+      "I need a structural autopsy on the new 'SyncMaster' library before we adopt it. What is its Betti-1 score and SRDS?"
+    );
+  };
+
   const handleGenerate = async () => {
     setIsLoading(true);
     setError(null);
@@ -369,6 +385,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#4B0082]/20 text-[#8A2BE2] border border-[#4B0082]/50 rounded hover:bg-[#4B0082]/40 hover:text-[#DDA0DD] font-mono text-sm transition-colors"
               >
                 [ LOAD VANCE ]
+              </button>
+
+              <button
+                onClick={loadAletheonPreset}
+                className="px-4 py-2 bg-[#0D1B2A] text-[#E63946] border border-[#E63946]/50 rounded hover:bg-[#0D1B2A]/80 hover:text-[#E63946] font-mono text-sm transition-colors"
+              >
+                [ LOAD ALETHEON ]
               </button>
             </div>
           </div>
