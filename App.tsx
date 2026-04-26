@@ -39,6 +39,12 @@ import {
   dieterTools,
   dieterState,
 } from "./presets/dieter";
+import {
+  vanceInstructions,
+  vanceKnowledge,
+  vanceState,
+  vanceTools,
+} from "./presets/vance";
 
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
 import { StakeholderMatrix } from "./components/StakeholderMatrix";
@@ -244,6 +250,16 @@ const App: React.FC = () => {
     setQuery("Design a modern and sleek landing page for a new AI startup.");
   };
 
+  const loadVancePreset = () => {
+    setInstructions(vanceInstructions);
+    setKnowledge(vanceKnowledge);
+    setTools(vanceTools);
+    setState(vanceState);
+    setQuery(
+      "The client is reporting textDocument/completion timeouts. Provide a diagnostic triage report and suggest an architecture intervention.",
+    );
+  };
+
   const handleGenerate = async () => {
     setIsLoading(true);
     setError(null);
@@ -346,6 +362,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-zinc-900/50 text-zinc-400 border border-zinc-700 rounded hover:bg-zinc-800/50 hover:text-zinc-300 font-mono text-sm transition-colors"
               >
                 [ LOAD DIETER ]
+              </button>
+
+              <button
+                onClick={loadVancePreset}
+                className="px-4 py-2 bg-[#4B0082]/20 text-[#8A2BE2] border border-[#4B0082]/50 rounded hover:bg-[#4B0082]/40 hover:text-[#DDA0DD] font-mono text-sm transition-colors"
+              >
+                [ LOAD VANCE ]
               </button>
             </div>
           </div>
