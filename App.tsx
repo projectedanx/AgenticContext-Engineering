@@ -1,34 +1,58 @@
+import React, { useState, useEffect } from "react";
+import { Header } from "./components/Header";
+import { InstructionEditor } from "./components/InstructionEditor";
+import { KnowledgeEditor } from "./components/KnowledgeEditor";
+import { ToolEditor } from "./components/ToolEditor";
+import { MemoryEditor } from "./components/MemoryEditor";
+import { StateEditor } from "./components/StateEditor";
+import { QueryInput } from "./components/QueryInput";
+import { OutputPanel } from "./components/OutputPanel";
+import { DocumentSummarizer } from "./components/DocumentSummarizer";
+import { ImportExportContext } from "./components/ImportExportContext";
+import {
+  axiomInstructions,
+  axiomKnowledge,
+  axiomTools,
+  axiomState,
+} from "./presets/axiom";
+import {
+  kutInstructions,
+  kutKnowledge,
+  kutTools,
+  kutState,
+} from "./presets/kut";
+import {
+  lexisSovereignInstructions,
+  lexisSovereignKnowledge,
+  lexisSovereignTools,
+  lexisSovereignState,
+} from "./presets/lexis_sovereign";
+import {
+  aegisPrimeInstructions,
+  aegisPrimeKnowledge,
+  aegisPrimeTools,
+  aegisPrimeState,
+} from "./presets/aegis_prime";
+import {
+  dieterInstructions,
+  dieterKnowledge,
+  dieterTools,
+  dieterState,
+} from "./presets/dieter";
 
-import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { InstructionEditor } from './components/InstructionEditor';
-import { KnowledgeEditor } from './components/KnowledgeEditor';
-import { ToolEditor } from './components/ToolEditor';
-import { MemoryEditor } from './components/MemoryEditor';
-import { StateEditor } from './components/StateEditor';
-import { QueryInput } from './components/QueryInput';
-import { OutputPanel } from './components/OutputPanel';
-import { DocumentSummarizer } from './components/DocumentSummarizer';
-import { ImportExportContext } from './components/ImportExportContext';
-import { axiomInstructions, axiomKnowledge, axiomTools, axiomState } from './presets/axiom';
-import { kutInstructions, kutKnowledge, kutTools, kutState } from './presets/kut';
-import { lexisSovereignInstructions, lexisSovereignKnowledge, lexisSovereignTools, lexisSovereignState } from './presets/lexis_sovereign';
-import { aegisPrimeInstructions, aegisPrimeKnowledge, aegisPrimeTools, aegisPrimeState } from './presets/aegis_prime';
-
-
-import { PluriversalFeatureDiscovery } from './components/PluriversalFeatureDiscovery';
-import { StakeholderMatrix } from './components/StakeholderMatrix';
-import { generateResponse } from './services/geminiService';
-import { safeJsonParse, isValidTools } from './services/storageUtils';
-import { Tool } from './types';
-import { v4 as uuidv4 } from 'uuid';
+import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
+import { StakeholderMatrix } from "./components/StakeholderMatrix";
+import { generateResponse } from "./services/geminiService";
+import { safeJsonParse, isValidTools } from "./services/storageUtils";
+import { Tool } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 // Storage keys
-const INSTRUCTIONS_KEY = 'agentic_workbench_instructions';
-const KNOWLEDGE_KEY = 'agentic_workbench_knowledge';
-const TOOLS_KEY = 'agentic_workbench_tools';
-const MEMORY_KEY = 'agentic_workbench_memory';
-const STATE_KEY = 'agentic_workbench_state';
+const INSTRUCTIONS_KEY = "agentic_workbench_instructions";
+const KNOWLEDGE_KEY = "agentic_workbench_knowledge";
+const TOOLS_KEY = "agentic_workbench_tools";
+const MEMORY_KEY = "agentic_workbench_memory";
+const STATE_KEY = "agentic_workbench_state";
 
 // Default values
 const defaultInstructions = `You are an expert AI consultant specializing in creating comprehensive specifications for AI-generated WordPress themes.
@@ -69,24 +93,71 @@ const defaultKnowledge = `
 const defaultTools: Tool[] = [
   {
     id: uuidv4(),
-    name: 'generate_theme_specification',
-    description: 'Generates a structured specification document for an AI WordPress theme generator based on user requirements.',
+    name: "generate_theme_specification",
+    description:
+      "Generates a structured specification document for an AI WordPress theme generator based on user requirements.",
     parameters: [
-      { id: uuidv4(), name: 'primaryPurpose', type: 'string', description: 'The main goal of the website (e.g., Generate Leads, E-commerce, Brand Authority).', required: true },
-      { id: uuidv4(), name: 'targetAudience', type: 'string', description: 'A detailed description of the ideal user, including demographics and psychographics.', required: true },
-      { id: uuidv4(), name: 'smartGoals', type: 'string', description: 'Specific, Measurable, Achievable, Relevant, and Time-bound goals for Business, Users, and Content Managers.', required: true },
-      { id: uuidv4(), name: 'visualStyleNotes', type: 'string', description: 'Guidelines on brand palette (HEX codes), typography, imagery, and overall mood.', required: true },
-      { id: uuidv4(), name: 'requiredPlugins', type: 'string', description: 'A comma-separated list of essential plugins the theme must be compatible with (e.g., WooCommerce, Yoast SEO, Elementor).', required: false },
-      { id: uuidv4(), name: 'nicheFunctionality', type: 'string', description: 'Any special features required for a specific industry (e.g., Restaurant Menu CPT, Real Estate listings).', required: false }
-    ]
-  }
+      {
+        id: uuidv4(),
+        name: "primaryPurpose",
+        type: "string",
+        description:
+          "The main goal of the website (e.g., Generate Leads, E-commerce, Brand Authority).",
+        required: true,
+      },
+      {
+        id: uuidv4(),
+        name: "targetAudience",
+        type: "string",
+        description:
+          "A detailed description of the ideal user, including demographics and psychographics.",
+        required: true,
+      },
+      {
+        id: uuidv4(),
+        name: "smartGoals",
+        type: "string",
+        description:
+          "Specific, Measurable, Achievable, Relevant, and Time-bound goals for Business, Users, and Content Managers.",
+        required: true,
+      },
+      {
+        id: uuidv4(),
+        name: "visualStyleNotes",
+        type: "string",
+        description:
+          "Guidelines on brand palette (HEX codes), typography, imagery, and overall mood.",
+        required: true,
+      },
+      {
+        id: uuidv4(),
+        name: "requiredPlugins",
+        type: "string",
+        description:
+          "A comma-separated list of essential plugins the theme must be compatible with (e.g., WooCommerce, Yoast SEO, Elementor).",
+        required: false,
+      },
+      {
+        id: uuidv4(),
+        name: "nicheFunctionality",
+        type: "string",
+        description:
+          "Any special features required for a specific industry (e.g., Restaurant Menu CPT, Real Estate listings).",
+        required: false,
+      },
+    ],
+  },
 ];
 
-const defaultState = JSON.stringify({
-  "clientName": "NewCo",
-  "projectStatus": "Discovery",
-  "specVersion": "0.1"
-}, null, 2);
+const defaultState = JSON.stringify(
+  {
+    clientName: "NewCo",
+    projectStatus: "Discovery",
+    specVersion: "0.1",
+  },
+  null,
+  2,
+);
 
 /**
  * The main application component.
@@ -94,25 +165,29 @@ const defaultState = JSON.stringify({
  */
 const App: React.FC = () => {
   // Agent Context State
-  const [instructions, setInstructions] = useState<string>('');
-  const [knowledge, setKnowledge] = useState<string>('');
+  const [instructions, setInstructions] = useState<string>("");
+  const [knowledge, setKnowledge] = useState<string>("");
   const [tools, setTools] = useState<Tool[]>([]);
-  const [memory, setMemory] = useState<string>('');
-  const [state, setState] = useState<string>('');
-  const [query, setQuery] = useState<string>("I need to create a WordPress theme for a modern, minimalist blog focused on sustainable technology. Can you help me build the specification for it?");
+  const [memory, setMemory] = useState<string>("");
+  const [state, setState] = useState<string>("");
+  const [query, setQuery] = useState<string>(
+    "I need to create a WordPress theme for a modern, minimalist blog focused on sustainable technology. Can you help me build the specification for it?",
+  );
 
   // UI State
-  const [output, setOutput] = useState<string>('');
+  const [output, setOutput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   // Load initial state from localStorage on mount
   useEffect(() => {
-    setInstructions(localStorage.getItem(INSTRUCTIONS_KEY) || defaultInstructions);
+    setInstructions(
+      localStorage.getItem(INSTRUCTIONS_KEY) || defaultInstructions,
+    );
     setKnowledge(localStorage.getItem(KNOWLEDGE_KEY) || defaultKnowledge);
     const storedTools = localStorage.getItem(TOOLS_KEY);
     setTools(safeJsonParse(storedTools, defaultTools, isValidTools));
-    setMemory(localStorage.getItem(MEMORY_KEY) || '');
+    setMemory(localStorage.getItem(MEMORY_KEY) || "");
     setState(localStorage.getItem(STATE_KEY) || defaultState);
   }, []);
 
@@ -120,14 +195,15 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
   }, [tools]);
-  
 
   const loadAxiomPreset = () => {
     setInstructions(axiomInstructions);
     setKnowledge(axiomKnowledge);
     setTools(axiomTools);
     setState(axiomState);
-    setQuery("I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.");
+    setQuery(
+      "I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.",
+    );
   };
 
   const loadKutPreset = () => {
@@ -135,7 +211,9 @@ const App: React.FC = () => {
     setKnowledge(kutKnowledge);
     setTools(kutTools);
     setState(kutState);
-    setQuery("I have a 45-second tutorial video. The first cut is at 2.1 seconds, and my AVD is 55%. Can you give me an autopsy and a phase 1 plan?");
+    setQuery(
+      "I have a 45-second tutorial video. The first cut is at 2.1 seconds, and my AVD is 55%. Can you give me an autopsy and a phase 1 plan?",
+    );
   };
 
   const loadLexisSovereignPreset = () => {
@@ -143,7 +221,9 @@ const App: React.FC = () => {
     setKnowledge(lexisSovereignKnowledge);
     setTools(lexisSovereignTools);
     setState(lexisSovereignState);
-    setQuery("I have a series of voice memos outlining my contrarian views on market consensus. I need to structure Chapter 4: 'Why Consensus Is The Enemy Of Insight' and generate the semantic draft.");
+    setQuery(
+      "I have a series of voice memos outlining my contrarian views on market consensus. I need to structure Chapter 4: 'Why Consensus Is The Enemy Of Insight' and generate the semantic draft.",
+    );
   };
 
   const loadAegisPrimePreset = () => {
@@ -151,15 +231,23 @@ const App: React.FC = () => {
     setKnowledge(aegisPrimeKnowledge);
     setTools(aegisPrimeTools);
     setState(aegisPrimeState);
-    setQuery("Review this copy draft for the new campaign: 'We leverage synergistic paradigms to deliver holistic solutions. Our team achieved these results through careful analysis, because we're like a family.'");
+    setQuery(
+      "Review this copy draft for the new campaign: 'We leverage synergistic paradigms to deliver holistic solutions. Our team achieved these results through careful analysis, because we're like a family.'",
+    );
   };
 
+  const loadDieterPreset = () => {
+    setInstructions(dieterInstructions);
+    setKnowledge(dieterKnowledge);
+    setTools(dieterTools);
+    setState(dieterState);
+    setQuery("Design a modern and sleek landing page for a new AI startup.");
+  };
 
   const handleGenerate = async () => {
-
     setIsLoading(true);
     setError(null);
-    setOutput('');
+    setOutput("");
 
     try {
       const response = await generateResponse({
@@ -172,7 +260,7 @@ const App: React.FC = () => {
       });
       setOutput(response);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'An unknown error occurred.');
+      setError(e instanceof Error ? e.message : "An unknown error occurred.");
     } finally {
       setIsLoading(false);
     }
@@ -184,19 +272,50 @@ const App: React.FC = () => {
       <main className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column: Context Editors */}
         <div className="flex flex-col gap-6">
-          <InstructionEditor value={instructions} onChange={setInstructions} storageKey={INSTRUCTIONS_KEY} />
-          <KnowledgeEditor value={knowledge} onChange={setKnowledge} storageKey={KNOWLEDGE_KEY} />
+          <InstructionEditor
+            value={instructions}
+            onChange={setInstructions}
+            storageKey={INSTRUCTIONS_KEY}
+          />
+          <KnowledgeEditor
+            value={knowledge}
+            onChange={setKnowledge}
+            storageKey={KNOWLEDGE_KEY}
+          />
           <ToolEditor tools={tools} setTools={setTools} />
-          <MemoryEditor value={memory} onChange={setMemory} storageKey={MEMORY_KEY} />
-          <StateEditor value={state} onChange={setState} storageKey={STATE_KEY} />
+          <MemoryEditor
+            value={memory}
+            onChange={setMemory}
+            storageKey={MEMORY_KEY}
+          />
+          <StateEditor
+            value={state}
+            onChange={setState}
+            storageKey={STATE_KEY}
+          />
           <PluriversalFeatureDiscovery />
           <StakeholderMatrix />
-          <ImportExportContext instructions={instructions} setInstructions={setInstructions} knowledge={knowledge} setKnowledge={setKnowledge} tools={tools} setTools={setTools} memory={memory} setMemory={setMemory} state={state} setState={setState} />
+          <ImportExportContext
+            instructions={instructions}
+            setInstructions={setInstructions}
+            knowledge={knowledge}
+            setKnowledge={setKnowledge}
+            tools={tools}
+            setTools={setTools}
+            memory={memory}
+            setMemory={setMemory}
+            state={state}
+            setState={setState}
+          />
 
           <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
-            <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">SOVEREIGN AGENT PRESETS</h3>
-            <p className="text-sm text-gray-400 mb-4">Load a pre-configured, identity-enforced agent schema.</p>
-            <div className="flex gap-4">
+            <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">
+              SOVEREIGN AGENT PRESETS
+            </h3>
+            <p className="text-sm text-gray-400 mb-4">
+              Load a pre-configured, identity-enforced agent schema.
+            </p>
+            <div className="flex flex-wrap gap-4">
               <button
                 onClick={loadAxiomPreset}
                 className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
@@ -221,6 +340,13 @@ const App: React.FC = () => {
               >
                 [ LOAD AEGIS-PRIME ]
               </button>
+
+              <button
+                onClick={loadDieterPreset}
+                className="px-4 py-2 bg-zinc-900/50 text-zinc-400 border border-zinc-700 rounded hover:bg-zinc-800/50 hover:text-zinc-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD DIETER ]
+              </button>
             </div>
           </div>
 
@@ -229,7 +355,12 @@ const App: React.FC = () => {
 
         {/* Right Column: Query & Output */}
         <div className="flex flex-col gap-6 sticky top-6 self-start">
-          <QueryInput value={query} onChange={setQuery} onGenerate={handleGenerate} isLoading={isLoading} />
+          <QueryInput
+            value={query}
+            onChange={setQuery}
+            onGenerate={handleGenerate}
+            isLoading={isLoading}
+          />
           <OutputPanel output={output} isLoading={isLoading} error={error} />
         </div>
       </main>
