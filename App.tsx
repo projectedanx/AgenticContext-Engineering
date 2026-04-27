@@ -257,7 +257,7 @@ const App: React.FC = () => {
     setTools(nextjsRagTools);
     setState(nextjsRagState);
     setQuery(
-      "Can you search the knowledge base for how to reset a password and synthesize the answer with citations?",
+      "What is the testing strategy for the Next.js RAG agent and how are hallucination risks mitigated?",
     );
   };
 
