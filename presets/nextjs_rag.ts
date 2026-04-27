@@ -45,7 +45,7 @@ template: |
     "retrieval_stats": {"docs_queried": 5, "docs_ranked": 3, "rerank_time_ms": 120}
   }
 
-version: "2.0.0"
+version: "3.0.0"
 model_spec: "gpt-4o:2025-01"
 
 Error Handling Strategy:
