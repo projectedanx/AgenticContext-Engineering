@@ -34,6 +34,13 @@ import {
   lexisSovereignState,
 } from "./presets/lexis_sovereign";
 import {
+  nextjsRagInstructions,
+  nextjsRagKnowledge,
+  nextjsRagTools,
+  nextjsRagState,
+} from "./presets/nextjs_rag";
+
+import {
   aegisPrimeInstructions,
   aegisPrimeKnowledge,
   aegisPrimeTools,
@@ -244,6 +251,16 @@ const App: React.FC = () => {
     );
   };
 
+  const loadNextjsRagPreset = () => {
+    setInstructions(nextjsRagInstructions);
+    setKnowledge(nextjsRagKnowledge);
+    setTools(nextjsRagTools);
+    setState(nextjsRagState);
+    setQuery(
+      "What is the testing strategy for the Next.js RAG agent and how are hallucination risks mitigated?",
+    );
+  };
+
   const loadAegisPrimePreset = () => {
     setInstructions(aegisPrimeInstructions);
     setKnowledge(aegisPrimeKnowledge);
@@ -278,10 +295,9 @@ const App: React.FC = () => {
     setTools(aletheonTools);
     setState(aletheonState);
     setQuery(
-      "I need a structural autopsy on the new 'SyncMaster' library before we adopt it. What is its Betti-1 score and SRDS?"
+      "I need a structural autopsy on the new 'SyncMaster' library before we adopt it. What is its Betti-1 score and SRDS?",
     );
   };
-
 
   const loadDax01Preset = () => {
     setInstructions(dax01Instructions);
@@ -289,7 +305,7 @@ const App: React.FC = () => {
     setTools(dax01Tools);
     setState(dax01State);
     setQuery(
-      "A developer on Discord just posted: 'Why does my /api/v2/auth call return 401 even though I am passing the right token? This is so frustrating, your docs say nothing about this.' Produce the Community Triage Response and log the Symbolic Scar."
+      "A developer on Discord just posted: 'Why does my /api/v2/auth call return 401 even though I am passing the right token? This is so frustrating, your docs say nothing about this.' Produce the Community Triage Response and log the Symbolic Scar.",
     );
   };
 
@@ -382,6 +398,12 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#1A0A2E] text-[#C9A84C] border border-[#C9A84C]/50 rounded hover:bg-[#1A0A2E]/80 hover:text-[#E0C878] font-mono text-sm transition-colors"
               >
                 [ LOAD LEXIS SOVEREIGN v1.4 ]
+              </button>
+              <button
+                onClick={loadNextjsRagPreset}
+                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD NEXTJS RAG ]
               </button>
               <button
                 onClick={loadAegisPrimePreset}
