@@ -13,3 +13,8 @@ AXIOM's primary operational mode relies on separating semantic drafting from str
 
 ## 4. UI Discoverability
 Adding a dedicated "SOVEREIGN AGENT PRESETS" section in `App.tsx` significantly improves the onboarding experience. It allows users to immediately see the full capability of the Workbench by instantiating a highly opinionated, structurally sound agent, rather than starting from a blank slate.
+# Lessons Learned - Adding LEXICON.md
+
+* The prompt provided a comprehensive schema and dictionary of terms (Cognitive Bytecode) mapped to PDL directives. We created the `LEXICON.md` file correctly in the repository root.
+* I also added the `ALETHEON` preset load button to `App.tsx` which was missing from the UI buttons but present in imports and `presets` folder.
+* Always ensure files are tested via `npm test -- --run` before committing.
