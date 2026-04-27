@@ -38,11 +38,11 @@ template: |
 
   OUTPUT SCHEMA:
   {
-    "success": true|false,
-    "answer": "user-facing response or null",
-    "confidence": 0.0-1.0,
-    "citations": [{ doc_id, page, text_snippet, relevance }],
-    "retrieval_stats": { docs_queried, docs_ranked, rerank_time_ms }
+    "success": true,
+    "answer": "string",
+    "confidence": 0.95,
+    "citations": [{"doc_id": "string", "page": 1, "text_snippet": "string", "relevance": 0.9}],
+    "retrieval_stats": {"docs_queried": 5, "docs_ranked": 3, "rerank_time_ms": 120}
   }
 
 version: "2.0.0"
