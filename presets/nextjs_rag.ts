@@ -34,6 +34,7 @@ template: |
   - rerank_results: LLM-scored relevance sorting
   - generate_citations: Map answer to source doc IDs
   - store_query_log: Audit trail for analytics
+  - validate_firestore_access: Check security rules for user access
 
   OUTPUT SCHEMA:
   {
