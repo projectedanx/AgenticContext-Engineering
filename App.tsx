@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import {
+  dax01Instructions,
+  dax01Knowledge,
+  dax01State,
+  dax01Tools,
+} from "./presets/dax01";
 import { Header } from "./components/Header";
 import { InstructionEditor } from "./components/InstructionEditor";
 import { KnowledgeEditor } from "./components/KnowledgeEditor";
@@ -276,6 +282,17 @@ const App: React.FC = () => {
     );
   };
 
+
+  const loadDax01Preset = () => {
+    setInstructions(dax01Instructions);
+    setKnowledge(dax01Knowledge);
+    setTools(dax01Tools);
+    setState(dax01State);
+    setQuery(
+      "A developer on Discord just posted: 'Why does my /api/v2/auth call return 401 even though I am passing the right token? This is so frustrating, your docs say nothing about this.' Produce the Community Triage Response and log the Symbolic Scar."
+    );
+  };
+
   const handleGenerate = async () => {
     setIsLoading(true);
     setError(null);
@@ -392,6 +409,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#0D1B2A] text-[#E63946] border border-[#E63946]/50 rounded hover:bg-[#0D1B2A]/80 hover:text-[#E63946] font-mono text-sm transition-colors"
               >
                 [ LOAD ALETHEON ]
+              </button>
+
+              <button
+                onClick={loadDax01Preset}
+                className="px-4 py-2 bg-[#0A192F] text-[#64FFDA] border border-[#64FFDA]/50 rounded hover:bg-[#0A192F]/80 hover:text-[#64FFDA] font-mono text-sm transition-colors"
+              >
+                [ LOAD DAX-01 ]
               </button>
             </div>
           </div>
