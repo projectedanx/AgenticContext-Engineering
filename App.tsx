@@ -74,6 +74,7 @@ import {
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
 import { StakeholderMatrix } from "./components/StakeholderMatrix";
+import { CollaborationManager } from "./components/CollaborationManager";
 import { generateResponse } from "./services/geminiService";
 import { safeJsonParse, isValidTools } from "./services/storageUtils";
 import { Tool } from "./types";
@@ -558,6 +559,7 @@ const App: React.FC = () => {
           <TopologicalPersonaSculptor />
           <PluriversalFeatureDiscovery />
           <StakeholderMatrix />
+          <CollaborationManager />
           <ImportExportContext
             instructions={instructions}
             setInstructions={setInstructions}
