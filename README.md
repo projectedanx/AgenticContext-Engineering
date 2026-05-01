@@ -19,6 +19,7 @@ The Agentic Context Engineering Workbench is a powerful and intuitive web-based 
 - **Query Input**: Enter user queries and run the agent to see its response.
 - **Output Panel**: View the agent's response in real-time.
 - **Topological Persona Causal Sculpting**: A specialized UI module combining non-obvious analytical lenses and Draft-Conditioned Constrained Decoding (DCCD) to extract empirical site friction into deterministic YAML specification blocks for production-ready industrial personas.
+- **Symbiotic Collaboration Nexus**: A dual-input workspace designed to ingest Human Intuition and AI Structural Topology, generating a dialectical 'Mycelial Synthesis'. Enforces the Golden Scar Protocol to prevent premature conflict resolution.
 - **Pluriversal Feature Discovery**: A novel agentic protocol implementing AEW v2.1 SCC to conceptually map paradoxes and structural conflicts to generate novel feature concepts through "Chain-of-Code" enactments.
 
 ## Getting Started
