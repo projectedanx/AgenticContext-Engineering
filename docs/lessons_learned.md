@@ -1,20 +1,6 @@
-# Lessons Learned: Integrating the AXIOM Persona
+# Lessons Learned
 
-The integration of the AXIOM v1.0 Sovereign Agent Manifest into the Agentic Context Engineering Workbench provided several critical insights into handling complex, multi-dimensional agent identities.
-
-## 1. Context Size and Prompt Structure
-AXIOM's manifest is highly detailed, incorporating negative constraints (Anionic Architecture) and specific execution loops (Petzold Sequence). Loading this into the `InstructionEditor` demonstrated that the UI and underlying `localStorage` mechanisms must efficiently handle large text payloads without freezing the main thread. The current state mechanism handles this well, but future iterations might require chunking or off-main-thread processing if manifests grow significantly larger.
-
-## 2. Tool Boundary Enforcement
-AXIOM requires strict schema conformance (e.g., OpenAPI 3.1.0). When importing the AXIOM preset, the `ToolEditor` state must accurately reflect the `generate_technical_artifact` tool. We learned that the `isValidTools` guard is crucial when loading complex, predefined tool schemas from external sources (or presets) to ensure they match the TypeScript interfaces before they are fed into the UI or the Gemini API context.
-
-## 3. The Power of "Draft-Conditioned Constrained Decoding" (DCCD)
-AXIOM's primary operational mode relies on separating semantic drafting from structural enforcement. While the Workbench currently sends a monolithic prompt to the model, supporting advanced personas like AXIOM highlights the need for potential future features in the Workbench: multi-stage generation pipelines. Future updates should consider allowing users to define sequential prompts (e.g., a "Draft" prompt followed by a "Validate" prompt) to natively support DCCD within the Workbench's execution flow.
-
-## 4. UI Discoverability
-Adding a dedicated "SOVEREIGN AGENT PRESETS" section in `App.tsx` significantly improves the onboarding experience. It allows users to immediately see the full capability of the Workbench by instantiating a highly opinionated, structurally sound agent, rather than starting from a blank slate.
-# Lessons Learned - Adding LEXICON.md
-
-* The prompt provided a comprehensive schema and dictionary of terms (Cognitive Bytecode) mapped to PDL directives. We created the `LEXICON.md` file correctly in the repository root.
-* I also added the `ALETHEON` preset load button to `App.tsx` which was missing from the UI buttons but present in imports and `presets` folder.
-* Always ensure files are tested via `npm test -- --run` before committing.
+## Synthesis of Specialized Specification Blocks and Non-Obvious Analytical Lenses
+*   **Problem**: In high-entropy environments like industrial site planning, standard AI agent prompts fail because they either become too rigid (losing localized human operational nuance) or too narrative (hallucinating physical impossibilities to appease contradictory rules).
+*   **Solution**: We successfully synthesized the AI's capability for specialized specification blocks (Draft-Conditioned Constrained Decoding outputting strict YAML PD&T schemas) with the Human's capability for providing non-obvious analytical lenses (tacit operational friction, Bourdieuian social field rules).
+*   **Outcome**: The `TopologicalPersonaSculptor` UI serves as the translation matrix where human "friction" is ingested, paraconsistently bounded by the AI, and extruded into a deterministic, production-ready persona. This demonstrates a value-add where the human provides the high-entropy truth, and the AI provides the zero-entropy structural guard, an outcome neither could achieve alone.
