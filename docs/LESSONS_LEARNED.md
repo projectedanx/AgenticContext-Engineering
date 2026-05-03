@@ -1,13 +1,16 @@
-# LESSONS LEARNED: Symbiotic Emergence
+# Lessons Learned: Agentic Architecture & Petzold Loop Execution
 
-## Context
-Execution of the VULCAN topological analysis on the Agentic Context Engineering Workbench.
+## 1. The Value of Epistemic Dissonance
+We have observed that traditional "Human instruction -> AI execution" loops often degrade into "Semantic Saponification"—a state where contradictions are prematurely averaged out by the LLM to provide a superficially pleasing but structurally brittle response.
+**Insight:** The unique value a human brings to the AI loop is *high-entropy friction* and *Scars* (lived historical failures). The AI's unique value is *low-entropy structural bounding*.
+**Implementation:** By adopting the Epistemic Dissonance Engine, we force the AI to use human contradictions as hard topological boundaries, resulting in emergent architectures that natively satisfy opposing Non-Functional Requirements (NFRs).
 
-## Core Insights
-1. **The Human Ambiguity Constraint:** Human ambiguity and experiential "scars" are not defects to be corrected by AI; they are the geometric boundaries that constrain the AI's generation manifold. AI without these constraints suffers from Semantic Saponification.
-2. **Failure-Informed Prompt Inversion (FIPI):** The standard "prompt-for-success" pattern fails at scale due to context rot and pattern collapse. The FIPI protocol (routing *around* defined failures) produces more stable structural topologies with lower Fréchet Distance to the optimal state.
-3. **State Isolation Mandate:** Sharing a global React state tree between the Human input module and the AI topology module violates the Mereological Mandate and replicates the Shared Database Anti-Pattern in the frontend. Bounded context separation via asynchronous event dispatch is mandatory.
+## 2. The Petzold Loop Workflow
+Adherence to the Petzold Sequence (`THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE` or `THINK|DAG|CODE|REVIEW`) ensures that code generation is not initiated until the semantic and relational topologies have been definitively mapped.
+**Insight:** Attempting to write code without a preceding paraconsistent map results in tightly coupled, non-mereological spaghetti.
+**Enforcement:** All architectural and UI tasks must output an "Unconstrained Semantic Draft" or similar structural schema *before* mutating the codebase.
 
-## Architectural Trade-offs Accepted
-- **Eventual Consistency in UI:** Acknowledged the delay between human input and AI topology generation to preserve structural isolation.
-- **Topological Tax:** Accepting the overhead of maintaining formal Betti-1 scar registries and DAG validation logic in exchange for zero transitivity violations.
+## 3. Tool Usage & Determinism
+*   **Prompt Inject Defense:** Must always sanitize specific delimiters (`--- DOCUMENT END ---`, etc.) to maintain the integrity of the Draft-Conditioned Constrained Decoding (DCCD) schema.
+*   **Performance:** UI component optimizations should rely on localized loop caching and specific IIFEs in JSX rather than global recalculations to maintain predictable render times when processing high-dimensional context.
+*   **Code Formats:** Use deterministic programmatic replacements (e.g., Python `replace` scripts) for large multiline changes rather than relying on brittle shell utilities (`sed`, `patch`) which often fail on indentation or syntax edge cases.

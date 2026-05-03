@@ -1,6 +1,6 @@
-docs: implement symbiotic emergence strategy and Betti-1 Attractor Protocol ADR
+docs: Implement Epistemic Dissonance Engine strategy
 
-- Creates the `symbiotic_emergence_strategy` directory containing the `plan.md` and `checklist.md` for the Betti-1 Attractor Protocol.
-- Adds `ADR-001-Symbiotic-Emergence-Isolation.md` enforcing state isolation between Human intent and AI structural topology.
-- Adds `docs/LESSONS_LEARNED.md` articulating insights on Failure-Informed Prompt Inversion and the Mereological Mandate.
-- Updates `README.md` to document the new protocol and remove qualitative adjectives (semantic saponification).
+- Added ADR-007 detailing the Epistemic Dissonance Engine.
+- Updated README.md with the new engine description under Key Features.
+- Created LESSONS_LEARNED.md to record observations of Semantic Saponification and the Petzold Loop.
+- Added emergence inversion protocol plan and unconstrained semantic draft.
