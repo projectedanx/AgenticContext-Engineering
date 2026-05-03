@@ -47,7 +47,7 @@ export const TopologicalPersonaSculptor: React.FC = () => {
         };
 
         try {
-            const response = await generateResponse(prompt, mockContext);
+            const response = await generateResponse(mockContext);
             setResult(response);
         } catch (err) {
             console.error('Sculpting failed:', err);

@@ -11,6 +11,12 @@ import {
   dax01State,
   dax01Tools,
 } from "./presets/dax01";
+import {
+  lexicalTopologyMinerInstructions,
+  lexicalTopologyMinerKnowledge,
+  lexicalTopologyMinerTools,
+  lexicalTopologyMinerState,
+} from "./presets/lexical_topology_miner";
 import { Header } from "./components/Header";
 import { InstructionEditor } from "./components/InstructionEditor";
 import { KnowledgeEditor } from "./components/KnowledgeEditor";
@@ -53,6 +59,12 @@ import {
   aegisPrimeState,
 } from "./presets/aegis_prime";
 import {
+  aureliusInstructions,
+  aureliusKnowledge,
+  aureliusTools,
+  aureliusState,
+} from "./presets/aurelius";
+import {
   dieterInstructions,
   dieterKnowledge,
   dieterTools,
@@ -73,6 +85,7 @@ import {
 
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
+import { GeometricCognitionAPI } from "./components/GeometricCognitionAPI";
 import { StakeholderMatrix } from "./components/StakeholderMatrix";
 import { CollaborationManager } from "./components/CollaborationManager";
 import { generateResponse } from "./services/geminiService";
@@ -333,7 +346,8 @@ const App: React.FC = () => {
     setTools(lexicalTopologyMinerTools);
     setState(lexicalTopologyMinerState);
     setQuery("");
-    setDecoratorDependencyGraph(
+    // setDecoratorDependencyGraph(
+/*
       JSON.stringify(
         {
           decorator_dependency_graph: {
@@ -503,8 +517,8 @@ const App: React.FC = () => {
         },
         null,
         2,
-      ),
-    );
+      */
+//    );
   };
 
   const handleGenerate = async () => {
@@ -558,6 +572,7 @@ const App: React.FC = () => {
           />
           <TopologicalPersonaSculptor />
           <PluriversalFeatureDiscovery />
+            <GeometricCognitionAPI />
           <StakeholderMatrix />
           <CollaborationManager />
           <ImportExportContext
@@ -650,6 +665,18 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
               >
                 [ LOAD LEXICAL TOPOLOGY MINER ]
+              </button>
+              <button
+                onClick={() => {
+                  setInstructions(aureliusInstructions);
+                  setKnowledge(aureliusKnowledge);
+                  setTools(aureliusTools);
+                  setState(aureliusState);
+                  setQuery("Modulate the phantom dimensions to map an elliptic sphere topology into the generated latent space.");
+                }}
+                className="px-4 py-2 bg-yellow-900/50 text-yellow-400 border border-yellow-700 rounded hover:bg-yellow-800/50 hover:text-yellow-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD AURELIUS ]
               </button>
             </div>
           </div>
