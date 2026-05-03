@@ -1,0 +1,10 @@
+{
+  "Hickam_Orientation": "The human input module and the AI topological structure module are conceptually distinct bounded contexts. If they share a global state tree or mutate the same data entities locally, it triggers a Semantic Saponification and a Shared Database Anti-Pattern (SCAR-002), collapsing the Mereological boundaries.",
+  "Contrastive_Delta": "Instead of prompting the AI for desired outcomes (which collapses into high-entropy semantic generalizations), the strategy uses Failure-Informed Prompt Inversion (FIPI). The human defines the failures (Scars) and the AI routes its generated structure *around* them. To support this technically, the UI architecture is moving from a monolithic implicit state model to an event-driven isolation model.",
+  "Martensite_Metrics": {
+    "Mereology_Violation_Rate_Target": 0,
+    "Epistemic_Escrow_Threshold": 0.15,
+    "Betti-1_Scar_Isolation": "Complete",
+    "State_Coupling": "Eventual Consistency (Event Bus)"
+  }
+}

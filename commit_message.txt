@@ -1,8 +1,6 @@
-feat: Implement Project Aurelius (AURELIUS persona & Geometric Cognition API)
+docs: implement symbiotic emergence strategy and Betti-1 Attractor Protocol ADR
 
-- Created `presets/aurelius.ts` defining the META_ARCHITECT persona for non-Euclidean spatial reasoning.
-- Developed `GeometricCognitionAPI.tsx` prototype for manipulating Phantom Dimensions and visual Plausibility Oracle feedback.
-- Integrated AURELIUS preset and UI component into `App.tsx`.
-- Wrote `simulation/plausibility_oracle.py` to mathematically prove paraconsistent hypothesis of geometry generation.
-- Added `docs/architecture/ADR-006-Geometric-Cognition.md` to document the architectural paradigm shift.
-- Updated `README.md` and `docs/lessons_learned.md` with new feature capabilities.
+- Creates the `symbiotic_emergence_strategy` directory containing the `plan.md` and `checklist.md` for the Betti-1 Attractor Protocol.
+- Adds `ADR-001-Symbiotic-Emergence-Isolation.md` enforcing state isolation between Human intent and AI structural topology.
+- Adds `docs/LESSONS_LEARNED.md` articulating insights on Failure-Informed Prompt Inversion and the Mereological Mandate.
+- Updates `README.md` to document the new protocol and remove qualitative adjectives (semantic saponification).

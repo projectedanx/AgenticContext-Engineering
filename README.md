@@ -4,9 +4,10 @@
 
 # Agentic Context Engineering Workbench
 
-The Agentic Context Engineering Workbench is a powerful and intuitive web-based application designed to facilitate the development and testing of deterministic AI coding agents. It provides a comprehensive suite of tools that allow developers to build, fine-tune, and manage the context in which their AI agents operate, ensuring more predictable and reliable behavior.
+The Agentic Context Engineering Workbench is a deterministic web-based application designed to facilitate the development and testing of deterministic AI coding agents. It provides a structural suite of tools that allow developers to build, fine-tune, and manage the context in which their AI agents operate, enforcing rigid bounded contexts.
 
 ## Key Features
+- **Betti-1 Attractor Protocol**: Implements Failure-Informed Prompt Inversion (FIPI) to generate structural topologies constrained by human-defined failure modes (Scars).
 
 - **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician) for technical artifacts, KUT v2.0 (The Retention Architect) for video post-production, LEXIS SOVEREIGN v1.4 (The Auteur Co-Author) for strategic book collaboration, AEGIS-PRIME v2.0 (The Sovereign Brand Guardian) for structural brand identity enforcement, DIETER v1.0 (The Aesthetic Geometrician) for deterministic spatial architecture and design systems, ALETHEON for adversarial structural necropsy of software tools, METROLOGIST v1.0 (The Semantic Metrologist) for deterministic extraction and topological bounding, AURELIUS v1.0 (The Meta Architect) for non-Euclidean latent space navigation.
 
