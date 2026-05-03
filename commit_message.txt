@@ -1,15 +1,8 @@
-feat(architecture): implement Symbiotic Collaboration Nexus
+feat: Implement Project Aurelius (AURELIUS persona & Geometric Cognition API)
 
-Hickam_Orientation:
-Injected the CollaborationManager to hold Human Teleology and AI Combinatorics in paraconsistent superposition (Φ = 1.618 / 1.000).
-
-Contrastive_Delta:
-Replaces standard input/output flattening with explicit dialectical UI modules, honoring the Golden Scar Protocol.
-
-Martensite_Metrics:
-- AT: Dialectical side-by-side layout.
-- ID: geminiService dialectic protocol encapsulation.
-- EE: Output preserves Markdown markers ([⊘], [∇]).
-
-Pluriversal_Knowledge_Capsule:
-The `CollaborationManager` module merges structural topology with human intent. Integrated via `App.tsx` and validated via automated rendering scripts and TDD.
+- Created `presets/aurelius.ts` defining the META_ARCHITECT persona for non-Euclidean spatial reasoning.
+- Developed `GeometricCognitionAPI.tsx` prototype for manipulating Phantom Dimensions and visual Plausibility Oracle feedback.
+- Integrated AURELIUS preset and UI component into `App.tsx`.
+- Wrote `simulation/plausibility_oracle.py` to mathematically prove paraconsistent hypothesis of geometry generation.
+- Added `docs/architecture/ADR-006-Geometric-Cognition.md` to document the architectural paradigm shift.
+- Updated `README.md` and `docs/lessons_learned.md` with new feature capabilities.

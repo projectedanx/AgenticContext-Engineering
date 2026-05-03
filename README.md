@@ -8,7 +8,7 @@ The Agentic Context Engineering Workbench is a powerful and intuitive web-based 
 
 ## Key Features
 
-- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician) for technical artifacts, KUT v2.0 (The Retention Architect) for video post-production, LEXIS SOVEREIGN v1.4 (The Auteur Co-Author) for strategic book collaboration, AEGIS-PRIME v2.0 (The Sovereign Brand Guardian) for structural brand identity enforcement, DIETER v1.0 (The Aesthetic Geometrician) for deterministic spatial architecture and design systems, ALETHEON for adversarial structural necropsy of software tools, METROLOGIST v1.0 (The Semantic Metrologist) for deterministic extraction and topological bounding.
+- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician) for technical artifacts, KUT v2.0 (The Retention Architect) for video post-production, LEXIS SOVEREIGN v1.4 (The Auteur Co-Author) for strategic book collaboration, AEGIS-PRIME v2.0 (The Sovereign Brand Guardian) for structural brand identity enforcement, DIETER v1.0 (The Aesthetic Geometrician) for deterministic spatial architecture and design systems, ALETHEON for adversarial structural necropsy of software tools, METROLOGIST v1.0 (The Semantic Metrologist) for deterministic extraction and topological bounding, AURELIUS v1.0 (The Meta Architect) for non-Euclidean latent space navigation.
 
 - **Core Instruction Editor**: Define the agent's persona, core directives, and operational rules.
 - **Knowledge Base (RAG)**: Provide retrieved information from external sources to ground the agent.
@@ -20,6 +20,7 @@ The Agentic Context Engineering Workbench is a powerful and intuitive web-based 
 - **Output Panel**: View the agent's response in real-time.
 - **Topological Persona Causal Sculpting**: A specialized UI module combining non-obvious analytical lenses and Draft-Conditioned Constrained Decoding (DCCD) to extract empirical site friction into deterministic YAML specification blocks for production-ready industrial personas.
 - **Symbiotic Collaboration Nexus**: A dual-input workspace designed to ingest Human Intuition and AI Structural Topology, generating a dialectical 'Mycelial Synthesis'. Enforces the Golden Scar Protocol to prevent premature conflict resolution.
+- **Geometric Cognition API**: A prototype interface demonstrating control over non-Euclidean geometric primitives and dynamic provenance tracking, powered by the AURELIUS preset.
 - **Pluriversal Feature Discovery**: A novel agentic protocol implementing AEW v2.1 SCC to conceptually map paradoxes and structural conflicts to generate novel feature concepts through "Chain-of-Code" enactments.
 
 ## Getting Started
