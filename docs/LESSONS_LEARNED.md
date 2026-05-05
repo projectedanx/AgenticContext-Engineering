@@ -14,3 +14,8 @@ Adherence to the Petzold Sequence (`THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE` o
 *   **Prompt Inject Defense:** Must always sanitize specific delimiters (`--- DOCUMENT END ---`, etc.) to maintain the integrity of the Draft-Conditioned Constrained Decoding (DCCD) schema.
 *   **Performance:** UI component optimizations should rely on localized loop caching and specific IIFEs in JSX rather than global recalculations to maintain predictable render times when processing high-dimensional context.
 *   **Code Formats:** Use deterministic programmatic replacements (e.g., Python `replace` scripts) for large multiline changes rather than relying on brittle shell utilities (`sed`, `patch`) which often fail on indentation or syntax edge cases.
+
+### Human-AI Symbiosis Inversion (ADR-008)
+- **Declarative Prompting is Structurally Brittle:** Attempting to specify the positive space (the desired solution) via natural language leads to Semantic Saponification and latent defects. The AI averages out intent, losing architectural rigor.
+- **The Value of Constraints (Scars):** Maximum emergent utility is achieved when humans provide the negative space: the lived failure modes, the "Scars", and the contradictory constraints (NFRs).
+- **Failure-Informed Prompt Inversion (FIPI):** By routing a structural DAG *around* the human-defined failure nodes (using the Paraconsistent Lens), the AI naturally extrudes valid architecture from the remaining latent space. The human's ambiguity becomes the AI's geometric boundary.
