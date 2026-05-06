@@ -1,0 +1,11 @@
+# VIPER Implementation Checklist
+- [ ] Create `viper_emergence_strategy/strategy.md`
+- [ ] Create `viper_emergence_strategy/checklist.md`
+- [ ] Implement `presets/viper.ts` (Manifest, Knowledge, Tools, State)
+- [ ] Update `App.tsx` (Imports, loadViperPreset, UI Button)
+- [ ] Write `docs/architecture/ADR-009-VIPER-Integration.md`
+- [ ] Create `viper_fipi_simulation.py` and execute
+- [ ] Update `README.md`
+- [ ] Update `docs/LESSONS_LEARNED.md`
+- [ ] Run Test Suite (`npm test -- --run`)
+- [ ] Complete pre-commit steps

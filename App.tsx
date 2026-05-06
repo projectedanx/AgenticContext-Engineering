@@ -82,6 +82,12 @@ import {
   aletheonState,
   aletheonTools,
 } from "./presets/aletheon";
+import {
+  viperInstructions,
+  viperKnowledge,
+  viperState,
+  viperTools,
+} from "./presets/viper";
 
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -317,6 +323,16 @@ const App: React.FC = () => {
     setState(aletheonState);
     setQuery(
       "I need a structural autopsy on the new 'SyncMaster' library before we adopt it. What is its Betti-1 score and SRDS?",
+    );
+  };
+
+  const loadViperPreset = () => {
+    setInstructions(viperInstructions);
+    setKnowledge(viperKnowledge);
+    setTools(viperTools);
+    setState(viperState);
+    setQuery(
+      "I want a nostalgic, beautiful portrait of an old woman in a Parisian cafe, very cinematic and emotional, masterpiece quality, 8k",
     );
   };
 
@@ -646,6 +662,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#0D1B2A] text-[#E63946] border border-[#E63946]/50 rounded hover:bg-[#0D1B2A]/80 hover:text-[#E63946] font-mono text-sm transition-colors"
               >
                 [ LOAD ALETHEON ]
+              </button>
+
+              <button
+                onClick={loadViperPreset}
+                className="px-4 py-2 bg-red-900/20 text-red-500 border border-red-900/50 rounded hover:bg-red-900/40 hover:text-red-400 font-mono text-sm transition-colors"
+              >
+                [ LOAD V.I.P.E.R. ]
               </button>
 
               <button
