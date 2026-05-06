@@ -26,6 +26,16 @@ The Agentic Context Engineering Workbench is a deterministic web-based applicati
 
 - **Epistemic Dissonance Engine**: A revolutionary protocol that inverts the traditional human-AI prompt paradigm. It utilizes a **Paraconsistent Lens** to capture human-defined contradictory constraints and "Scars", projecting them as rigid geometric boundaries for the AI's topological DAG generation, yielding emergent architectural resolutions without premature compromise.
 
+
+- **Scar-Driven Topological Extruder (SDTE)**: An architectural synthesis protocol implementing the VULCAN persona. It inverts standard human-AI flow: Humans dictate structural contradictions and failure 'Scars'; the AI uses Failure-Informed Prompt Inversion (FIPI) and FuzzyRCC-8 to route around these failure nodes, strictly enforcing the Mereological Mandate to produce C4-compliant architectural DAGs.
+
+
+## Lessons Learned: Thermodynamic Epistemic Boundaries
+
+1. **The Necessity of Friction**: High-entropy organizational contradictions (Human input) are structurally necessary to generate non-trivial, low-entropy architectural topologies (AI output). Premature conflict resolution yields anemic microservices.
+2. **The Mereological Mandate**: A rigid bounding of context is not merely conceptual but a physical boundary. Permitting shared data states across bounded contexts inevitably causes Semantic Saponification and tight deployment coupling.
+3. **AI as Structural Extruder**: The highest value of AI in architecture is not generative expansion, but constraint enforcement and failure routing (FIPI).
+
 ## Getting Started
 
 ### Prerequisites

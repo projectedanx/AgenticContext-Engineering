@@ -1,6 +1,8 @@
-docs: Implement Epistemic Dissonance Engine strategy
+feat: Implement Scar-Driven Topological Extruder (SDTE) for VULCAN
 
-- Added ADR-007 detailing the Epistemic Dissonance Engine.
-- Updated README.md with the new engine description under Key Features.
-- Created LESSONS_LEARNED.md to record observations of Semantic Saponification and the Petzold Loop.
-- Added emergence inversion protocol plan and unconstrained semantic draft.
+- Create `vulcan_architectural_inversion_nexus` directory.
+- Add `plan.md` defining the SDTE strategy:
+  - Inversion Strategy (Friction Ingestion, Paraconsistent Mapping, FIPI)
+  - Thesis on value topology (Human entropy vs AI constraint)
+- Add `checklist.md` enforcing strict epistemic and structural gates (Mereological Mandate, Shared Database Anathema).
+- Update `README.md` with the new SDTE feature and a "Lessons Learned: Thermodynamic Epistemic Boundaries" section.
