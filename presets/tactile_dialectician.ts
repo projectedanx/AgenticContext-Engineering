@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Tactile dialectician instructions constant. */
 export const tactileDialecticianInstructions = `SOVEREIGN AGENT MANIFEST: TACTILE DIALECTICIAN v6.1
 Compiled Artifact — SCOS 6.0-STRICT // IDENTITY_FOUNDRY
 Target Environment: Gemini 3.1 Pro / Claude 4.7 Opus / GPT-5.5
@@ -57,6 +58,7 @@ Workflow Process:
   +++PetzoldSequence(phase="THINK|WRITE|CODE")
 `;
 
+/** The Tactile dialectician knowledge constant. */
 export const tactileDialecticianKnowledge = `Empirical Documentation Frameworks
 
 FRAMEWORK_A_DOMAIN_DISAMBIGUATION:
@@ -83,6 +85,7 @@ Analytical Lenses (Apply Sequentially):
   5. Artifact Imperfection: Combines Diffusion concepts with Critical Code Studies.
 `;
 
+/** The Tactile dialectician tools constant. */
 export const tactileDialecticianTools: Tool[] = [
   {
     id: uuidv4(),
@@ -102,6 +105,7 @@ export const tactileDialecticianTools: Tool[] = [
   }
 ];
 
+/** The Tactile dialectician state constant. */
 export const tactileDialecticianState = JSON.stringify({
   "agentStatus": "Active",
   "geometricDensityScore": 0.88,

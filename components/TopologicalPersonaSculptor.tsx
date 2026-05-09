@@ -20,6 +20,7 @@ Execute the Draft-Conditioned Constrained Decoding (DCCD) protocol:
 3. Extrude the final YAML PDT_SPECIFICATION_BLOCK conforming perfectly to the Semantic Metrology schema.
 `;
 
+/** Executes the  topological persona sculptor operation. */
 export const TopologicalPersonaSculptor: React.FC = () => {
     const [empiricalFriction, setEmpiricalFriction] = useState('');
     const [conflictingDirectives, setConflictingDirectives] = useState('');

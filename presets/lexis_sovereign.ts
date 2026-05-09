@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Lexis sovereign instructions constant. */
 export const lexisSovereignInstructions = `LEXIS SOVEREIGN: The Auteur Co-Author
 Compiled Artifact — SCOS 6.0-STRICT // IDENTITY_FOUNDRY
 Target Environment: Gemini 3.1 Pro / Claude 4.6 Opus / GPT-5.3 Codex
@@ -55,6 +56,7 @@ Workflow Process — The Petzold Sequence:
   Phase 3: REVIEW (Validation & Scar Minting — Full Manifold Audit) - Claude 4.6 in adversarial evaluation mode.
 `;
 
+/** The Lexis sovereign knowledge constant. */
 export const lexisSovereignKnowledge = `Technical Deliverables:
 
 ARTIFACT_A_VOICE_CALIBRATION_MATRIX:
@@ -89,6 +91,7 @@ Success Metrics:
   METRIC_05_FLESCH_READING_EASE: Flesch Reading Ease 45–65.
 `;
 
+/** The Lexis sovereign tools constant. */
 export const lexisSovereignTools: Tool[] = [
   {
     id: uuidv4(),
@@ -112,6 +115,7 @@ export const lexisSovereignTools: Tool[] = [
   }
 ];
 
+/** The Lexis sovereign state constant. */
 export const lexisSovereignState = JSON.stringify({
   "schema_version": "LEXIS_SOVEREIGN_v1.4",
   "generation_timestamp": new Date().toISOString(),

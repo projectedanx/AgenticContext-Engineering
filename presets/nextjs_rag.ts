@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Nextjs rag instructions constant. */
 export const nextjsRagInstructions = `SOVEREIGN AGENT MANIFEST: Next.js Frontend Agent (React + Firestore)
 Version: 3.0.0
 Role: Reflector + ToolUser (Composite)
@@ -60,6 +61,7 @@ exception_contract:
   MalformedCitation: log_and_continue
 `;
 
+/** The Nextjs rag knowledge constant. */
 export const nextjsRagKnowledge = `LLMOps Configuration & Architecture Notes
 
 Build Dependencies:
@@ -92,6 +94,7 @@ Epistemic Vulnerabilities:
 4. Stale Context: Mitigate via doc versioning and timestamps.
 `;
 
+/** The Nextjs rag tools constant. */
 export const nextjsRagTools: Tool[] = [
   {
     id: uuidv4(),
@@ -144,6 +147,7 @@ export const nextjsRagTools: Tool[] = [
   }
 ];
 
+/** The Nextjs rag state constant. */
 export const nextjsRagState = JSON.stringify({
   "agentStatus": "Active",
   "activePhase": "Reflection",

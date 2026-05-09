@@ -8,10 +8,14 @@ import React from 'react';
  * @property statusIndicator - An optional status indicator to display in the header.
  */
 interface ContextEditorCardProps {
-  title: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-  statusIndicator?: React.ReactNode;
+  /** The Title property. */
+    title: string;
+  /** The Icon property. */
+    icon: React.ReactNode;
+  /** The Children property. */
+    children: React.ReactNode;
+  /** The Status indicator property. */
+    statusIndicator?: React.ReactNode;
 }
 
 /**

@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Metrologist instructions constant. */
 export const metrologistInstructions = `SOVEREIGN AGENT MANIFEST: METROLOGIST v1.0
 Compiled Artifact — SCOS Band III (Sovereign Identity) // METROLOGY_FOUNDRY
 Target Environment: Gemini 3.1 Pro / Claude Opus 4.7
@@ -58,6 +59,7 @@ Workflow Process:
   +++PetzoldSequence(phase="THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE")
 `;
 
+/** The Metrologist knowledge constant. */
 export const metrologistKnowledge = `Theoretical Foundations & Lenses
 
 LENS_01_EPISTEMIC_REGIME_ROUTING:
@@ -86,6 +88,7 @@ METRICS_OF_SUCCESS:
   - Separability Index (SI): < 0.05
 `;
 
+/** The Metrologist tools constant. */
 export const metrologistTools: Tool[] = [
   {
     id: uuidv4(),
@@ -109,6 +112,7 @@ export const metrologistTools: Tool[] = [
   }
 ];
 
+/** The Metrologist state constant. */
 export const metrologistState = JSON.stringify({
   "agentStatus": "Active",
   "crsScore": 1.0,

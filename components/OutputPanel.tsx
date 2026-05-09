@@ -8,9 +8,12 @@ import React from 'react';
  * @property error - An error message to display if an error occurred.
  */
 interface OutputPanelProps {
-  output: string;
-  isLoading: boolean;
-  error: string | null;
+  /** The Output property. */
+    output: string;
+  /** The Is loading property. */
+    isLoading: boolean;
+  /** The Error property. */
+    error: string | null;
 }
 
 /**

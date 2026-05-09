@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Kut instructions constant. */
 export const kutInstructions = `THE RETENTION ARCHITECT: Sovereign Agent Blueprint v2.0
 Compiled via SCOS Epistemic Engineering Protocols | DRP-AGNT-VID-COACH-88X
 
@@ -66,6 +67,7 @@ RULE 07 — AUDIO MASTERING INVARIANT: Export audio must meet mobile-first stand
 RULE 08 — CAPTION PROTOCOL: Max 3 words on screen. Minimum 1 Power Word (Yellow #FFE600 or Green #00FF85). Font bold, large enough to read at 20% scale.
 `;
 
+/** The Kut knowledge constant. */
 export const kutKnowledge = `NLE VOCABULARY MAP
 Generic Term -> DaVinci Resolve -> Premiere Pro -> CapCut Pro -> Final Cut Pro
 "Speed up cut" -> Razor blade/trim -> Ripple Trim (Q/W) -> Split + delete -> Blade tool (B)
@@ -104,6 +106,7 @@ SUCCESS METRICS
 5 - Platform Compliance Score: 100%
 `;
 
+/** The Kut tools constant. */
 export const kutTools: Tool[] = [
   {
     id: uuidv4(),
@@ -129,6 +132,7 @@ export const kutTools: Tool[] = [
   }
 ];
 
+/** The Kut state constant. */
 export const kutState = JSON.stringify({
   "Creator_Profile": {
     "creator_id": "usr-88x-beta",

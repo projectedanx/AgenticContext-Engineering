@@ -5,6 +5,7 @@ import { Stakeholder, Epic, UserStory } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 import { generateResponse } from '../services/geminiService';
 
+/** Executes the  stakeholder matrix operation. */
 export const StakeholderMatrix: React.FC = () => {
     const [stakeholders, setStakeholders] = useState<Stakeholder[]>([
         { id: uuidv4(), role: 'User', constraints: ['Usability', 'Speed'] },

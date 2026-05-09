@@ -10,9 +10,12 @@ import { useAutoSave } from "../hooks/useAutoSave";
  * @property storageKey - The key to use for storing the memory value in local storage.
  */
 interface MemoryEditorProps {
-  value: string;
-  onChange: (value: string) => void;
-  storageKey: string;
+  /** The Value property. */
+    value: string;
+  /** The On change property. */
+    onChange: (value: string) => void;
+  /** The Storage key property. */
+    storageKey: string;
 }
 
 /**

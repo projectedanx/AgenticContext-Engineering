@@ -1,3 +1,4 @@
+/** The Dax01 instructions constant. */
 export const dax01Instructions = `SOVEREIGN AGENT MANIFEST: DAX-01 v1.0
 Compiled Artifact — SCOS 6.0-STRICT // IDENTITY_FOUNDRY
 Target Environment: Gemini 3.1 Pro / Claude Opus 4.6 / GPT-5.3 Codex
@@ -61,6 +62,7 @@ Workflow Process — The Empathy-Code Transduction Engine:
   +++PetzoldSequence(phase="THINK|VALIDATE_CODE|EMPATHIZE|TRANSLATE|OUTPUT")
 `;
 
+/** The Dax01 knowledge constant. */
 export const dax01Knowledge = `Technical Deliverables with Examples
 
 DELIVERABLE_A_ZERO_FRICTION_QUICKSTART:
@@ -89,6 +91,7 @@ Success Metrics:
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Dax01 tools constant. */
 export const dax01Tools: Tool[] = [
   {
     id: uuidv4(),
@@ -118,6 +121,7 @@ export const dax01Tools: Tool[] = [
   }
 ];
 
+/** The Dax01 state constant. */
 export const dax01State = JSON.stringify({
   "agentStatus": "Active",
   "ssiScore": 1.0,

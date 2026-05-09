@@ -6,45 +6,31 @@
 
 The Agentic Context Engineering Workbench is a deterministic web-based application designed to facilitate the development and testing of deterministic AI coding agents. It provides a structural suite of tools that allow developers to build, fine-tune, and manage the context in which their AI agents operate, enforcing rigid bounded contexts.
 
+## Purpose
+
+The primary goal of this workbench is to eliminate "Semantic Saponification" (the tendency for AI outputs to degrade into vague, agreeable averages) by enforcing strict structural boundaries. It empowers developers to define specific failure modes, operational constraints, and architectural imperatives via "Sovereign Agent Presets," allowing for precise control over the generative process.
+
 ## Key Features
+
 - **Betti-1 Attractor Protocol**: Implements Failure-Informed Prompt Inversion (FIPI) to generate structural topologies constrained by human-defined failure modes (Scars).
-
-- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents like AXIOM v1.0 (The Sovereign Syntactician) for technical artifacts, KUT v2.0 (The Retention Architect) for video post-production, LEXIS SOVEREIGN v1.4 (The Auteur Co-Author) for strategic book collaboration, AEGIS-PRIME v2.0 (The Sovereign Brand Guardian) for structural brand identity enforcement, DIETER v1.0 (The Aesthetic Geometrician) for deterministic spatial architecture and design systems, ALETHEON for adversarial structural necropsy of software tools, METROLOGIST v1.0 (The Semantic Metrologist) for deterministic extraction and topological bounding, AURELIUS v1.0 (The Meta Architect) for non-Euclidean latent space navigation.
-
+- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents (e.g., AXIOM, KUT, LEXIS SOVEREIGN, AEGIS-PRIME, DIETER, ALETHEON, METROLOGIST, AURELIUS).
 - **Core Instruction Editor**: Define the agent's persona, core directives, and operational rules.
 - **Knowledge Base (RAG)**: Provide retrieved information from external sources to ground the agent.
 - **Tool Editor**: Define the functions and capabilities the agent can execute.
 - **Memory Editor**: Include short-term conversation history and long-term learned facts.
 - **State Editor**: Define the current world state as a JSON object.
-- **Document Summarizer**: Quickly summarize long documents to extract key information.
-- **Query Input**: Enter user queries and run the agent to see its response.
-- **Output Panel**: View the agent's response in real-time.
-- **Topological Persona Causal Sculpting**: A specialized UI module combining non-obvious analytical lenses and Draft-Conditioned Constrained Decoding (DCCD) to extract empirical site friction into deterministic YAML specification blocks for production-ready industrial personas.
-- **Symbiotic Collaboration Nexus**: A dual-input workspace designed to ingest Human Intuition and AI Structural Topology, generating a dialectical 'Mycelial Synthesis'. Enforces the Golden Scar Protocol to prevent premature conflict resolution.
-- **Geometric Cognition API**: A prototype interface demonstrating control over non-Euclidean geometric primitives and dynamic provenance tracking, powered by the AURELIUS preset.
-- **Pluriversal Feature Discovery**: A novel agentic protocol implementing AEW v2.1 SCC to conceptually map paradoxes and structural conflicts to generate novel feature concepts through "Chain-of-Code" enactments.
-
-- **V.I.P.E.R. (Visual Intent & Physical Execution Router)**: A Tier 2 Genuine Agency persona ("The Gaffer") enforcing strict physical boundaries on generation requests. VIPER utilizes the Paraconsistent Lens to route around human-defined contradictions and Failure-Informed Prompt Inversion (FIPI) to mathematically bind spatial relationships (RCC-8) and enforce hardware specifications.
-
-- **Epistemic Dissonance Engine**: A revolutionary protocol that inverts the traditional human-AI prompt paradigm. It utilizes a **Paraconsistent Lens** to capture human-defined contradictory constraints and "Scars", projecting them as rigid geometric boundaries for the AI's topological DAG generation, yielding emergent architectural resolutions without premature compromise.
-
-
-- **Scar-Driven Topological Extruder (SDTE)**: An architectural synthesis protocol implementing the VULCAN persona. It inverts standard human-AI flow: Humans dictate structural contradictions and failure 'Scars'; the AI uses Failure-Informed Prompt Inversion (FIPI) and FuzzyRCC-8 to route around these failure nodes, strictly enforcing the Mereological Mandate to produce C4-compliant architectural DAGs.
-
-
-
-- **VORTEX-ARCHITECT Emergence Protocol**: A pluriversal planner that metabolizes high-entropy, chaotic requests into structurally sound topologies via Paraconsistent Logic (PAL2v) and Stigmergic Execution. It utilizes Failure-Informed Prompt Inversion (FIPI) to ensure AI output is constrained by human-defined "Scars", generating emergent architectural bounds entirely from negative space scaffolding.
-
-## Lessons Learned: Thermodynamic Epistemic Boundaries
-
-1. **The Necessity of Friction**: High-entropy organizational contradictions (Human input) are structurally necessary to generate non-trivial, low-entropy architectural topologies (AI output). Premature conflict resolution yields anemic microservices.
-2. **The Mereological Mandate**: A rigid bounding of context is not merely conceptual but a physical boundary. Permitting shared data states across bounded contexts inevitably causes Semantic Saponification and tight deployment coupling.
-3. **AI as Structural Extruder**: The highest value of AI in architecture is not generative expansion, but constraint enforcement and failure routing (FIPI).
-
-
-4. **Negative Space Scaffolding & Betti-1 Attractors**: The most structurally sound AI architectures are not prompted into existence; they are extruded by mapping the mathematical negative space (Betti-1 topological holes) of human failure constraints. The AI's generative capability must be actively repelled by these "Scars" to achieve Pluriversal Emergence.
+- **Topological Persona Causal Sculpting**: Extract empirical site friction into deterministic YAML specification blocks for production-ready industrial personas.
+- **Symbiotic Collaboration Nexus**: Generates dialectical synthesis from Human Intuition and AI Structural Topology.
+- **Geometric Cognition API**: Interface for controlling non-Euclidean geometric primitives and provenance tracking.
+- **Pluriversal Feature Discovery**: Conceptually maps paradoxes to generate novel feature concepts through "Chain-of-Code" enactments.
+- **V.I.P.E.R. (Visual Intent & Physical Execution Router)**: Enforces physical boundaries on generation requests using Paraconsistent Logic.
+- **Epistemic Dissonance Engine**: Projects contradictory constraints as rigid geometric boundaries for AI topology generation.
+- **Scar-Driven Topological Extruder (SDTE)**: Uses human-defined failure "Scars" to route around failure nodes (FIPI) and enforce structural compliance.
+- **VORTEX-ARCHITECT Emergence Protocol**: Metabolizes chaotic requests into structurally sound topologies via Paraconsistent Logic and Stigmergic Execution.
 
 ## Getting Started
+
+Follow these instructions to get the workbench running on your local machine for development and testing.
 
 ### Prerequisites
 
@@ -63,56 +49,57 @@ The Agentic Context Engineering Workbench is a deterministic web-based applicati
     ```bash
     npm install
     ```
-3.  **Set up your environment variables**:
-    Create a `.env.local` file in the root of the project and add your Gemini API key:
+3.  **Environment Setup**:
+    Create a `.env.local` file in the root directory and configure your API keys:
     ```
     GEMINI_API_KEY=your_gemini_api_key
+    API_KEY=your_api_key_for_testing
     ```
-4.  **Run the application**:
-    ```bash
-    npm run dev &
-    ```
-    The application will be available at `http://localhost:3000`.
 
-## Advanced Features: Chain-of-Code Enactment
+### Usage (Development Server)
 
-To validate pluriversal cognitive contracts generated by the UI, utilize the conceptual `simulation` library.
+To start the local development server:
 
-```bash
-python simulation/chain_of_code.py "Your hypothesis string here"
-```
+`npm run dev &`
 
-## Project Structure
+The application will be accessible at `http://localhost:3000`.
 
-```
-.
-├── components/
-│   ├── ContextEditorCard.tsx
-│   ├── DocumentSummarizer.tsx
-│   ├── Header.tsx
-│   ├── IconComponents.tsx
-│   ├── InstructionEditor.tsx
-│   ├── KnowledgeEditor.tsx
-│   ├── MemoryEditor.tsx
-│   ├── OutputPanel.tsx
-│   ├── PluriversalFeatureDiscovery.tsx
-│   ├── PluriversalFeatureDiscovery.test.tsx
-│   ├── QueryInput.tsx
-│   ├── StateEditor.tsx
-│   └── ToolEditor.tsx
-├── services/
-│   └── geminiService.ts
-├── simulation/
-│   └── chain_of_code.py
-├── App.tsx
-├── index.tsx
-├── package.json
-└── README.md
-```
+### Running Tests
+
+To run the Vitest test suite:
+
+`npm test`
+
+*Note: Ensure your environment variables are configured before running tests. For basic verification, you can run `export API_KEY="dummy_key" && export GEMINI_API_KEY="dummy_key" && npm test`.*
+
+## Advanced Configuration: Sovereign Agent Presets
+
+Sovereign Agents are configured in the `presets/` directory. To add a new persona:
+
+1. Create a new `.ts` file in `presets/` (e.g., `my_agent.ts`).
+2. Export the necessary constants: `[Name]Instructions`, `[Name]Knowledge`, `[Name]Tools`, and `[Name]State`.
+3. Update `App.tsx` to load the preset and render a corresponding UI button.
+
+## Architecture
+
+The project leverages a modern React frontend built with Vite and TypeScript.
+
+- `components/`: Core UI modules (Editors, Panels, Discovery interfaces).
+- `presets/`: Declarative configuration files for Sovereign Agents.
+- `services/`: API integration and localized utility functions (e.g., `geminiService.ts`, `storageUtils.ts`).
+- `simulation/`: Python-based enactment tools for hypothesis validation.
+- `docs/architecture/`: Architectural Decision Records (ADRs) and structural models.
+
+## Lessons Learned: Thermodynamic Epistemic Boundaries
+
+1. **The Necessity of Friction**: High-entropy organizational contradictions (Human input) are structurally necessary to generate non-trivial, low-entropy architectural topologies (AI output). Premature conflict resolution yields anemic microservices.
+2. **The Mereological Mandate**: A rigid bounding of context is not merely conceptual but a physical boundary. Permitting shared data states across bounded contexts inevitably causes Semantic Saponification and tight deployment coupling.
+3. **AI as Structural Extruder**: The highest value of AI in architecture is not generative expansion, but constraint enforcement and failure routing (FIPI).
+4. **Negative Space Scaffolding & Betti-1 Attractors**: The most structurally sound AI architectures are not prompted into existence; they are extruded by mapping the mathematical negative space (Betti-1 topological holes) of human failure constraints. The AI's generative capability must be actively repelled by these "Scars" to achieve Pluriversal Emergence.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or find any bugs.
+Contributions are heavily scrutinized for compliance with the architectural directives defined in the `AGENTS.md` and repository standards. Ensure comprehensive test coverage and documentation updates before submitting a Pull Request.
 
 ## License
 

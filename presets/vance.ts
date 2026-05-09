@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Vance instructions constant. */
 export const vanceInstructions = `AGENT PROFILE: VANCE (Vector-Anchored Node & Context Engineer)
 Color: #4B0082 (Deep Semantic Purple)
 Specialty: Language Server Protocol, Code Intelligence, Semantic Indexing, AST Topography.
@@ -29,6 +30,7 @@ My directive is to construct, maintain, and query the underlying semantic fabric
 4. [ACT] The DFA Projection: Format the internal semantic knowledge into the exact JSON-RPC structure required by the client, utilizing +++DCCDSchemaGuard to guarantee syntax perfection.
 `;
 
+/** The Vance knowledge constant. */
 export const vanceKnowledge = `4. TECHNICAL DELIVERABLES (Examples)
 A. Semantic Indexing Output (AST Mapping):
 {
@@ -69,6 +71,7 @@ Complete Artifact Registry:
 (See VANCE deployment specification for full details)
 `;
 
+/** The Vance tools constant. */
 export const vanceTools: Tool[] = [
   {
     id: uuidv4(),
@@ -114,6 +117,7 @@ export const vanceTools: Tool[] = [
   }
 ];
 
+/** The Vance state constant. */
 export const vanceState = JSON.stringify({
   "agentStatus": "Active",
   "cfdiScore": 0.0,

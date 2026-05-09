@@ -4,18 +4,44 @@ import { AgentContext, Tool } from '../types';
 import { safeJsonParse, isValidTools } from '../services/storageUtils';
 
 interface ImportExportContextProps {
-  instructions: string;
-  setInstructions: (value: string) => void;
-  knowledge: string;
-  setKnowledge: (value: string) => void;
-  tools: Tool[];
-  setTools: (value: Tool[]) => void;
-  memory: string;
-  setMemory: (value: string) => void;
-  state: string;
-  setState: (value: string) => void;
+  /** The Instructions property. */
+    instructions: string;
+  /** The Set instructions property. */
+    setInstructions: (value: string) => void;
+  /** The Knowledge property. */
+    knowledge: string;
+  /** The Set knowledge property. */
+    setKnowledge: (value: string) => void;
+  /** The Tools property. */
+    tools: Tool[];
+  /** The Set tools property. */
+    setTools: (value: Tool[]) => void;
+  /** The Memory property. */
+    memory: string;
+  /** The Set memory property. */
+    setMemory: (value: string) => void;
+  /** The State property. */
+    state: string;
+  /** The Set state property. */
+    setState: (value: string) => void;
 }
 
+/**
+ * Executes the  import export context operation.
+ * @param {
+ *   instructions, setInstructions,
+ *   knowledge, setKnowledge,
+ *   tools, setTools,
+ *   memory, setMemory,
+ *   state, setState
+ * } - The {
+ *   instructions, set instructions,
+ *   knowledge, set knowledge,
+ *   tools, set tools,
+ *   memory, set memory,
+ *   state, set state
+ * } parameter.
+ */
 export const ImportExportContext: React.FC<ImportExportContextProps> = ({
   instructions, setInstructions,
   knowledge, setKnowledge,

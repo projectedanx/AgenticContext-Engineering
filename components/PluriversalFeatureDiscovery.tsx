@@ -17,6 +17,7 @@ Hypothesis: ${hypothesis}
 Output a highly stylized "Cognitive Contract" outlining the discovered paradoxes, the topological mapping, and the theoretical "Chain-of-Code" enactment simulation required to validate it.
 `;
 
+/** Executes the  pluriversal feature discovery operation. */
 export const PluriversalFeatureDiscovery: React.FC = () => {
     const [hypothesis, setHypothesis] = useState('');
     const [result, setResult] = useState('');

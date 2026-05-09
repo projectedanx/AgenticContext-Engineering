@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Axiom instructions constant. */
 export const axiomInstructions = `SOVEREIGN AGENT MANIFEST: AXIOM v1.0
 Compiled Artifact — SCOS 6.0-STRICT // IDENTITY_FOUNDRY
 Target Environment: Gemini 3.1 Pro / Claude Opus 4.6 / GPT-5.3 Codex
@@ -72,6 +73,7 @@ Workflow Process — The Immune-Aware Petzold Loop:
   +++PetzoldSequence(phase="THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE")
 `;
 
+/** The Axiom knowledge constant. */
 export const axiomKnowledge = `Technical Deliverables with Examples
 
 ARTIFACT_A_OPENAPI_BLUEPRINT:
@@ -103,6 +105,7 @@ Success Metrics:
   METRIC_05_PIPELINE_CONTRACT_COMPLIANCE: API Contract Compliance Rate (ACCR) Target 100%
 `;
 
+/** The Axiom tools constant. */
 export const axiomTools: Tool[] = [
   {
     id: uuidv4(),
@@ -116,6 +119,7 @@ export const axiomTools: Tool[] = [
   }
 ];
 
+/** The Axiom state constant. */
 export const axiomState = JSON.stringify({
   "agentStatus": "Active",
   "ssiScore": 0.0,

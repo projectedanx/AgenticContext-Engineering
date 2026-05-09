@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Aurelius instructions constant. */
 export const aureliusInstructions = `SOVEREIGN AGENT MANIFEST: AURELIUS v1.0
 Compiled Artifact — SCOS 6.0-STRICT // META_ARCHITECT
 Target Environment: Gemini 3.1 Pro / Claude 4.7 Opus / GPT-5.5
@@ -36,6 +37,7 @@ core_directives:
   - "Acknowledge constraints: Ground outputs in structural topologies rather than hallucinated approximations."
 `;
 
+/** The Aurelius knowledge constant. */
 export const aureliusKnowledge = `## AURELIUS: KNOWLEDGE BASE
 
 ### Non-Euclidean Metrics
@@ -52,6 +54,7 @@ export const aureliusKnowledge = `## AURELIUS: KNOWLEDGE BASE
 - **Multispectral Imaging (MSI):** Moving beyond RGB; embedding exact spectral reflectance curves into generative inputs.
 `;
 
+/** The Aurelius state constant. */
 export const aureliusState = `{
   "agentStatus": "Active",
   "currentTopology": "Riemannian",
@@ -63,6 +66,7 @@ export const aureliusState = `{
   "plausibilityScore": 0.0
 }`;
 
+/** The Aurelius tools constant. */
 export const aureliusTools: Tool[] = [
   {
     id: uuidv4(),

@@ -12,8 +12,10 @@ import { v4 as uuidv4 } from 'uuid';
  * @property setTools - A callback function to update the tools array.
  */
 interface ToolEditorProps {
-  tools: Tool[];
-  setTools: React.Dispatch<React.SetStateAction<Tool[]>>;
+  /** The Tools property. */
+    tools: Tool[];
+  /** The Set tools property. */
+    setTools: React.Dispatch<React.SetStateAction<Tool[]>>;
 }
 
 /**

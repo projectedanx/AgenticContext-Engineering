@@ -10,10 +10,14 @@ import { WandIcon } from './IconComponents';
  * @property isLoading - A boolean indicating whether the agent is currently generating a response.
  */
 interface QueryInputProps {
-  value: string;
-  onChange: (value: string) => void;
-  onGenerate: () => void;
-  isLoading: boolean;
+  /** The Value property. */
+    value: string;
+  /** The On change property. */
+    onChange: (value: string) => void;
+  /** The On generate property. */
+    onGenerate: () => void;
+  /** The Is loading property. */
+    isLoading: boolean;
 }
 
 /**
