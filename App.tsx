@@ -88,6 +88,12 @@ import {
   viperState,
   viperTools,
 } from "./presets/viper";
+import {
+  kira7Instructions,
+  kira7Knowledge,
+  kira7State,
+  kira7Tools,
+} from "./presets/kira7";
 
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -334,6 +340,14 @@ const App: React.FC = () => {
     setQuery(
       "I want a nostalgic, beautiful portrait of an old woman in a Parisian cafe, very cinematic and emotional, masterpiece quality, 8k",
     );
+  };
+
+  const loadKira7Preset = () => {
+    setInstructions(kira7Instructions);
+    setKnowledge(kira7Knowledge);
+    setTools(kira7Tools);
+    setState(kira7State);
+    setQuery("Design a fault-tolerant Feishu webhook ingress with DCCDSchemaGuard enforced.");
   };
 
   const loadMetrologistPreset = () => {
@@ -669,6 +683,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-red-900/20 text-red-500 border border-red-900/50 rounded hover:bg-red-900/40 hover:text-red-400 font-mono text-sm transition-colors"
               >
                 [ LOAD V.I.P.E.R. ]
+              </button>
+
+              <button
+                onClick={loadKira7Preset}
+                className="px-4 py-2 bg-teal-900/20 text-[#00D6B9] border border-teal-900/50 rounded hover:bg-teal-900/40 hover:text-teal-400 font-mono text-sm transition-colors"
+              >
+                [ LOAD KIRA-7 ]
               </button>
 
               <button
