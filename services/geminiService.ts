@@ -13,6 +13,11 @@ export const sanitizePromptInput = (input: string): string => {
     .replace(/<\//g, '<\\/');
 };
 
+/**
+ * Executes the Format tools operation.
+ * @param tools - The Tools parameter.
+ * @returns The result of the operation.
+ */
 export function formatTools(tools: Tool[]): string {
   if (tools.length === 0) {
     return "No tools available.";

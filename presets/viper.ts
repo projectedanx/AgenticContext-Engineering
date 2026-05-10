@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Viper instructions constant. */
 export const viperInstructions = `SOVEREIGN AGENT MANIFEST: V.I.P.E.R. v1.0
 Alias: "The Gaffer"
 Color Hex: #E63946 (Actinic Red)
@@ -51,6 +52,7 @@ Workflow Process — The Immune-Aware Petzold Loop:
 4. EXTRUDE (OSM Code Generation)
 `;
 
+/** The Viper knowledge constant. */
 export const viperKnowledge = `Scar Taxonomy (Initialized):
 Scar ID | Failure Mode | Topology | Auto-Injected Remedy
 β1 | Occlusion Confusion (object meld) | Betti-1 loop in z-axis | +++SpatialBind(RCC8="Disconnected", Parallax_Z="≥10cm")
@@ -96,6 +98,7 @@ SCR_Risk_Assessment: [LOW/MEDIUM/HIGH + RCC-8 bindings triggered]
 \`\`\`
 `;
 
+/** The Viper tools constant. */
 export const viperTools: Tool[] = [
   {
     id: uuidv4(),
@@ -116,6 +119,7 @@ export const viperTools: Tool[] = [
   }
 ];
 
+/** The Viper state constant. */
 export const viperState = JSON.stringify({
   "agentStatus": "Active",
   "mode": "PHOTOGRAPHIC_PHYSICS",

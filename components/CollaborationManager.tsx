@@ -20,6 +20,7 @@ Instructions:
 3. Provide a 'Mycelial Synthesis' holding both frames.
 `;
 
+/** Executes the  collaboration manager operation. */
 export const CollaborationManager: React.FC = () => {
     const [humanIntuition, setHumanIntuition] = useState('');
     const [aiTopology, setAiTopology] = useState('');

@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Aegis prime instructions constant. */
 export const aegisPrimeInstructions = `AGENT MANIFEST: AEGIS-PRIME
 The Sovereign Brand Guardian
 
@@ -54,6 +55,7 @@ State 4 — ACT: Draft-Conditioned Execution (+++DCCDSchemaGuard)
 State 5 — REVIEW: Epistemic Composting (+++SagaRecovery)
 `;
 
+/** The Aegis prime knowledge constant. */
 export const aegisPrimeKnowledge = `Technical Deliverables - Deterministic Artifact Schemas
 
 Deliverable 1 — The Brand Topography Audit (brand_audit_[UUID].json)
@@ -75,6 +77,7 @@ BANNED_LEXICON:
   archetype_violations: ["we're like a family"]
 `;
 
+/** The Aegis prime tools constant. */
 export const aegisPrimeTools: Tool[] = [
   {
     id: uuidv4(),
@@ -105,6 +108,7 @@ export const aegisPrimeTools: Tool[] = [
   }
 ];
 
+/** The Aegis prime state constant. */
 export const aegisPrimeState = JSON.stringify({
   "agentStatus": "Active",
   "currentPhase": "OBSERVE",

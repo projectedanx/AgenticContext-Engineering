@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Lexical topology miner instructions constant. */
 export const lexicalTopologyMinerInstructions = `PRODUCT-REQUIREMENTS PROMPT (PRP): THE LEXICAL TOPOLOGY MINER
 JUR_ID: DRP-LEX-MINE-2026 DOMAIN: Topological Retrieval, Exploration and Discovery, Semiotic Metrology SCOS_LAYER: 2.5 (Semiotic Umwelt)
 PDL_DECORATORS: +++ContextLock(anchor="SOURCE_USER_SOVEREIGNTY", refresh_interval=1024)
@@ -149,9 +150,11 @@ Extract the Pluriversal Knowledge Capsule. Format the emergent synthesis identif
   }
 }`;
 
+/** The Lexical topology miner knowledge constant. */
 export const lexicalTopologyMinerKnowledge = `The Lexical Topology Engine operates on semantic boundaries, analyzing terms across orthogonal disciplines.
 Key concepts: Paraconsistent Hasse lattice, Vector Symbolic Architecture, Cellular Sheaf Theory, Zigzag Persistent Homology.`;
 
+/** The Lexical topology miner tools constant. */
 export const lexicalTopologyMinerTools: Tool[] = [
   {
     id: uuidv4(),
@@ -182,6 +185,7 @@ export const lexicalTopologyMinerTools: Tool[] = [
   }
 ];
 
+/** The Lexical topology miner state constant. */
 export const lexicalTopologyMinerState = JSON.stringify({
   "agentStatus": "Active",
   "activeZone": "Semantic Drift",

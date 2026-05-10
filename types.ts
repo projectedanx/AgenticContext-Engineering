@@ -8,11 +8,16 @@
  * @property required - A boolean indicating whether the parameter is required.
  */
 export interface ToolParameter {
-  id: string;
-  name: string;
-  type: string;
-  description: string;
-  required: boolean;
+  /** The Id property. */
+    id: string;
+  /** The Name property. */
+    name: string;
+  /** The Type property. */
+    type: string;
+  /** The Description property. */
+    description: string;
+  /** The Required property. */
+    required: boolean;
 }
 
 /**
@@ -23,10 +28,14 @@ export interface ToolParameter {
  * @property parameters - An array of parameters for the tool.
  */
 export interface Tool {
-  id:string;
-  name: string;
-  description: string;
-  parameters: ToolParameter[];
+  /** The Id property. */
+    id:string;
+  /** The Name property. */
+    name: string;
+  /** The Description property. */
+    description: string;
+  /** The Parameters property. */
+    parameters: ToolParameter[];
 }
 
 /**
@@ -39,40 +48,58 @@ export interface Tool {
  * @property query - The user's query.
  */
 export interface AgentContext {
-  instructions: string;
-  knowledge: string;
-  tools: Tool[];
-  memory: string;
-  state: string; // JSON as a string
-  query: string;
+  /** The Instructions property. */
+    instructions: string;
+  /** The Knowledge property. */
+    knowledge: string;
+  /** The Tools property. */
+    tools: Tool[];
+  /** The Memory property. */
+    memory: string;
+  /** The State property. */
+    state: string; // JSON as a string
+  /** The Query property. */
+    query: string;
 }
 
 /**
  * Represents a project stakeholder with specific constraints.
  */
 export interface Stakeholder {
-  id: string;
-  role: string;
-  constraints: string[];
+  /** The Id property. */
+    id: string;
+  /** The Role property. */
+    role: string;
+  /** The Constraints property. */
+    constraints: string[];
 }
 
 /**
  * Represents a decomposed user story.
  */
 export interface UserStory {
-  id: string;
-  epicId: string;
-  description: string;
-  acceptanceCriteria: string[];
-  complexity: number;
+  /** The Id property. */
+    id: string;
+  /** The Epic id property. */
+    epicId: string;
+  /** The Description property. */
+    description: string;
+  /** The Acceptance criteria property. */
+    acceptanceCriteria: string[];
+  /** The Complexity property. */
+    complexity: number;
 }
 
 /**
  * Represents a high-level product epic.
  */
 export interface Epic {
-  id: string;
-  name: string;
-  description: string;
-  status: 'Draft' | 'Decomposing' | 'Ready';
+  /** The Id property. */
+    id: string;
+  /** The Name property. */
+    name: string;
+  /** The Description property. */
+    description: string;
+  /** The Status property. */
+    status: 'Draft' | 'Decomposing' | 'Ready';
 }

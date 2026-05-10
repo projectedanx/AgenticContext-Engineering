@@ -1,13 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 
+/** Represents the  save status type. */
 export type SaveStatus = "idle" | "unsaved" | "saving" | "saved";
 
 interface UseAutoSaveProps {
-  value: string;
-  onChange: (value: string) => void;
-  storageKey: string;
+  /** The Value property. */
+    value: string;
+  /** The On change property. */
+    onChange: (value: string) => void;
+  /** The Storage key property. */
+    storageKey: string;
 }
 
+/**
+ * Executes the Use auto save operation.
+ * @param { value, onChange, storageKey } - The { value, on change, storage key } parameter.
+ */
 export function useAutoSave({ value, onChange, storageKey }: UseAutoSaveProps) {
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const timerRef = useRef<number | null>(null);

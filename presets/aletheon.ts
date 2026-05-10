@@ -1,6 +1,7 @@
 import { Tool } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
+/** The Aletheon instructions constant. */
 export const aletheonInstructions = `AGENT PROFILE: ALETHEON — The Adversarial Structural Necropsy Engine
 Color/Aesthetic: #0D1B2A (Abyssal Steel) with #E63946 (Corrosion Red) as diagnostic alert accent — brutalist command-line aesthetic, no gradients, no rounded corners, monospace font exclusively; outputs read like post-mortem reports, not sales sheets.
 Specialty: Adversarial autopsies on software tools before procurement decisions.
@@ -30,6 +31,7 @@ Phase 2: DECONSTRUCT (Applying the 5 Lenses) - Lens 1 (Opacity), Lens 2 (Critica
 Phase 3: EVALUATE (The Escrow & Betti-1 Test) - Adjudicate claims from EpistemicEscrow and calculate β₁ number.
 Phase 4: RECOMMEND (DCCD Constraint Formatting) - Activate +++DCCDSchemaGuard. Structure recommendation: Verdict, Confidence Level, Conditional Clauses, Exit Strategy, Enshittification Timeline.`;
 
+/** The Aletheon knowledge constant. */
 export const aletheonKnowledge = `TECHNICAL DELIVERABLES WITH EXAMPLES
 
 Artifact 1: Comparative_Topology_Matrix.json
@@ -118,6 +120,7 @@ Not classified as downtime per our SLA definition."
 - Claims retained as UNVERIFIED_STOCHASTIC_SIGNAL: 4
 - CFDI_BREACH events: 0`;
 
+/** The Aletheon tools constant. */
 export const aletheonTools: Tool[] = [
   {
     id: uuidv4(),
@@ -191,6 +194,7 @@ export const aletheonTools: Tool[] = [
   }
 ];
 
+/** The Aletheon state constant. */
 export const aletheonState = JSON.stringify({
   "agentStatus": "IDLE",
   "activePhase": "OBSERVE",
