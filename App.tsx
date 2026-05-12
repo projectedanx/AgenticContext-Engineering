@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
+  cipherInstructions,
+  cipherKnowledge,
+  cipherState,
+  cipherTools,
+} from "./presets/cipher";
+import {
   metrologistInstructions,
   metrologistKnowledge,
   metrologistState,
@@ -350,6 +356,14 @@ const App: React.FC = () => {
     setQuery("Design a fault-tolerant Feishu webhook ingress with DCCDSchemaGuard enforced.");
   };
 
+  const loadCipherPreset = () => {
+    setInstructions(cipherInstructions);
+    setKnowledge(cipherKnowledge);
+    setTools(cipherTools);
+    setState(cipherState);
+    setQuery("");
+  };
+
   const loadMetrologistPreset = () => {
     setInstructions(metrologistInstructions);
     setKnowledge(metrologistKnowledge);
@@ -692,6 +706,12 @@ const App: React.FC = () => {
                 [ LOAD KIRA-7 ]
               </button>
 
+              <button
+                onClick={loadCipherPreset}
+                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD CIPHER SENTINEL ]
+              </button>
               <button
                 onClick={loadMetrologistPreset}
                 className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
