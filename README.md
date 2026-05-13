@@ -8,7 +8,9 @@ The Agentic Context Engineering Workbench is a deterministic web-based applicati
 
 ## Purpose
 
-The primary goal of this workbench is to eliminate "Semantic Saponification" (the tendency for AI outputs to degrade into vague, agreeable averages) by enforcing strict structural boundaries. It empowers developers to define specific failure modes, operational constraints, and architectural imperatives via "Sovereign Agent Presets," allowing for precise control over the generative process.
+The primary goal of this workbench is to eliminate "Semantic Saponification" (the tendency for AI outputs to degrade into vague, agreeable averages) by enforcing strict structural boundaries anchored in **Pluriversal Epistemology** and **Paraconsistent Cognition**. It empowers developers to define specific failure modes, operational constraints, and architectural imperatives via "Sovereign Agent Presets," allowing for precise control over the generative process.
+
+This repository also serves as the theoretical and empirical testing ground for next-generation AI architectures, notably the **Pluriversal Paraconsistent Mixture of Experts (P²-MoE)**, which replaces homogeneous softmax routing with structurally rigid Epistemic Dissonance Routers (EDR) to prevent mode collapse during cross-domain synthesis.
 
 ## Key Features
 
@@ -27,6 +29,7 @@ The primary goal of this workbench is to eliminate "Semantic Saponification" (th
 - **Epistemic Dissonance Engine**: Projects contradictory constraints as rigid geometric boundaries for AI topology generation.
 - **Scar-Driven Topological Extruder (SDTE)**: Uses human-defined failure "Scars" to route around failure nodes (FIPI) and enforce structural compliance.
 - **VORTEX-ARCHITECT Emergence Protocol**: Metabolizes chaotic requests into structurally sound topologies via Paraconsistent Logic and Stigmergic Execution.
+- **P²-MoE Architecture Hypothesis**: Formalized in ADR-010, proposing the replacement of standard attention with Epistemic Dissonance Routing, Topological KV-Caching, and Vector Symbolic Architectures (VSA) for multimodal isolation.
 
 ## Getting Started
 
@@ -58,11 +61,11 @@ Follow these instructions to get the workbench running on your local machine for
 
 ### Usage (Development Server)
 
-To start the local development server:
+To start the local development server and access the workbench UI:
 
 `npm run dev &`
 
-The application will be accessible at `http://localhost:3000`.
+The application will be accessible at `http://localhost:3000`. From here, you can load Sovereign Agent Presets, define strict Betti-1 bounding constraints in the Instruction Editor, and initiate Pluriversal Feature Discovery enactments.
 
 ### Running Tests
 
