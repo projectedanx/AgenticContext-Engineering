@@ -228,6 +228,7 @@ const defaultState = JSON.stringify(
  * @returns {React.ReactElement} The rendered App component.
  */
 const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"presets" | "editors" | "tools">("presets");
   // Agent Context State
   const [instructions, setInstructions] = useState<string>("");
   const [knowledge, setKnowledge] = useState<string>("");
@@ -593,46 +594,36 @@ const App: React.FC = () => {
       <main className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column: Context Editors */}
         <div className="flex flex-col gap-6">
-          <InstructionEditor
-            value={instructions}
-            onChange={setInstructions}
-            storageKey={INSTRUCTIONS_KEY}
-          />
-          <KnowledgeEditor
-            value={knowledge}
-            onChange={setKnowledge}
-            storageKey={KNOWLEDGE_KEY}
-          />
-          <ToolEditor tools={tools} setTools={setTools} />
-          <MemoryEditor
-            value={memory}
-            onChange={setMemory}
-            storageKey={MEMORY_KEY}
-          />
-          <StateEditor
-            value={state}
-            onChange={setState}
-            storageKey={STATE_KEY}
-          />
-          <TopologicalPersonaSculptor />
-          <PluriversalFeatureDiscovery />
-            <GeometricCognitionAPI />
-          <StakeholderMatrix />
-          <CollaborationManager />
-          <ImportExportContext
-            instructions={instructions}
-            setInstructions={setInstructions}
-            knowledge={knowledge}
-            setKnowledge={setKnowledge}
-            tools={tools}
-            setTools={setTools}
-            memory={memory}
-            setMemory={setMemory}
-            state={state}
-            setState={setState}
-          />
+          <div className="flex space-x-2 border-b border-gray-700 pb-2">
+            <button
+              onClick={() => setActiveTab("presets")}
+              className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
+                activeTab === "presets" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+              }`}
+            >
+              [ PRESETS ]
+            </button>
+            <button
+              onClick={() => setActiveTab("editors")}
+              className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
+                activeTab === "editors" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+              }`}
+            >
+              [ EDITORS ]
+            </button>
+            <button
+              onClick={() => setActiveTab("tools")}
+              className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
+                activeTab === "tools" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+              }`}
+            >
+              [ TOOLS ]
+            </button>
+          </div>
 
-          <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
+          {activeTab === "presets" && (
+            <div className="flex flex-col gap-6">
+              <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
             <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">
               SOVEREIGN AGENT PRESETS
             </h3>
@@ -744,10 +735,58 @@ const App: React.FC = () => {
               </button>
             </div>
           </div>
+            </div>
+          )}
 
+          {activeTab === "editors" && (
+            <div className="flex flex-col gap-6">
+          <InstructionEditor
+            value={instructions}
+            onChange={setInstructions}
+            storageKey={INSTRUCTIONS_KEY}
+          />
+          <KnowledgeEditor
+            value={knowledge}
+            onChange={setKnowledge}
+            storageKey={KNOWLEDGE_KEY}
+          />
+          <ToolEditor tools={tools} setTools={setTools} />
+          <MemoryEditor
+            value={memory}
+            onChange={setMemory}
+            storageKey={MEMORY_KEY}
+          />
+          <StateEditor
+            value={state}
+            onChange={setState}
+            storageKey={STATE_KEY}
+          />
+            </div>
+          )}
+
+          {activeTab === "tools" && (
+            <div className="flex flex-col gap-6">
+          <TopologicalPersonaSculptor />
+          <PluriversalFeatureDiscovery />
+            <GeometricCognitionAPI />
+          <StakeholderMatrix />
+          <CollaborationManager />
+          <ImportExportContext
+            instructions={instructions}
+            setInstructions={setInstructions}
+            knowledge={knowledge}
+            setKnowledge={setKnowledge}
+            tools={tools}
+            setTools={setTools}
+            memory={memory}
+            setMemory={setMemory}
+            state={state}
+            setState={setState}
+          />
           <DocumentSummarizer />
+            </div>
+          )}
         </div>
-
         {/* Right Column: Query & Output */}
         <div className="flex flex-col gap-6 sticky top-6 self-start">
           <QueryInput
