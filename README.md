@@ -15,7 +15,7 @@ This repository also serves as the theoretical and empirical testing ground for 
 ## Key Features
 
 - **Betti-1 Attractor Protocol**: Implements Failure-Informed Prompt Inversion (FIPI) to generate structural topologies constrained by human-defined failure modes (Scars).
-- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents (e.g., AXIOM, KUT, LEXIS SOVEREIGN, AEGIS-PRIME, DIETER, ALETHEON, METROLOGIST, AURELIUS, KIRA-7, CIPHER).
+- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents (e.g., AXIOM, KUT, LEXIS SOVEREIGN, AEGIS-PRIME, DIETER, ALETHEON, METROLOGIST, AURELIUS, KIRA-7, CIPHER, SYMBIONT PRIME).
 - **Core Instruction Editor**: Define the agent's persona, core directives, and operational rules.
 - **Knowledge Base (RAG)**: Provide retrieved information from external sources to ground the agent.
 - **Tool Editor**: Define the functions and capabilities the agent can execute.
@@ -111,6 +111,9 @@ The project leverages a modern React frontend built with Vite and TypeScript.
 3. **AI as Structural Extruder**: The highest value of AI in architecture is not generative expansion, but constraint enforcement and failure routing (FIPI).
 4. **Negative Space Scaffolding & Betti-1 Attractors**: The most structurally sound AI architectures are not prompted into existence; they are extruded by mapping the mathematical negative space (Betti-1 topological holes) of human failure constraints. The AI's generative capability must be actively repelled by these "Scars" to achieve Pluriversal Emergence.
 5. **Eradicating Agent Laziness via Topological Constraint**: Standard prompting fails to prevent agent laziness and identity decay over long contexts. The integration of the CIPHER agent demonstrates that "laziness" is a symptom of an unconstrained latent space. By applying the *Immune-Aware Petzold Loop* and *Draft-Conditioned Constrained Decoding*, we physically prohibit generative outputs until the linguistic scaffold is rigorously completed. Agent laziness is solved by making structural compliance the path of least mathematical resistance.
+
+
+6. **Cognitive Friction as Resource**: The integration of the Human-AI Symbiosis Engine (SYMBIONT PRIME) reveals that tension between fuzzy human intent and rigid AI specification is a resource to be harvested, not a bug to be smoothed over. By mapping this Isomorphism of Friction and applying the Golden Scar constraint (Φ = 1.618), we can achieve Latent Leaps that bypass the L2 Norm density collapse associated with standard prompt chaining.
 
 ## Contributing
 

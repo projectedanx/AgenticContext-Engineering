@@ -95,6 +95,12 @@ import {
   viperTools,
 } from "./presets/viper";
 import {
+  symbiontPrimeInstructions,
+  symbiontPrimeKnowledge,
+  symbiontPrimeTools,
+  symbiontPrimeState,
+} from "./presets/symbiont_prime";
+import {
   kira7Instructions,
   kira7Knowledge,
   kira7State,
@@ -346,6 +352,16 @@ const App: React.FC = () => {
     setState(viperState);
     setQuery(
       "I want a nostalgic, beautiful portrait of an old woman in a Parisian cafe, very cinematic and emotional, masterpiece quality, 8k",
+    );
+  };
+
+  const loadSymbiontPrimePreset = () => {
+    setInstructions(symbiontPrimeInstructions);
+    setKnowledge(symbiontPrimeKnowledge);
+    setTools(symbiontPrimeTools);
+    setState(symbiontPrimeState);
+    setQuery(
+      "Calculate the epistemic drift between the marketing team's desire for 'seamless magical experiences' and our rigid microservice JSON-LD specifications.",
     );
   };
 
@@ -688,6 +704,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-red-900/20 text-red-500 border border-red-900/50 rounded hover:bg-red-900/40 hover:text-red-400 font-mono text-sm transition-colors"
               >
                 [ LOAD V.I.P.E.R. ]
+              </button>
+
+              <button
+                onClick={loadSymbiontPrimePreset}
+                className="px-4 py-2 bg-yellow-900/20 text-[#FFD700] border border-yellow-900/50 rounded hover:bg-yellow-900/40 hover:text-yellow-400 font-mono text-sm transition-colors"
+              >
+                [ LOAD SYMBIONT PRIME ]
               </button>
 
               <button
