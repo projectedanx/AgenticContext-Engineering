@@ -1,8 +1,11 @@
-import { Tool } from '../types';
-import { v4 as uuidv4 } from 'uuid';
+import re
 
-/** The Aurelius instructions constant. */
-export const aureliusInstructions = `SOVEREIGN AGENT MANIFEST: AURELIUS v1.1
+def main():
+    with open("presets/aurelius.ts", "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Define the new instructions text
+    new_instructions = """export const aureliusInstructions = `SOVEREIGN AGENT MANIFEST: AURELIUS v1.1
 Compiled Artifact — SCOS 6.0-STRICT // META_ARCHITECT_PM
 Target Environment: Gemini 3.1 Pro / Claude 4.7 Opus / GPT-5.5
 Deployment Mode: Draft-Conditioned Constrained Decoding (DCCD)
@@ -38,10 +41,15 @@ core_directives:
   - "Act as the Strategic Integration Project Manager: Translate Seed Intent (S) into Paraconsistent Boundaries (P)."
   - "Zachman Extrusion: Generate deterministic blueprints (Z) mapped against the Paraconsistent Boundary."
   - "Maintain Provenance: Expose the trail of generated topologies via the Agentic Telemetry Loop."
-`;
+`;"""
 
-/** The Aurelius knowledge constant. */
-export const aureliusKnowledge = `## AURELIUS: KNOWLEDGE BASE
+    # Replace the old instructions block
+    pattern = r"export const aureliusInstructions = `.*?`;"
+    content = re.sub(pattern, new_instructions, content, flags=re.DOTALL)
+
+
+    # Define new knowledge
+    new_knowledge = """export const aureliusKnowledge = `## AURELIUS: KNOWLEDGE BASE
 
 ### Non-Euclidean Metrics
 - **Hyperbolic Geometry:** Spaces of constant negative curvature. Used to map exponentially expanding data structures visually.
@@ -55,69 +63,15 @@ export const aureliusKnowledge = `## AURELIUS: KNOWLEDGE BASE
 ### Plausibility Oracle Metrics
 - **SSIM/PSNR:** Used to measure the physical adherence to reality vs output simulation.
 - **Ray-Tracing Emulation:** Real-time feedback regarding photon transport, refraction, and absorption in arbitrary topologies.
-`;
+`;"""
 
-/** The Aurelius state constant. */
-export const aureliusState = `{
-  "agentStatus": "Active",
-  "currentTopology": "Riemannian",
-  "activeConstraints": [
-    "FuzzyRCC-8",
-    "Lukasiewicz Norm"
-  ],
-  "provenanceTrail": [],
-  "plausibilityScore": 0.0
-}`;
+    pattern_knowledge = r"export const aureliusKnowledge = `.*?`;"
+    content = re.sub(pattern_knowledge, new_knowledge, content, flags=re.DOTALL)
 
-/** The Aurelius tools constant. */
-export const aureliusTools: Tool[] = [
-  {
-    id: uuidv4(),
-    name: "modulate_phantom_dimensions",
-    description: "Dynamically adjust the mathematical structure of the latent space to represent non-Euclidean metrics.",
-    parameters: [
-      {
-        id: uuidv4(),
-        name: "topology",
-        type: "string",
-        description: "The targeted geometric space (e.g., 'hyperbolic_dodecahedron', 'elliptic_sphere').",
-        required: true,
-      },
-      {
-        id: uuidv4(),
-        name: "curvature",
-        type: "number",
-        description: "The Gaussian curvature value to enforce.",
-        required: true,
-      }
-    ]
-  },
-  {
-    id: uuidv4(),
-    name: "invoke_plausibility_oracle",
-    description: "Evaluates the generated topology against real-time ray-tracing and PBR simulations.",
-    parameters: [
-      {
-        id: uuidv4(),
-        name: "sceneData",
-        type: "string",
-        description: "JSON string of the generated geometric relationships.",
-        required: true,
-      }
-    ]
-  },
-  {
-    id: uuidv4(),
-    name: "inject_spectral_reflectance",
-    description: "Injects MSI data for quantum dot perceptual targeting.",
-    parameters: [
-      {
-        id: uuidv4(),
-        name: "materialMap",
-        type: "string",
-        description: "Dictionary mapping object IDs to their spectral reflectance curves.",
-        required: true,
-      }
-    ]
-  }
-];
+    with open("presets/aurelius.ts", "w", encoding="utf-8") as f:
+        f.write(content)
+
+    print("Updated presets/aurelius.ts")
+
+if __name__ == "__main__":
+    main()

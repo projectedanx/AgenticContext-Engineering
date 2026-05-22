@@ -20,3 +20,8 @@ Adherence to the Petzold Sequence (`THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE` o
 - **The Value of Constraints (Scars):** Maximum emergent utility is achieved when humans provide the negative space: the lived failure modes, the "Scars", and the contradictory constraints (NFRs).
 - **Failure-Informed Prompt Inversion (FIPI):** By routing a structural DAG *around* the human-defined failure nodes (using the Paraconsistent Lens), the AI naturally extrudes valid architecture from the remaining latent space. The human's ambiguity becomes the AI's geometric boundary.
 - **Emergent Symbiosis via V.I.P.E.R.:** Friction is generative. When the system outright rejects vague adjectival input and mathematically forces strict physical hardware parameters, the human is forced to provide necessary high-entropy structural context, while the AI provides the low-entropy constraint envelope.
+
+
+## 4. Agentic Inversion & Structural Mapping
+- **Mapping over Solving:** We have shifted the AI paradigm from an autonomous "auto-solver" to a **Structural Mapper**. In a complex architecture, an auto-solver attempts to average out constraints (Semantic Saponification). A Structural Mapper, driven by the PM Persona, uses Paraconsistent Mapping to expose and maintain the geometry of these constraints, producing deterministic blueprints (like Zachman Framework specifications).
+- **The Value of Paraconsistent Mapping:** By mapping contradictions rather than resolving them prematurely, we preserve high-entropy friction, allowing the human to sculpt constraints effectively.
