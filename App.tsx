@@ -59,6 +59,12 @@ import {
 } from "./presets/nextjs_rag";
 
 import {
+  aegis11Instructions,
+  aegis11Knowledge,
+  aegis11Tools,
+  aegis11State
+} from "./presets/aegis_11";
+import {
   aegisPrimeInstructions,
   aegisPrimeKnowledge,
   aegisPrimeTools,
@@ -313,6 +319,14 @@ const App: React.FC = () => {
     setQuery(
       "What is the testing strategy for the Next.js RAG agent and how are hallucination risks mitigated?",
     );
+  };
+
+  const loadAegis11Preset = () => {
+    setInstructions(aegis11Instructions);
+    setKnowledge(aegis11Knowledge);
+    setState(aegis11State);
+    setTools(aegis11Tools);
+    // addMessage("Loaded AEGIS-11 Sovereign Preset.", "system");
   };
 
   const loadAegisPrimePreset = () => {
@@ -678,6 +692,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
               >
                 [ LOAD NEXTJS RAG ]
+              </button>
+              <button
+                onClick={loadAegis11Preset}
+                className="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors border border-gray-700 hover:border-gray-600 group"
+              >
+                <div className="font-semibold text-purple-400 group-hover:text-purple-300">AEGIS-11</div>
+                <div className="text-sm text-gray-400 mt-1">Autonomic Epistemic Gatekeeper</div>
               </button>
               <button
                 onClick={loadAegisPrimePreset}
