@@ -107,6 +107,14 @@ import {
   kira7Tools,
 } from "./presets/kira7";
 
+import {
+  tactileDialecticianInstructions,
+  tactileDialecticianKnowledge,
+  tactileDialecticianState,
+  tactileDialecticianTools,
+} from "./presets/tactile_dialectician";
+
+
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
 import { GeometricCognitionAPI } from "./components/GeometricCognitionAPI";
