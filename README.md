@@ -126,3 +126,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ### User Interface Refactor (May 2026)
 
 To support the growing list of multi-agent instances and advanced tools, the frontend layout in `App.tsx` has been refactored to use a tabbed interface. This allows users to easily navigate between "Presets" (for loading different sovereign agents), "Editors" (for modifying instructions, knowledge, tools, and memory), and "Tools" (for accessing advanced features like the TopologicalPersonaSculptor and CollaborationManager) without cluttering the screen.
+
+- **Tactile Dialectician**: Production-ready PM Persona that enforces Semantic Metrology and uses the Golden Scar Protocol to resolve logical conflicts deterministically.
