@@ -33,15 +33,15 @@ This repository also serves as the theoretical and empirical testing ground for 
 
 ## Getting Started
 
-Follow these instructions to get the workbench running on your local machine for development and testing.
+Follow these instructions to get the workbench running on your local machine for development and testing. This guide covers setup, usage, and local development practices.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14 or later)
-- [npm](https://www.npmjs.com/)
-- [Python 3](https://www.python.org/) (for CoC Enactment Simulation scripts)
+- [Node.js](https://nodejs.org/) (v18 or later recommended)
+- [npm](https://www.npmjs.com/) (v9 or later recommended)
+- [Python 3](https://www.python.org/) (required for CoC Enactment Simulation scripts and auxiliary tools)
 
-### Installation
+### Installation & Setup
 
 1.  **Clone the repository**:
     ```bash
@@ -49,31 +49,39 @@ Follow these instructions to get the workbench running on your local machine for
     cd agentic-context-engineering-workbench
     ```
 2.  **Install dependencies**:
+    Due to potential network instability in the development environment, it is recommended to use `npm ci` for a clean install:
     ```bash
-    npm install
+    npm install --package-lock-only
+    npm ci
     ```
 3.  **Environment Setup**:
-    Create a `.env.local` file in the root directory and configure your API keys:
+    Create a `.env.local` file in the root directory and configure your API keys. The Gemini API key is required for full functionality:
     ```
     GEMINI_API_KEY=your_gemini_api_key
     API_KEY=your_api_key_for_testing
     ```
+    *Note: For testing purposes only, you may use dummy values (e.g., `dummy_key`), but valid keys are required for actual Agent queries.*
 
 ### Usage (Development Server)
 
-To start the local development server and access the workbench UI:
+To start the local Vite development server and access the workbench UI:
 
 `npm run dev &`
 
-The application will be accessible at `http://localhost:3000`. From here, you can load Sovereign Agent Presets, define strict Betti-1 bounding constraints in the Instruction Editor, and initiate Pluriversal Feature Discovery enactments.
+The application will be accessible at `http://localhost:3000`.
+
+**Navigation & Features**:
+- **Presets Tab**: Load predefined Sovereign Agent Presets (e.g., AXIOM, CIPHER) to populate the context editors.
+- **Editors Tab**: Manually define or adjust the agent's instructions, knowledge base (RAG), available tools, and short/long-term memory.
+- **Tools Tab**: Access advanced features like the TopologicalPersonaSculptor and CollaborationManager.
 
 ### Running Tests
 
-To run the Vitest test suite:
+To run the Vitest test suite, ensure your environment variables are configured. For a complete pass across all unit tests:
 
-`npm test`
+`export API_KEY="dummy_key" && export GEMINI_API_KEY="dummy_key" && npm test -- --run`
 
-*Note: Ensure your environment variables are configured before running tests. For basic verification, you can run `export API_KEY="dummy_key" && export GEMINI_API_KEY="dummy_key" && npm test`.*
+*Note: Use the `--run` flag to execute tests in non-watch mode, which is particularly useful in CI/CD pipelines.*
 
 ## Advanced Configuration: Sovereign Agent Presets
 
