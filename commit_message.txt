@@ -1,8 +1,0 @@
-feat: Implement Scar-Driven Topological Extruder (SDTE) for VULCAN
-
-- Create `vulcan_architectural_inversion_nexus` directory.
-- Add `plan.md` defining the SDTE strategy:
-  - Inversion Strategy (Friction Ingestion, Paraconsistent Mapping, FIPI)
-  - Thesis on value topology (Human entropy vs AI constraint)
-- Add `checklist.md` enforcing strict epistemic and structural gates (Mereological Mandate, Shared Database Anathema).
-- Update `README.md` with the new SDTE feature and a "Lessons Learned: Thermodynamic Epistemic Boundaries" section.
