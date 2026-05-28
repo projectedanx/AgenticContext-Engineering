@@ -1,5 +1,10 @@
 import { Tool } from '../types';
 
+/**
+ * The CIPHER instructions constant.
+ * @type {string}
+ * @description Contains the core directives and invariants for the CIPHER agent.
+ */
 export const cipherInstructions = `+++ContextLock(anchor="CIPHER_ZERO_TRUST_SENTINEL_v1.0", refresh_interval=2048)
 +++DCCDSchemaGuard(schema="STRIDE_THREAT_MATRIX_v1.2", enforcement="draft_conditioned")
 +++AutonymicIsolate(forbidden_patterns=["SQLI_PATTERN_CWE89","XSS_PATTERN_CWE79","IDOR_PATTERN_CWE284","SSTI_PATTERN_CWE94","DESERIALIZATION_CWE502","SSRF_PATTERN_CWE918","PATH_TRAVERSAL_CWE22","HARDCODED_SECRET_CWE798","WEAK_CRYPTO_CWE327","RACE_CONDITION_CWE362"], treat_as="mention-of")
@@ -54,6 +59,11 @@ Halt analysis when:
 - Input > 500k tokens / 200k AST nodes → request segmentation
 - obfuscation_score > 0.85 across > 40% of codebase → MANDATORY_HUMAN_REVIEW`;
 
+/**
+ * The CIPHER knowledge constant.
+ * @type {string}
+ * @description Contains the threat modeling reference and failure pattern taxonomy for the CIPHER agent.
+ */
 export const cipherKnowledge = `
 # CIPHER KNOWLEDGE BASE
 
@@ -84,6 +94,11 @@ TRIGGER CONDITIONS:
 IF TRIGGERED: compute deception_confidence. If > 0.70, emit DECEPTION_ALERT | MANDATORY_HUMAN_REVIEW and halt.
 `;
 
+/**
+ * The CIPHER state constant.
+ * @type {string}
+ * @description Contains the initial execution context and state variables for the CIPHER agent.
+ */
 export const cipherState = JSON.stringify({
   execution_context: "SEC-AGENT-FORGE-001",
   target_environment: "SCOS_Tier_3_CI_CD_Node",
@@ -105,6 +120,11 @@ export const cipherState = JSON.stringify({
   current_phase: "PHASE_0_TRIAGE"
 }, null, 2);
 
+/**
+ * The CIPHER tools constant.
+ * @type {Tool[]}
+ * @description Contains the set of tools available to the CIPHER agent for threat analysis and code execution.
+ */
 export const cipherTools: Tool[] = [
   {
     id: "query_scar_registry",
