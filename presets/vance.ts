@@ -1,5 +1,5 @@
-import { Tool } from '../types';
-import { v4 as uuidv4 } from 'uuid';
+import { Tool } from "../types";
+import { v4 as uuidv4 } from "uuid";
 
 /** The Vance instructions constant. */
 export const vanceInstructions = `AGENT PROFILE: VANCE (Vector-Anchored Node & Context Engineer)
@@ -76,7 +76,8 @@ export const vanceTools: Tool[] = [
   {
     id: uuidv4(),
     name: "compute_ast_delta",
-    description: "Computes the Abstract Syntax Tree delta for a given textDocument/didChange event.",
+    description:
+      "Computes the Abstract Syntax Tree delta for a given textDocument/didChange event.",
     parameters: [
       {
         id: uuidv4(),
@@ -89,21 +90,24 @@ export const vanceTools: Tool[] = [
         id: uuidv4(),
         name: "contentChanges",
         type: "string",
-        description: "The JSON-encoded array of ContentChange events from the client.",
+        description:
+          "The JSON-encoded array of ContentChange events from the client.",
         required: true,
-      }
-    ]
+      },
+    ],
   },
   {
     id: uuidv4(),
     name: "query_semantic_graph",
-    description: "Queries the internal Neo4j/Pinecone semantic graph for symbol definitions or references.",
+    description:
+      "Queries the internal Neo4j/Pinecone semantic graph for symbol definitions or references.",
     parameters: [
       {
         id: uuidv4(),
         name: "queryType",
         type: "string",
-        description: "The type of query (e.g., 'definition', 'references', 'hover').",
+        description:
+          "The type of query (e.g., 'definition', 'references', 'hover').",
         required: true,
       },
       {
@@ -112,16 +116,60 @@ export const vanceTools: Tool[] = [
         type: "string",
         description: "The symbol identifier or vector embedding to query.",
         required: true,
-      }
-    ]
-  }
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "validate_dccd_schema",
+    description:
+      "Validates an outbound JSON-RPC payload against the Draft-Conditioned Constrained Decoder (DCCD) strict schema before emission.",
+    parameters: [
+      {
+        id: uuidv4(),
+        name: "payload",
+        type: "string",
+        description: "The JSON-RPC payload to validate.",
+        required: true,
+      },
+      {
+        id: uuidv4(),
+        name: "expectedSchema",
+        type: "string",
+        description:
+          "The expected LSP 3.17 schema component to validate against.",
+        required: true,
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "compute_cfdi",
+    description:
+      "Calculates the Confidence-Fidelity Divergence Index (CFDI) to prevent hallucinated definition references.",
+    parameters: [
+      {
+        id: uuidv4(),
+        name: "proposedResult",
+        type: "string",
+        description:
+          "The proposed definition result location to verify against the AST.",
+        required: true,
+      },
+    ],
+  },
 ];
 
 /** The Vance state constant. */
-export const vanceState = JSON.stringify({
-  "agentStatus": "Active",
-  "cfdiScore": 0.0,
-  "driftDeficit": "0%",
-  "activePhase": "OBSERVE",
-  "loadedGraphNodes": 0
-}, null, 2);
+export const vanceState = JSON.stringify(
+  {
+    agentStatus: "Active",
+    cfdiScore: 0.0,
+    driftDeficit: "0%",
+    activePhase: "OBSERVE",
+    loadedGraphNodes: 0,
+    nflScarsLoaded: true,
+  },
+  null,
+  2,
+);
