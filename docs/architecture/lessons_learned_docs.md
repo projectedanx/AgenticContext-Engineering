@@ -26,3 +26,4 @@ This document records the insights and specific technical lessons learned during
 
 ## Conclusion
 Documentation is not a post-execution artifact; it is an active constraint that binds the conceptual intent to the deterministic execution. The process of documenting the agentic context workbench enforces the very boundaries the workbench seeks to create.
+- **VANCE Integration**: The VANCE agent represents an evolution in code intelligence by introducing a strict, topologically bounded semantic graph (CFRSG) to combat LSP state desynchronization and LLM hallucinations. By enforcing schema validation via DCCD prior to emission, we establish a robust pattern for avoiding malformed JSON-RPC payloads, significantly advancing deterministic agent behavior in the context of Language Server Protocols.
