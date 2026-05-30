@@ -25,3 +25,11 @@ Adherence to the Petzold Sequence (`THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE` o
 ## 4. Agentic Inversion & Structural Mapping
 - **Mapping over Solving:** We have shifted the AI paradigm from an autonomous "auto-solver" to a **Structural Mapper**. In a complex architecture, an auto-solver attempts to average out constraints (Semantic Saponification). A Structural Mapper, driven by the PM Persona, uses Paraconsistent Mapping to expose and maintain the geometry of these constraints, producing deterministic blueprints (like Zachman Framework specifications).
 - **The Value of Paraconsistent Mapping:** By mapping contradictions rather than resolving them prematurely, we preserve high-entropy friction, allowing the human to sculpt constraints effectively.
+
+## 3. Cognitive Framework Orchestration (The Agentic Loop Epoch)
+
+- **Prompt Engineering vs. Cognitive Architecture:** We must recognize that "Prompt Engineering" is a misnomer; we are engaged in Cognitive Architecture Design. Explicit, named frameworks (e.g., ReAct, Reflexion, PEER) must be used as deterministic control loops rather than relying on unstructured, narrative prompting.
+- **Mitigating Failure Archetypes:**
+    - The *Infinite Loop Trap* occurs when agents lack state change validation. This is mitigated by incorporating self-reflection modules (Reflexion) to force trajectory divergence.
+    - *Hallucination Propagation (The Domino Effect)* in linear reasoning chains (CoT) must be combated using topological reasoning (Tree/Graph of Thoughts) and evaluation gates to prevent minor errors from compounding into structural failure.
+- **The Value of Agency:** As models scale natively in reasoning, the value of structural scaffolds shifts towards orchestrating autonomy, managing long-term episodic memory, and enforcing rigorous multi-agent consensus protocols (e.g., AgentsBench).

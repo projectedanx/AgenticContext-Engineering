@@ -28,6 +28,7 @@ This repository also serves as the theoretical and empirical testing ground for 
 - **V.I.P.E.R. (Visual Intent & Physical Execution Router)**: Enforces physical boundaries on generation requests using Paraconsistent Logic.
 - **Epistemic Dissonance Engine**: Projects contradictory constraints as rigid geometric boundaries for AI topology generation.
 - **Scar-Driven Topological Extruder (SDTE)**: Uses human-defined failure "Scars" to route around failure nodes (FIPI) and enforce structural compliance.
+- **Cognitive Framework Registry**: Formalizes the integration of structural cognitive scaffolds (e.g., ReAct, PEER, ToT) as deterministic control loops to mitigate failure archetypes like Hallucination Propagation and Infinite Looping.
 - **VORTEX-ARCHITECT Emergence Protocol**: Metabolizes chaotic requests into structurally sound topologies via Paraconsistent Logic and Stigmergic Execution.
 - **P²-MoE Architecture Hypothesis**: Formalized in ADR-010, proposing the replacement of standard attention with Epistemic Dissonance Routing, Topological KV-Caching, and Vector Symbolic Architectures (VSA) for multimodal isolation.
 
@@ -122,6 +123,8 @@ The project leverages a modern React frontend built with Vite and TypeScript.
 
 
 6. **Cognitive Friction as Resource**: The integration of the Human-AI Symbiosis Engine (SYMBIONT PRIME) reveals that tension between fuzzy human intent and rigid AI specification is a resource to be harvested, not a bug to be smoothed over. By mapping this Isomorphism of Friction and applying the Golden Scar constraint (Φ = 1.618), we can achieve Latent Leaps that bypass the L2 Norm density collapse associated with standard prompt chaining.
+
+7. **Cognitive Architecture Design:** Evolving beyond "Prompt Engineering," the application of formal Cognitive Frameworks (ReAct, PEER, Reflexion) as state machines is required to manage the Agentic Loop Epoch, preventing Infinite Loops and the Domino Effect of hallucination propagation.
 
 ## Contributing
 

@@ -120,6 +120,13 @@ import {
   kira7Tools,
 } from "./presets/kira7";
 
+import {
+  cognitiveArchaeologistInstructions,
+  cognitiveArchaeologistKnowledge,
+  cognitiveArchaeologistState,
+  cognitiveArchaeologistTools,
+} from "./presets/cognitive_archaeologist";
+import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
 import { GeometricCognitionAPI } from "./components/GeometricCognitionAPI";
@@ -279,6 +286,13 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
   }, [tools]);
+
+  const loadCognitiveArchaeologist = () => {
+    setInstructions(cognitiveArchaeologistInstructions);
+    setKnowledge(cognitiveArchaeologistKnowledge);
+    setTools(cognitiveArchaeologistTools);
+    setState(cognitiveArchaeologistState);
+  };
 
   const loadAxiomPreset = () => {
     setInstructions(axiomInstructions);
@@ -678,6 +692,12 @@ const App: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <button
+                onClick={loadCognitiveArchaeologist}
+                className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
+              >
+                [ LOAD COGNITIVE ARCHAEOLOGIST ]
+              </button>
+              <button
                 onClick={loadAxiomPreset}
                 className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
               >
@@ -833,6 +853,9 @@ const App: React.FC = () => {
 
           {activeTab === "tools" && (
             <div className="flex flex-col gap-6">
+        <div className="mb-6">
+          <CognitiveFrameworkRegistry />
+        </div>
           <TopologicalPersonaSculptor />
           <PluriversalFeatureDiscovery />
             <GeometricCognitionAPI />
