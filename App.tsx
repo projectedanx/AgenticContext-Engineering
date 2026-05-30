@@ -23,6 +23,13 @@ import {
   lexicalTopologyMinerTools,
   lexicalTopologyMinerState,
 } from "./presets/lexical_topology_miner";
+import {
+  tactileDialecticianInstructions,
+  tactileDialecticianKnowledge,
+  tactileDialecticianState,
+  tactileDialecticianTools,
+} from "./presets/tactile_dialectician";
+
 import { Header } from "./components/Header";
 import { InstructionEditor } from "./components/InstructionEditor";
 import { KnowledgeEditor } from "./components/KnowledgeEditor";
@@ -112,14 +119,6 @@ import {
   kira7State,
   kira7Tools,
 } from "./presets/kira7";
-
-import {
-  tactileDialecticianInstructions,
-  tactileDialecticianKnowledge,
-  tactileDialecticianState,
-  tactileDialecticianTools,
-} from "./presets/tactile_dialectician";
-
 
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -421,6 +420,15 @@ const App: React.FC = () => {
     setQuery(
       "A developer on Discord just posted: 'Why does my /api/v2/auth call return 401 even though I am passing the right token? This is so frustrating, your docs say nothing about this.' Produce the Community Triage Response and log the Symbolic Scar.",
     );
+  };
+
+
+  const loadTactileDialecticianPreset = () => {
+    setInstructions(tactileDialecticianInstructions);
+    setKnowledge(tactileDialecticianKnowledge);
+    setTools(tactileDialecticianTools);
+    setState(tactileDialecticianState);
+    setQuery("A developer has submitted a pull request with conflicting logic. They want to resolve it through stochastic compromise. Apply the Golden Scar Protocol and output the Hickam-OODA response.");
   };
 
   const loadLexicalTopologyMinerPreset = () => {
@@ -766,6 +774,13 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-[#0A192F] text-[#64FFDA] border border-[#64FFDA]/50 rounded hover:bg-[#0A192F]/80 hover:text-[#64FFDA] font-mono text-sm transition-colors"
               >
                 [ LOAD DAX-01 ]
+              </button>
+
+              <button
+                onClick={loadTactileDialecticianPreset}
+                className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
+              >
+                [ LOAD TACTILE DIALECTICIAN ]
               </button>
               <button
                 onClick={loadLexicalTopologyMinerPreset}
