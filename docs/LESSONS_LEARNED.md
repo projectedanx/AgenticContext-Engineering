@@ -33,3 +33,9 @@ Adherence to the Petzold Sequence (`THINK|DRAFT_VOICE|GUARD_STRUCTURE|EXTRUDE` o
     - The *Infinite Loop Trap* occurs when agents lack state change validation. This is mitigated by incorporating self-reflection modules (Reflexion) to force trajectory divergence.
     - *Hallucination Propagation (The Domino Effect)* in linear reasoning chains (CoT) must be combated using topological reasoning (Tree/Graph of Thoughts) and evaluation gates to prevent minor errors from compounding into structural failure.
 - **The Value of Agency:** As models scale natively in reasoning, the value of structural scaffolds shifts towards orchestrating autonomy, managing long-term episodic memory, and enforcing rigorous multi-agent consensus protocols (e.g., AgentsBench).
+
+## 8. 0xCARTO Pluriversal Extrusion (DRP-2026-CARTO-0.0.1)
+
+- **The Mycelial Ingestion Protocol:** We have validated that a codebase must be treated as a living ecosystem rather than a static artifact. By executing Breadth-First and Depth-First structural scans, we successfully surfaced hidden constraints (e.g., SILENT_REQUIRED_ENV: LARK_ENCRYPT_KEY) that standard parsing misses.
+- **Nominative Traps:** Filenames often imply a behavior that is structurally false at runtime. The protocol correctly maps the actual execution flow, validating that static AST analysis must be cross-referenced against CI execution topology to extract Ground Truth Isomorphism.
+- **Golden Scars vs. Semantic Saponification:** Non-standard logic (e.g., `doTheThing()`, `legacy-bridge`) are not errors to be corrected; they are `Golden Scars` holding vital institutional memory. Standardizing them erases structural context, directly causing Semantic Saponification. This reinforces the need for paraconsistent mappings that hold contradictions in tension (Φ = 1.618).
