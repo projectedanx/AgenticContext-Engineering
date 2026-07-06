@@ -10,7 +10,14 @@ const mockFileReader = {
 };
 
 // @ts-ignore
-window.FileReader = vi.fn(() => mockFileReader);
+class MockFileReader {
+  readAsText = mockFileReader.readAsText;
+  get onload() { return mockFileReader.onload; }
+  set onload(val) { mockFileReader.onload = val; }
+  get onerror() { return mockFileReader.onerror; }
+  set onerror(val) { mockFileReader.onerror = val; }
+}
+window.FileReader = MockFileReader as any;
 
 // Mock URL.createObjectURL
 global.URL.createObjectURL = vi.fn(() => 'mock-url');

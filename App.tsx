@@ -126,6 +126,7 @@ import {
   cognitiveArchaeologistState,
   cognitiveArchaeologistTools,
 } from "./presets/cognitive_archaeologist";
+import { aewInstructions, aewKnowledge, aewTools, aewState } from "./presets/aew";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -292,6 +293,13 @@ const App: React.FC = () => {
     setKnowledge(cognitiveArchaeologistKnowledge);
     setTools(cognitiveArchaeologistTools);
     setState(cognitiveArchaeologistState);
+  };
+
+  const loadAewPreset = () => {
+    setInstructions(aewInstructions);
+    setKnowledge(aewKnowledge);
+    setTools(aewTools);
+    setState(aewState);
   };
 
   const loadAxiomPreset = () => {
@@ -696,6 +704,12 @@ const App: React.FC = () => {
                 className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
               >
                 [ LOAD COGNITIVE ARCHAEOLOGIST ]
+              </button>
+              <button
+                onClick={loadAewPreset}
+                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 font-mono text-sm border border-indigo-700/50 rounded hover:bg-indigo-800/50 hover:border-indigo-500 transition-colors shadow-sm"
+              >
+                [ LOAD AEW ]
               </button>
               <button
                 onClick={loadAxiomPreset}
