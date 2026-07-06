@@ -298,7 +298,7 @@ const App: React.FC = () => {
   const loadAewPreset = () => {
     setInstructions(aewInstructions);
     setKnowledge(aewKnowledge);
-    setTools(aewTools);
+    setTools(JSON.parse(JSON.stringify(aewTools)));
     setState(aewState);
   };
 
