@@ -127,6 +127,7 @@ import {
   cognitiveArchaeologistTools,
 } from "./presets/cognitive_archaeologist";
 import { aewInstructions, aewKnowledge, aewTools, aewState } from "./presets/aew";
+import { pewAnalysisAgentInstructions, pewAnalysisAgentKnowledge, pewAnalysisAgentTools, pewAnalysisAgentState } from "./presets/pew_analysis_agent";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -295,7 +296,15 @@ const App: React.FC = () => {
     setState(cognitiveArchaeologistState);
   };
 
-  const loadAewPreset = () => {
+
+  const loadPewAnalysisAgentPreset = () => {
+    setInstructions(pewAnalysisAgentInstructions);
+    setKnowledge(pewAnalysisAgentKnowledge);
+    setTools(pewAnalysisAgentTools);
+    setAgentState(pewAnalysisAgentState);
+    addMessage("Loaded PEW Analysis Agent Preset.", "system");
+  };
+const loadAewPreset = () => {
     setInstructions(aewInstructions);
     setKnowledge(aewKnowledge);
     setTools(JSON.parse(JSON.stringify(aewTools)));
@@ -699,7 +708,14 @@ const App: React.FC = () => {
               Load a pre-configured, identity-enforced agent schema.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+
+                <button
+                onClick={loadPewAnalysisAgentPreset}
+                className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
+              >
+                [ LOAD PEW_ANALYSIS_AGENT ]
+              </button>
+<button
                 onClick={loadCognitiveArchaeologist}
                 className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
               >
