@@ -1,2 +1,7 @@
-Instability: The repository root is cluttered with temporary artifacts, python scripts, and various protocol directories that constitute 'hallway trash' under the Superintendent's protocol. The lockfile needs to reflect strict dependency versioning defined in a cleaned up package.json.
-Fortification: Swept all unauthorized scripts and temporary markdown protocol folders from the root directory to maintain strict hallway hygiene. Pinned all dependencies in package.json to specific versions, dropping the caret/tilde qualifiers to stop 'leaky pipes'. Ran npm ci to strictly update the lockfile.
+# Superintendent Journal
+
+## Instability
+The root directory contained unencapsulated backend execution scripts (`server.js`), polluting the architectural boundary, violating the root hallway hygiene constraints, and creating configuration ambiguity.
+
+## Fortification
+Executed the Prune-First protocol to isolate backend logic into a discrete `server/` directory and updated the `package.json` dev script to reference the secured path, restoring root integrity.
