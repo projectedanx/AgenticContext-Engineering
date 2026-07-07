@@ -146,6 +146,12 @@ The project leverages a modern React frontend built with Vite and TypeScript.
 
 7. **Cognitive Architecture Design:** Evolving beyond "Prompt Engineering," the application of formal Cognitive Frameworks (ReAct, PEER, Reflexion) as state machines is required to manage the Agentic Loop Epoch, preventing Infinite Loops and the Domino Effect of hallucination propagation.
 
+
+
+8. **Stigmergic Concurrency:** "Conversational Concurrency" among agents leads to AST collisions. Implementing a `SemanticHypervisor` daemon allows agents to use Stigmergy—leaving deterministic "Epistemic Pheromones" (mutex locks) on semantic structures to mathematically prevent Logic Shearing in multi-agent environments.
+
+9. **Betti-1 Loop Mitigation via Paraconsistent Logic:** When faced with mutually exclusive requirements, standard generative models collapse into generic compromises (Semantic Saponification). By treating these contradictions as "Betti-1 ($eta_1$) Loops" and applying Paraconsistent Logic (PAL2v) via the *Golden Scar Protocol*, the system can maintain structural tension and map rigid architectural topologies without triggering the Principle of Explosion.
+
 ## Contributing
 
 Contributions are heavily scrutinized for compliance with the architectural directives defined in the `AGENTS.md` and repository standards. Ensure comprehensive test coverage and documentation updates before submitting a Pull Request.
