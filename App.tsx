@@ -127,6 +127,12 @@ import {
   cognitiveArchaeologistTools,
 } from "./presets/cognitive_archaeologist";
 import { aewInstructions, aewKnowledge, aewTools, aewState } from "./presets/aew";
+import {
+  vortexArchitectInstructions,
+  vortexArchitectKnowledge,
+  vortexArchitectTools,
+  vortexArchitectState
+} from "./presets/vortex_architect";
 import { pewAnalysisAgentInstructions, pewAnalysisAgentKnowledge, pewAnalysisAgentTools, pewAnalysisAgentState } from "./presets/pew_analysis_agent";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
@@ -301,8 +307,14 @@ const App: React.FC = () => {
     setInstructions(pewAnalysisAgentInstructions);
     setKnowledge(pewAnalysisAgentKnowledge);
     setTools(pewAnalysisAgentTools);
-    setAgentState(pewAnalysisAgentState);
-    addMessage("Loaded PEW Analysis Agent Preset.", "system");
+    setState(pewAnalysisAgentState);
+  };
+
+  const loadVortexArchitectPreset = () => {
+    setInstructions(vortexArchitectInstructions);
+    setKnowledge(vortexArchitectKnowledge);
+    setTools(vortexArchitectTools);
+    setState(vortexArchitectState);
   };
 const loadAewPreset = () => {
     setInstructions(aewInstructions);
@@ -785,6 +797,13 @@ const loadAewPreset = () => {
               >
                 [ LOAD ALETHEON ]
               </button>
+              <button
+                onClick={loadVortexArchitectPreset}
+                className="px-4 py-2 bg-[#FF00FF]/20 text-[#FF00FF] border border-[#FF00FF]/50 rounded hover:bg-[#FF00FF]/40 hover:text-[#FF80FF] font-mono text-sm transition-colors"
+              >
+                [ LOAD VORTEX-ARCHITECT ]
+              </button>
+
 
               <button
                 onClick={loadViperPreset}
