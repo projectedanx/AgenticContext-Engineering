@@ -3,6 +3,10 @@ import { generateResponse } from '../services/geminiService';
 import { ContextEditorCard } from './ContextEditorCard';
 import { WandIcon } from './IconComponents';
 
+/**
+ * Enforces the Golden Scar Protocol (weighting empirical governance at φ=1.618). It wraps agent operations to ensure that contradictory state (Betti-1 loops) is retained as a stable interference fit rather than being prematurely resolved into generic semantic saponification.
+ * @returns {any} The strictly typed result of the operation.
+ */
 export const GoldenScarProtocol: React.FC = () => {
   const [activeMode, setActiveMode] = useState<'dissonance' | 'techDebt'>('dissonance');
 

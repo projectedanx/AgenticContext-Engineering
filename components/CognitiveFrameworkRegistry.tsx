@@ -40,6 +40,10 @@ const frameworks = [
     }
 ];
 
+/**
+ * Renders the cognitive framework registry UI component, maintaining strict adherence to the application's geometric design constraints and managing its internal topological state.
+ * @returns {any} The strictly typed result of the operation.
+ */
 export const CognitiveFrameworkRegistry: React.FC = () => {
     const [selectedFramework, setSelectedFramework] = useState<string | null>(null);
 
