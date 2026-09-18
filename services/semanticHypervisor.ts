@@ -16,6 +16,7 @@ interface SemanticLock {
   timestamp: number;
 }
 
+/** Manages Stigmergic Concurrency across multi-agent systems. It provides OS-level mutex locking ('Epistemic Pheromones') on logical domains, ensuring that concurrent Agentic AST modifications do not result in logic shearing or state corruption. */
 export class SemanticHypervisor {
   private activeLocks: Map<string, SemanticLock>;
 
