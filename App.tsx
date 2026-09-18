@@ -134,6 +134,7 @@ import {
   vortexArchitectState
 } from "./presets/vortex_architect";
 import { pewAnalysisAgentInstructions, pewAnalysisAgentKnowledge, pewAnalysisAgentTools, pewAnalysisAgentState } from "./presets/pew_analysis_agent";
+import { edgeTierFalsificationAgentInstructions, edgeTierFalsificationAgentKnowledge, edgeTierFalsificationAgentTools, edgeTierFalsificationAgentState } from "./presets/edge_tier_falsification_agent";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -309,6 +310,13 @@ const App: React.FC = () => {
     setKnowledge(pewAnalysisAgentKnowledge);
     setTools(pewAnalysisAgentTools);
     setState(pewAnalysisAgentState);
+  };
+
+  const loadEdgeTierFalsificationAgentPreset = () => {
+    setInstructions(edgeTierFalsificationAgentInstructions);
+    setKnowledge(edgeTierFalsificationAgentKnowledge);
+    setTools(edgeTierFalsificationAgentTools);
+    setState(edgeTierFalsificationAgentState);
   };
 
   const loadVortexArchitectPreset = () => {
@@ -727,6 +735,12 @@ const loadAewPreset = () => {
                 className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
               >
                 [ LOAD PEW_ANALYSIS_AGENT ]
+              </button>
+              <button
+                onClick={loadEdgeTierFalsificationAgentPreset}
+                className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
+              >
+                [ LOAD EDGE_TIER_FALSIFICATION_AGENT ]
               </button>
 <button
                 onClick={loadCognitiveArchaeologist}

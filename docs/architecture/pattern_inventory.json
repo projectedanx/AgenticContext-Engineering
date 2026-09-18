@@ -64,6 +64,19 @@
         "Temporal Conflict Registry",
         "Cron schedule localization table"
       ]
+    },
+    {
+      "pattern_name": "Edge_Tier_Falsification_Harness",
+      "type": "Boundary_Constraint_Validation",
+      "operational_definition": "An automated AI testing harness that validates schema compliance and payload efficiency at the BFF boundary, synthesizes adaptive rate-limiting, and detects business logic bleed.",
+      "measurement_proxy": "Contract Robustness Index (CRI) and Business Logic Bleed Detection Rate.",
+      "task_conditioned_baseline": "CRI < 0.70 triggers automatic deployment blocks. Detection rate must be 100%.",
+      "falsification_condition": "Pattern is falsified if business logic is found in the BFF and not flagged, or if downstream latency spikes do not trigger backpressure.",
+      "expected_artifacts": [
+        "ADR-014-Edge-Tier-Falsification-Harness.md",
+        "simulation/edge_tier_falsification.py",
+        "presets/edge_tier_falsification_agent.ts"
+      ]
     }
   ]
 }
