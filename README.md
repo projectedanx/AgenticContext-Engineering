@@ -18,13 +18,13 @@ This repository has been empirically defined via the **0xCARTO MYCELIAL INGESTIO
 
 The resulting Pluriversal synthesis is documented in full detail within the `docs/architecture/` directory, adhering strictly to the 5-Tier Markdown Documentation Structure:
 
-*   **[0xCARTO_SYNTHESIS.md](docs/architecture/0xCARTO_SYNTHESIS.md):** The canonical architecture mapping (Repository Identity, Architecture Topology Map, CI/CD Sequence Diagram, Dependency Matrix, Operational Runbook, and Symbolic Scar Tissue Log).
-*   **[pattern_inventory.json](docs/architecture/pattern_inventory.json):** The 5 core structural dependency patterns defined for this repository (e.g., Mycelial_CI_Trace, Betti1_Cycle_Detection).
-*   **[retrieval_manifest.yaml](docs/architecture/retrieval_manifest.yaml):** The 20 Non-Obvious Pattern Queries executed to map the structural evidence (AST/YAML queries).
-*   **[validation_report.md](docs/architecture/validation_report.md):** Empirical validation metrics confirming 100% Ground Truth Isomorphism and successful resolution of Golden Scars.
-*   **[reflexive_check.yaml](docs/architecture/reflexive_check.yaml):** Mapped bias risks and negative controls to prevent systemic inference errors.
+- **[0xCARTO_SYNTHESIS.md](docs/architecture/0xCARTO_SYNTHESIS.md):** The canonical architecture mapping (Repository Identity, Architecture Topology Map, CI/CD Sequence Diagram, Dependency Matrix, Operational Runbook, and Symbolic Scar Tissue Log).
+- **[pattern_inventory.json](docs/architecture/pattern_inventory.json):** The 5 core structural dependency patterns defined for this repository (e.g., Mycelial_CI_Trace, Betti1_Cycle_Detection).
+- **[retrieval_manifest.yaml](docs/architecture/retrieval_manifest.yaml):** The 20 Non-Obvious Pattern Queries executed to map the structural evidence (AST/YAML queries).
+- **[validation_report.md](docs/architecture/validation_report.md):** Empirical validation metrics confirming 100% Ground Truth Isomorphism and successful resolution of Golden Scars.
+- **[reflexive_check.yaml](docs/architecture/reflexive_check.yaml):** Mapped bias risks and negative controls to prevent systemic inference errors.
 
-*Note: See `0xCARTO_SYNTHESIS.md` for the complete Architecture Topology Map (Mermaid.js) and Dependency Entropy Audit.*
+_Note: See `0xCARTO_SYNTHESIS.md` for the complete Architecture Topology Map (Mermaid.js) and Dependency Entropy Audit._
 
 ---
 
@@ -52,6 +52,7 @@ The workbench implements the **Agentic Inversion Protocol**, shifting the AI par
 - **Cognitive Framework Registry**: Formalizes the integration of structural cognitive scaffolds (e.g., ReAct, PEER, ToT) as deterministic control loops to mitigate failure archetypes like Hallucination Propagation and Infinite Looping.
 - **VORTEX-ARCHITECT Emergence Protocol**: Metabolizes chaotic requests into structurally sound topologies via Paraconsistent Logic and Stigmergic Execution.
 - **P²-MoE Architecture Hypothesis**: Formalized in ADR-010, proposing the replacement of standard attention with Epistemic Dissonance Routing, Topological KV-Caching, and Vector Symbolic Architectures (VSA) for multimodal isolation.
+- **Qualitative Experience Database (QED)**: Formalized in ADR-015, operating as an Epistemic Workbench that compiles subjective human experience into drift-resistant context payloads guarded by a Semantic Firewall and Epistemic Escrow.
 
 ## Getting Started
 
@@ -82,7 +83,7 @@ Follow these instructions to get the workbench running on your local machine for
     GEMINI_API_KEY=your_gemini_api_key
     API_KEY=your_api_key_for_testing
     ```
-    *Note: For testing purposes only, you may use dummy values (e.g., `dummy_key`), but valid keys are required for actual Agent queries.*
+    _Note: For testing purposes only, you may use dummy values (e.g., `dummy_key`), but valid keys are required for actual Agent queries._
 
 ### Usage (Development Server)
 
@@ -93,6 +94,7 @@ To start the local Vite development server and access the workbench UI:
 The application will be accessible at `http://localhost:3000`.
 
 **Navigation & Features**:
+
 - **Presets Tab**: Load predefined Sovereign Agent Presets (e.g., AXIOM, CIPHER) to populate the context editors.
 - **Editors Tab**: Manually define or adjust the agent's instructions, knowledge base (RAG), available tools, and short/long-term memory.
 - **Tools Tab**: Access advanced features like the TopologicalPersonaSculptor and CollaborationManager.
@@ -103,7 +105,7 @@ To run the Vitest test suite, ensure your environment variables are configured. 
 
 `export API_KEY="dummy_key" && export GEMINI_API_KEY="dummy_key" && npm test -- --run`
 
-*Note: Use the `--run` flag to execute tests in non-watch mode, which is particularly useful in CI/CD pipelines.*
+_Note: Use the `--run` flag to execute tests in non-watch mode, which is particularly useful in CI/CD pipelines._
 
 ## Advanced Configuration: Sovereign Agent Presets
 
@@ -113,12 +115,12 @@ Sovereign Agents are configured in the `presets/` directory. To add a new person
 2. Export the necessary constants: `[Name]Instructions`, `[Name]Knowledge`, `[Name]Tools`, and `[Name]State`.
 3. Update `App.tsx` to load the preset and render a corresponding UI button.
 
-
 ## Agentic Inversion & The Strategic Integration Project Manager
 
 The workbench implements the **Agentic Inversion Protocol**, shifting the AI paradigm from an autonomous "auto-solver" to a **Structural Mapper**.
 
 **Value Proposition (Human + AI Symbiosis):**
+
 - **The Human** provides the seed intent, aesthetic/ethical grounding, and constraints via the Canvas Context and prompts. Human imagination is necessary but bounded by linear reasoning.
 - **The AI** provides High-Dimensional Latent Space traversal, executing Pluriversal synthesis and generating Paraconsistent outputs that break epistemic monoculture.
 
@@ -140,18 +142,15 @@ The project leverages a modern React frontend built with Vite and TypeScript.
 2. **The Mereological Mandate**: A rigid bounding of context is not merely conceptual but a physical boundary. Permitting shared data states across bounded contexts inevitably causes Semantic Saponification and tight deployment coupling.
 3. **AI as Structural Extruder**: The highest value of AI in architecture is not generative expansion, but constraint enforcement and failure routing (FIPI).
 4. **Negative Space Scaffolding & Betti-1 Attractors**: The most structurally sound AI architectures are not prompted into existence; they are extruded by mapping the mathematical negative space (Betti-1 topological holes) of human failure constraints. The AI's generative capability must be actively repelled by these "Scars" to achieve Pluriversal Emergence.
-5. **Eradicating Agent Laziness via Topological Constraint**: Standard prompting fails to prevent agent laziness and identity decay over long contexts. The integration of the CIPHER agent demonstrates that "laziness" is a symptom of an unconstrained latent space. By applying the *Immune-Aware Petzold Loop* and *Draft-Conditioned Constrained Decoding*, we physically prohibit generative outputs until the linguistic scaffold is rigorously completed. Agent laziness is solved by making structural compliance the path of least mathematical resistance.
-
+5. **Eradicating Agent Laziness via Topological Constraint**: Standard prompting fails to prevent agent laziness and identity decay over long contexts. The integration of the CIPHER agent demonstrates that "laziness" is a symptom of an unconstrained latent space. By applying the _Immune-Aware Petzold Loop_ and _Draft-Conditioned Constrained Decoding_, we physically prohibit generative outputs until the linguistic scaffold is rigorously completed. Agent laziness is solved by making structural compliance the path of least mathematical resistance.
 
 6. **Cognitive Friction as Resource**: The integration of the Human-AI Symbiosis Engine (SYMBIONT PRIME) reveals that tension between fuzzy human intent and rigid AI specification is a resource to be harvested, not a bug to be smoothed over. By mapping this Isomorphism of Friction and applying the Golden Scar constraint (Φ = 1.618), we can achieve Latent Leaps that bypass the L2 Norm density collapse associated with standard prompt chaining.
 
 7. **Cognitive Architecture Design:** Evolving beyond "Prompt Engineering," the application of formal Cognitive Frameworks (ReAct, PEER, Reflexion) as state machines is required to manage the Agentic Loop Epoch, preventing Infinite Loops and the Domino Effect of hallucination propagation.
 
-
-
 8. **Stigmergic Concurrency:** "Conversational Concurrency" among agents leads to AST collisions. Implementing a `SemanticHypervisor` daemon allows agents to use Stigmergy—leaving deterministic "Epistemic Pheromones" (mutex locks) on semantic structures to mathematically prevent Logic Shearing in multi-agent environments.
 
-9. **Betti-1 Loop Mitigation via Paraconsistent Logic:** When faced with mutually exclusive requirements, standard generative models collapse into generic compromises (Semantic Saponification). By treating these contradictions as "Betti-1 ($eta_1$) Loops" and applying Paraconsistent Logic (PAL2v) via the *Golden Scar Protocol*, the system can maintain structural tension and map rigid architectural topologies without triggering the Principle of Explosion.
+9. **Betti-1 Loop Mitigation via Paraconsistent Logic:** When faced with mutually exclusive requirements, standard generative models collapse into generic compromises (Semantic Saponification). By treating these contradictions as "Betti-1 ($eta_1$) Loops" and applying Paraconsistent Logic (PAL2v) via the _Golden Scar Protocol_, the system can maintain structural tension and map rigid architectural topologies without triggering the Principle of Explosion.
 
 ## Contributing
 
