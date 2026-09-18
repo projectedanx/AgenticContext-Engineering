@@ -49,6 +49,7 @@ The workbench implements the **Agentic Inversion Protocol**, shifting the AI par
 - **Epistemic Dissonance Engine**: Projects contradictory constraints as rigid geometric boundaries for AI topology generation.
 - **Golden Scar Protocol Enforcer**: Implements Paraconsistent Logic to manage technical debt within the epsilon-band and calculates Topological Derivatives of stakeholder dissonance to synthesize non-stochastic semantic anchors.
 - **Scar-Driven Topological Extruder (SDTE)**: Uses human-defined failure "Scars" to route around failure nodes (FIPI) and enforce structural compliance.
+- **Reflexive Repair Loop (ADR-016)**: Implements a dual-system, two-speed cybernetic control loop bridging probabilistic generation with deterministic verification, featuring Epistemic Escrow and Epistemic Metabolism (STA).
 - **Cognitive Framework Registry**: Formalizes the integration of structural cognitive scaffolds (e.g., ReAct, PEER, ToT) as deterministic control loops to mitigate failure archetypes like Hallucination Propagation and Infinite Looping.
 - **VORTEX-ARCHITECT Emergence Protocol**: Metabolizes chaotic requests into structurally sound topologies via Paraconsistent Logic and Stigmergic Execution.
 - **P²-MoE Architecture Hypothesis**: Formalized in ADR-010, proposing the replacement of standard attention with Epistemic Dissonance Routing, Topological KV-Caching, and Vector Symbolic Architectures (VSA) for multimodal isolation.

@@ -50,3 +50,8 @@ Documentation is not a post-execution artifact; it is an active constraint that 
 
 - **Observation:** When presented with mutually exclusive constraints (e.g., "Must be completely stateless" vs. "Must cache session data"), standard LLM logic triggers a catastrophic reasoning crash (Principle of Explosion), resulting in either infinite looping or generic, compromised code (Semantic Saponification).
 - **The Golden Scar Protocol:** We identified these infinite failure states as "Betti-1 ($\beta_1$) Loops" (topological holes in the reasoning cache). By applying Paraconsistent Annotated Logic (PAL2v), the VORTEX-ARCHITECT assigns the Golden Ratio ($\phi \approx 1.618$) to the physical constraint and $1.000$ to the performance request. This creates a "repulsive virtual weight" that routes generation _around_ the conflict, preserving the invariant without homogenizing the solution.
+
+## 6. The Reflexive Repair Loop and Epistemic Escrow
+
+- **Observation:** Relying on simple prompt engineering to handle logical errors often leads to infinite looping or hallucination propagation, as the model repeatedly fails validation constraints.
+- **Structural Enforcement (VULCAN):** We implemented the Reflexive Repair Loop (ADR-016), introducing a three-attempt loop constraint governed by a dynamic Confidence-Fidelity Divergence (CFD) index. By defining a mathematical threshold ($CFD = Confidence - Fidelity$), the system mathematically guarantees a transition to 'Epistemic Escrow' (halting the agent) instead of thrashing. Unresolved faults are logged as Symbolic Scars in the Scar Tissue Archive (STA) for future immunization.
