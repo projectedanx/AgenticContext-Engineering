@@ -5,3 +5,10 @@ The root directory contained unencapsulated backend execution scripts (`server.j
 
 ## Fortification
 Executed the Prune-First protocol to isolate backend logic into a discrete `server/` directory and updated the `package.json` dev script to reference the secured path, restoring root integrity.
+
+---
+
+# Infrastructure Delta Journal Entry
+- **Refactored Manifests:** Addressed peer dependency conflict for `@vitest/ui` by updating `package.json` and `package-lock.json` via `--legacy-peer-deps`. Installed missing `@testing-library/dom` needed by tests.
+- **Swept Assets:** None required.
+- **Action:** Validated build via `npm run build` and tests.

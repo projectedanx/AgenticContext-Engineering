@@ -22,6 +22,10 @@ This repository is NOT a traditional autonomous "auto-solver" framework. It reje
 | `Semantic Saponification` | `docs/LESSONS_LEARNED.md` | Model Averaging | The dilution of intent through premature LLM constraint resolution | [GOLDEN_SCAR] |
 | `V.I.P.E.R.` | `presets/viper.ts` | Intent Router | Visual Intent & Physical Execution Router, enforcing physical paraconsistent bounds | [CULTURAL_ARTIFACT] |
 
+
+### Epistemic Dependency Subversion & Edge-Tier Falsification
+- **ADR-014 (Edge-Tier Architecture Falsification Harness):** Automated schema mutation, adaptive rate-limiting based on telemetry, and AST parsing to prevent SRP/Business Logic bleed at the BFF boundary.
+
 ## TIER 2: Architecture Topology Map
 
 Architecture Topology Map Generated via Mycelial CI Trace (DRP_7_PATTERN_MODEL).
