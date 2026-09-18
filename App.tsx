@@ -140,6 +140,7 @@ import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDisc
 import { GeometricCognitionAPI } from "./components/GeometricCognitionAPI";
 import { StakeholderMatrix } from "./components/StakeholderMatrix";
 import { CollaborationManager } from "./components/CollaborationManager";
+import { GoldenScarProtocol } from "./components/GoldenScarProtocol";
 import { generateResponse } from "./services/geminiService";
 import { safeJsonParse, isValidTools } from "./services/storageUtils";
 import { Tool } from "./types";
@@ -910,6 +911,7 @@ const loadAewPreset = () => {
             <GeometricCognitionAPI />
           <StakeholderMatrix />
           <CollaborationManager />
+          <GoldenScarProtocol />
           <ImportExportContext
             instructions={instructions}
             setInstructions={setInstructions}
