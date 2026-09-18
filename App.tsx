@@ -69,7 +69,7 @@ import {
   aegis11Instructions,
   aegis11Knowledge,
   aegis11Tools,
-  aegis11State
+  aegis11State,
 } from "./presets/aegis_11";
 import {
   aegisPrimeInstructions,
@@ -126,15 +126,36 @@ import {
   cognitiveArchaeologistState,
   cognitiveArchaeologistTools,
 } from "./presets/cognitive_archaeologist";
-import { aewInstructions, aewKnowledge, aewTools, aewState } from "./presets/aew";
+import {
+  aewInstructions,
+  aewKnowledge,
+  aewTools,
+  aewState,
+} from "./presets/aew";
 import {
   vortexArchitectInstructions,
   vortexArchitectKnowledge,
   vortexArchitectTools,
-  vortexArchitectState
+  vortexArchitectState,
 } from "./presets/vortex_architect";
-import { pewAnalysisAgentInstructions, pewAnalysisAgentKnowledge, pewAnalysisAgentTools, pewAnalysisAgentState } from "./presets/pew_analysis_agent";
-import { edgeTierFalsificationAgentInstructions, edgeTierFalsificationAgentKnowledge, edgeTierFalsificationAgentTools, edgeTierFalsificationAgentState } from "./presets/edge_tier_falsification_agent";
+import {
+  pewAnalysisAgentInstructions,
+  pewAnalysisAgentKnowledge,
+  pewAnalysisAgentTools,
+  pewAnalysisAgentState,
+} from "./presets/pew_analysis_agent";
+import {
+  edgeTierFalsificationAgentInstructions,
+  edgeTierFalsificationAgentKnowledge,
+  edgeTierFalsificationAgentTools,
+  edgeTierFalsificationAgentState,
+} from "./presets/edge_tier_falsification_agent";
+import {
+  qedInstructions,
+  qedKnowledge,
+  qedTools,
+  qedState,
+} from "./presets/qed";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -264,7 +285,9 @@ const defaultState = JSON.stringify(
  * @returns {React.ReactElement} The rendered App component.
  */
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"presets" | "editors" | "tools">("presets");
+  const [activeTab, setActiveTab] = useState<"presets" | "editors" | "tools">(
+    "presets",
+  );
   // Agent Context State
   const [instructions, setInstructions] = useState<string>("");
   const [knowledge, setKnowledge] = useState<string>("");
@@ -304,7 +327,6 @@ const App: React.FC = () => {
     setState(cognitiveArchaeologistState);
   };
 
-
   const loadPewAnalysisAgentPreset = () => {
     setInstructions(pewAnalysisAgentInstructions);
     setKnowledge(pewAnalysisAgentKnowledge);
@@ -319,13 +341,20 @@ const App: React.FC = () => {
     setState(edgeTierFalsificationAgentState);
   };
 
+  const loadQedPreset = () => {
+    setInstructions(qedInstructions);
+    setKnowledge(qedKnowledge);
+    setTools(qedTools);
+    setState(qedState);
+  };
+
   const loadVortexArchitectPreset = () => {
     setInstructions(vortexArchitectInstructions);
     setKnowledge(vortexArchitectKnowledge);
     setTools(vortexArchitectTools);
     setState(vortexArchitectState);
   };
-const loadAewPreset = () => {
+  const loadAewPreset = () => {
     setInstructions(aewInstructions);
     setKnowledge(aewKnowledge);
     setTools(JSON.parse(JSON.stringify(aewTools)));
@@ -443,7 +472,9 @@ const loadAewPreset = () => {
     setKnowledge(kira7Knowledge);
     setTools(kira7Tools);
     setState(kira7State);
-    setQuery("Design a fault-tolerant Feishu webhook ingress with DCCDSchemaGuard enforced.");
+    setQuery(
+      "Design a fault-tolerant Feishu webhook ingress with DCCDSchemaGuard enforced.",
+    );
   };
 
   const loadCipherPreset = () => {
@@ -474,13 +505,14 @@ const loadAewPreset = () => {
     );
   };
 
-
   const loadTactileDialecticianPreset = () => {
     setInstructions(tactileDialecticianInstructions);
     setKnowledge(tactileDialecticianKnowledge);
     setTools(tactileDialecticianTools);
     setState(tactileDialecticianState);
-    setQuery("A developer has submitted a pull request with conflicting logic. They want to resolve it through stochastic compromise. Apply the Golden Scar Protocol and output the Hickam-OODA response.");
+    setQuery(
+      "A developer has submitted a pull request with conflicting logic. They want to resolve it through stochastic compromise. Apply the Golden Scar Protocol and output the Hickam-OODA response.",
+    );
   };
 
   const loadLexicalTopologyMinerPreset = () => {
@@ -490,7 +522,7 @@ const loadAewPreset = () => {
     setState(lexicalTopologyMinerState);
     setQuery("");
     // setDecoratorDependencyGraph(
-/*
+    /*
       JSON.stringify(
         {
           decorator_dependency_graph: {
@@ -661,7 +693,7 @@ const loadAewPreset = () => {
         null,
         2,
       */
-//    );
+    //    );
   };
 
   const handleGenerate = async () => {
@@ -696,7 +728,9 @@ const loadAewPreset = () => {
             <button
               onClick={() => setActiveTab("presets")}
               className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
-                activeTab === "presets" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+                activeTab === "presets"
+                  ? "bg-blue-900/50 text-blue-400 border border-blue-700"
+                  : "text-gray-400 hover:text-gray-200"
               }`}
             >
               [ PRESETS ]
@@ -704,7 +738,9 @@ const loadAewPreset = () => {
             <button
               onClick={() => setActiveTab("editors")}
               className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
-                activeTab === "editors" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+                activeTab === "editors"
+                  ? "bg-blue-900/50 text-blue-400 border border-blue-700"
+                  : "text-gray-400 hover:text-gray-200"
               }`}
             >
               [ EDITORS ]
@@ -712,7 +748,9 @@ const loadAewPreset = () => {
             <button
               onClick={() => setActiveTab("tools")}
               className={`px-4 py-2 font-mono text-sm rounded transition-colors ${
-                activeTab === "tools" ? "bg-blue-900/50 text-blue-400 border border-blue-700" : "text-gray-400 hover:text-gray-200"
+                activeTab === "tools"
+                  ? "bg-blue-900/50 text-blue-400 border border-blue-700"
+                  : "text-gray-400 hover:text-gray-200"
               }`}
             >
               [ TOOLS ]
@@ -722,223 +760,233 @@ const loadAewPreset = () => {
           {activeTab === "presets" && (
             <div className="flex flex-col gap-6">
               <div className="bg-gray-800 p-4 rounded-lg shadow-md border border-gray-700">
-            <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">
-              SOVEREIGN AGENT PRESETS
-            </h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Load a pre-configured, identity-enforced agent schema.
-            </p>
-            <div className="flex flex-wrap gap-4">
+                <h3 className="text-lg font-semibold mb-2 text-green-400 font-mono">
+                  SOVEREIGN AGENT PRESETS
+                </h3>
+                <p className="text-sm text-gray-400 mb-4">
+                  Load a pre-configured, identity-enforced agent schema.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    onClick={loadPewAnalysisAgentPreset}
+                    className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD PEW_ANALYSIS_AGENT ]
+                  </button>
+                  <button
+                    onClick={loadEdgeTierFalsificationAgentPreset}
+                    className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD EDGE_TIER_FALSIFICATION_AGENT ]
+                  </button>
+                  <button
+                    onClick={loadQedPreset}
+                    className="px-4 py-2 bg-emerald-900/50 text-emerald-400 font-mono text-sm border border-emerald-700/50 rounded hover:bg-emerald-800/50 hover:border-emerald-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD EPISTEMIC WORKBENCH (QED) ]
+                  </button>
+                  <button
+                    onClick={loadCognitiveArchaeologist}
+                    className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD COGNITIVE ARCHAEOLOGIST ]
+                  </button>
+                  <button
+                    onClick={loadAewPreset}
+                    className="px-4 py-2 bg-indigo-900/50 text-indigo-400 font-mono text-sm border border-indigo-700/50 rounded hover:bg-indigo-800/50 hover:border-indigo-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD AEW ]
+                  </button>
+                  <button
+                    onClick={loadAxiomPreset}
+                    className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD AXIOM v1.0 ]
+                  </button>
+                  <button
+                    onClick={loadKutPreset}
+                    className="px-4 py-2 bg-red-900/50 text-red-400 border border-red-700 rounded hover:bg-red-800/50 hover:text-red-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD KUT v2.0 ]
+                  </button>
+                  <button
+                    onClick={loadLexisSovereignPreset}
+                    className="px-4 py-2 bg-[#1A0A2E] text-[#C9A84C] border border-[#C9A84C]/50 rounded hover:bg-[#1A0A2E]/80 hover:text-[#E0C878] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD LEXIS SOVEREIGN v1.4 ]
+                  </button>
+                  <button
+                    onClick={loadNextjsRagPreset}
+                    className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD NEXTJS RAG ]
+                  </button>
+                  <button
+                    onClick={loadAegis11Preset}
+                    className="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors border border-gray-700 hover:border-gray-600 group"
+                  >
+                    <div className="font-semibold text-purple-400 group-hover:text-purple-300">
+                      AEGIS-11
+                    </div>
+                    <div className="text-sm text-gray-400 mt-1">
+                      Autonomic Epistemic Gatekeeper
+                    </div>
+                  </button>
+                  <button
+                    onClick={loadAegisPrimePreset}
+                    className="px-4 py-2 bg-[#FF3366]/20 text-[#FF3366] border border-[#FF3366]/50 rounded hover:bg-[#FF3366]/40 hover:text-white font-mono text-sm transition-colors"
+                  >
+                    [ LOAD AEGIS-PRIME ]
+                  </button>
 
-                <button
-                onClick={loadPewAnalysisAgentPreset}
-                className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
-              >
-                [ LOAD PEW_ANALYSIS_AGENT ]
-              </button>
-              <button
-                onClick={loadEdgeTierFalsificationAgentPreset}
-                className="px-4 py-2 bg-blue-900/50 text-blue-400 font-mono text-sm border border-blue-700/50 rounded hover:bg-blue-800/50 hover:border-blue-500 transition-colors shadow-sm"
-              >
-                [ LOAD EDGE_TIER_FALSIFICATION_AGENT ]
-              </button>
-<button
-                onClick={loadCognitiveArchaeologist}
-                className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
-              >
-                [ LOAD COGNITIVE ARCHAEOLOGIST ]
-              </button>
-              <button
-                onClick={loadAewPreset}
-                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 font-mono text-sm border border-indigo-700/50 rounded hover:bg-indigo-800/50 hover:border-indigo-500 transition-colors shadow-sm"
-              >
-                [ LOAD AEW ]
-              </button>
-              <button
-                onClick={loadAxiomPreset}
-                className="px-4 py-2 bg-green-900/50 text-green-400 border border-green-700 rounded hover:bg-green-800/50 hover:text-green-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD AXIOM v1.0 ]
-              </button>
-              <button
-                onClick={loadKutPreset}
-                className="px-4 py-2 bg-red-900/50 text-red-400 border border-red-700 rounded hover:bg-red-800/50 hover:text-red-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD KUT v2.0 ]
-              </button>
-              <button
-                onClick={loadLexisSovereignPreset}
-                className="px-4 py-2 bg-[#1A0A2E] text-[#C9A84C] border border-[#C9A84C]/50 rounded hover:bg-[#1A0A2E]/80 hover:text-[#E0C878] font-mono text-sm transition-colors"
-              >
-                [ LOAD LEXIS SOVEREIGN v1.4 ]
-              </button>
-              <button
-                onClick={loadNextjsRagPreset}
-                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD NEXTJS RAG ]
-              </button>
-              <button
-                onClick={loadAegis11Preset}
-                className="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors border border-gray-700 hover:border-gray-600 group"
-              >
-                <div className="font-semibold text-purple-400 group-hover:text-purple-300">AEGIS-11</div>
-                <div className="text-sm text-gray-400 mt-1">Autonomic Epistemic Gatekeeper</div>
-              </button>
-              <button
-                onClick={loadAegisPrimePreset}
-                className="px-4 py-2 bg-[#FF3366]/20 text-[#FF3366] border border-[#FF3366]/50 rounded hover:bg-[#FF3366]/40 hover:text-white font-mono text-sm transition-colors"
-              >
-                [ LOAD AEGIS-PRIME ]
-              </button>
+                  <button
+                    onClick={loadDieterPreset}
+                    className="px-4 py-2 bg-zinc-900/50 text-zinc-400 border border-zinc-700 rounded hover:bg-zinc-800/50 hover:text-zinc-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD DIETER ]
+                  </button>
 
-              <button
-                onClick={loadDieterPreset}
-                className="px-4 py-2 bg-zinc-900/50 text-zinc-400 border border-zinc-700 rounded hover:bg-zinc-800/50 hover:text-zinc-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD DIETER ]
-              </button>
+                  <button
+                    onClick={loadVancePreset}
+                    className="px-4 py-2 bg-[#4B0082]/20 text-[#8A2BE2] border border-[#4B0082]/50 rounded hover:bg-[#4B0082]/40 hover:text-[#DDA0DD] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD VANCE ]
+                  </button>
 
-              <button
-                onClick={loadVancePreset}
-                className="px-4 py-2 bg-[#4B0082]/20 text-[#8A2BE2] border border-[#4B0082]/50 rounded hover:bg-[#4B0082]/40 hover:text-[#DDA0DD] font-mono text-sm transition-colors"
-              >
-                [ LOAD VANCE ]
-              </button>
+                  <button
+                    onClick={loadAletheonPreset}
+                    className="px-4 py-2 bg-[#0D1B2A] text-[#E63946] border border-[#E63946]/50 rounded hover:bg-[#0D1B2A]/80 hover:text-[#E63946] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD ALETHEON ]
+                  </button>
+                  <button
+                    onClick={loadVortexArchitectPreset}
+                    className="px-4 py-2 bg-[#FF00FF]/20 text-[#FF00FF] border border-[#FF00FF]/50 rounded hover:bg-[#FF00FF]/40 hover:text-[#FF80FF] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD VORTEX-ARCHITECT ]
+                  </button>
 
-              <button
-                onClick={loadAletheonPreset}
-                className="px-4 py-2 bg-[#0D1B2A] text-[#E63946] border border-[#E63946]/50 rounded hover:bg-[#0D1B2A]/80 hover:text-[#E63946] font-mono text-sm transition-colors"
-              >
-                [ LOAD ALETHEON ]
-              </button>
-              <button
-                onClick={loadVortexArchitectPreset}
-                className="px-4 py-2 bg-[#FF00FF]/20 text-[#FF00FF] border border-[#FF00FF]/50 rounded hover:bg-[#FF00FF]/40 hover:text-[#FF80FF] font-mono text-sm transition-colors"
-              >
-                [ LOAD VORTEX-ARCHITECT ]
-              </button>
+                  <button
+                    onClick={loadViperPreset}
+                    className="px-4 py-2 bg-red-900/20 text-red-500 border border-red-900/50 rounded hover:bg-red-900/40 hover:text-red-400 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD V.I.P.E.R. ]
+                  </button>
 
+                  <button
+                    onClick={loadSymbiontPrimePreset}
+                    className="px-4 py-2 bg-yellow-900/20 text-[#FFD700] border border-yellow-900/50 rounded hover:bg-yellow-900/40 hover:text-yellow-400 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD SYMBIONT PRIME ]
+                  </button>
 
-              <button
-                onClick={loadViperPreset}
-                className="px-4 py-2 bg-red-900/20 text-red-500 border border-red-900/50 rounded hover:bg-red-900/40 hover:text-red-400 font-mono text-sm transition-colors"
-              >
-                [ LOAD V.I.P.E.R. ]
-              </button>
+                  <button
+                    onClick={loadKira7Preset}
+                    className="px-4 py-2 bg-teal-900/20 text-[#00D6B9] border border-teal-900/50 rounded hover:bg-teal-900/40 hover:text-teal-400 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD KIRA-7 ]
+                  </button>
 
-              <button
-                onClick={loadSymbiontPrimePreset}
-                className="px-4 py-2 bg-yellow-900/20 text-[#FFD700] border border-yellow-900/50 rounded hover:bg-yellow-900/40 hover:text-yellow-400 font-mono text-sm transition-colors"
-              >
-                [ LOAD SYMBIONT PRIME ]
-              </button>
+                  <button
+                    onClick={loadCipherPreset}
+                    className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD CIPHER SENTINEL ]
+                  </button>
+                  <button
+                    onClick={loadMetrologistPreset}
+                    className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD METROLOGIST ]
+                  </button>
+                  <button
+                    onClick={loadDax01Preset}
+                    className="px-4 py-2 bg-[#0A192F] text-[#64FFDA] border border-[#64FFDA]/50 rounded hover:bg-[#0A192F]/80 hover:text-[#64FFDA] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD DAX-01 ]
+                  </button>
 
-              <button
-                onClick={loadKira7Preset}
-                className="px-4 py-2 bg-teal-900/20 text-[#00D6B9] border border-teal-900/50 rounded hover:bg-teal-900/40 hover:text-teal-400 font-mono text-sm transition-colors"
-              >
-                [ LOAD KIRA-7 ]
-              </button>
-
-              <button
-                onClick={loadCipherPreset}
-                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD CIPHER SENTINEL ]
-              </button>
-              <button
-                onClick={loadMetrologistPreset}
-                className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD METROLOGIST ]
-              </button>
-              <button
-                onClick={loadDax01Preset}
-                className="px-4 py-2 bg-[#0A192F] text-[#64FFDA] border border-[#64FFDA]/50 rounded hover:bg-[#0A192F]/80 hover:text-[#64FFDA] font-mono text-sm transition-colors"
-              >
-                [ LOAD DAX-01 ]
-              </button>
-
-              <button
-                onClick={loadTactileDialecticianPreset}
-                className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD TACTILE DIALECTICIAN ]
-              </button>
-              <button
-                onClick={loadLexicalTopologyMinerPreset}
-                className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD LEXICAL TOPOLOGY MINER ]
-              </button>
-              <button
-                onClick={() => {
-                  setInstructions(aureliusInstructions);
-                  setKnowledge(aureliusKnowledge);
-                  setTools(aureliusTools);
-                  setState(aureliusState);
-                  setQuery("Modulate the phantom dimensions to map an elliptic sphere topology into the generated latent space.");
-                }}
-                className="px-4 py-2 bg-yellow-900/50 text-yellow-400 border border-yellow-700 rounded hover:bg-yellow-800/50 hover:text-yellow-300 font-mono text-sm transition-colors"
-              >
-                [ LOAD AURELIUS ]
-              </button>
-            </div>
-          </div>
+                  <button
+                    onClick={loadTactileDialecticianPreset}
+                    className="px-4 py-2 bg-pink-900/50 text-pink-400 border border-pink-700 rounded hover:bg-pink-800/50 hover:text-pink-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD TACTILE DIALECTICIAN ]
+                  </button>
+                  <button
+                    onClick={loadLexicalTopologyMinerPreset}
+                    className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD LEXICAL TOPOLOGY MINER ]
+                  </button>
+                  <button
+                    onClick={() => {
+                      setInstructions(aureliusInstructions);
+                      setKnowledge(aureliusKnowledge);
+                      setTools(aureliusTools);
+                      setState(aureliusState);
+                      setQuery(
+                        "Modulate the phantom dimensions to map an elliptic sphere topology into the generated latent space.",
+                      );
+                    }}
+                    className="px-4 py-2 bg-yellow-900/50 text-yellow-400 border border-yellow-700 rounded hover:bg-yellow-800/50 hover:text-yellow-300 font-mono text-sm transition-colors"
+                  >
+                    [ LOAD AURELIUS ]
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
           {activeTab === "editors" && (
             <div className="flex flex-col gap-6">
-          <InstructionEditor
-            value={instructions}
-            onChange={setInstructions}
-            storageKey={INSTRUCTIONS_KEY}
-          />
-          <KnowledgeEditor
-            value={knowledge}
-            onChange={setKnowledge}
-            storageKey={KNOWLEDGE_KEY}
-          />
-          <ToolEditor tools={tools} setTools={setTools} />
-          <MemoryEditor
-            value={memory}
-            onChange={setMemory}
-            storageKey={MEMORY_KEY}
-          />
-          <StateEditor
-            value={state}
-            onChange={setState}
-            storageKey={STATE_KEY}
-          />
+              <InstructionEditor
+                value={instructions}
+                onChange={setInstructions}
+                storageKey={INSTRUCTIONS_KEY}
+              />
+              <KnowledgeEditor
+                value={knowledge}
+                onChange={setKnowledge}
+                storageKey={KNOWLEDGE_KEY}
+              />
+              <ToolEditor tools={tools} setTools={setTools} />
+              <MemoryEditor
+                value={memory}
+                onChange={setMemory}
+                storageKey={MEMORY_KEY}
+              />
+              <StateEditor
+                value={state}
+                onChange={setState}
+                storageKey={STATE_KEY}
+              />
             </div>
           )}
 
           {activeTab === "tools" && (
             <div className="flex flex-col gap-6">
-        <div className="mb-6">
-          <CognitiveFrameworkRegistry />
-        </div>
-          <TopologicalPersonaSculptor />
-          <PluriversalFeatureDiscovery />
-            <GeometricCognitionAPI />
-          <StakeholderMatrix />
-          <CollaborationManager />
-          <GoldenScarProtocol />
-          <ImportExportContext
-            instructions={instructions}
-            setInstructions={setInstructions}
-            knowledge={knowledge}
-            setKnowledge={setKnowledge}
-            tools={tools}
-            setTools={setTools}
-            memory={memory}
-            setMemory={setMemory}
-            state={state}
-            setState={setState}
-          />
-          <DocumentSummarizer />
+              <div className="mb-6">
+                <CognitiveFrameworkRegistry />
+              </div>
+              <TopologicalPersonaSculptor />
+              <PluriversalFeatureDiscovery />
+              <GeometricCognitionAPI />
+              <StakeholderMatrix />
+              <CollaborationManager />
+              <GoldenScarProtocol />
+              <ImportExportContext
+                instructions={instructions}
+                setInstructions={setInstructions}
+                knowledge={knowledge}
+                setKnowledge={setKnowledge}
+                tools={tools}
+                setTools={setTools}
+                memory={memory}
+                setMemory={setMemory}
+                state={state}
+                setState={setState}
+              />
+              <DocumentSummarizer />
             </div>
           )}
         </div>

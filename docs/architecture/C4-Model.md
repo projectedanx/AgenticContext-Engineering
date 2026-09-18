@@ -25,7 +25,15 @@ C4Container
     Container(reactApp, "React Application", "React, TypeScript", "Provides the UI and local state management")
     Container(crdtEngine, "CRDT State Engine", "Yjs/Automerge", "Handles conflict-free merges and document history")
     Container(networkProvider, "P2P Network Provider", "WebRTC", "Broadcasts state deltas to connected peers")
+
+    Boundary(qedBoundary, "Qualitative Experience Database (QED)") {
+        Container(semanticFirewall, "Semantic Firewall", "TypeScript/TDA", "Quarantines retrieval attacks & checks SDS")
+        Container(featureStore, "QED Feature Store", "Abacus.AI / SQLite", "Stores MEMS Nodes & SemanticCommits")
+    }
   }
+
+  Rel(reactApp, semanticFirewall, "Queries context via")
+  Rel(semanticFirewall, featureStore, "Retrieves MEMS nodes from")
 
   Rel(reactApp, crdtEngine, "Reads/Writes context state")
   Rel(crdtEngine, networkProvider, "Dispatches local updates")
