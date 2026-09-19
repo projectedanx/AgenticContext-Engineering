@@ -156,6 +156,7 @@ import {
   qedTools,
   qedState,
 } from "./presets/qed";
+import { vcpInstructions, vcpKnowledge, vcpTools, vcpState } from "./presets/vcp";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -346,6 +347,13 @@ const App: React.FC = () => {
     setKnowledge(qedKnowledge);
     setTools(qedTools);
     setState(qedState);
+  };
+
+  const loadVcpPreset = () => {
+    setInstructions(vcpInstructions);
+    setKnowledge(vcpKnowledge);
+    setTools(vcpTools);
+    setState(vcpState);
   };
 
   const loadVortexArchitectPreset = () => {
@@ -785,7 +793,13 @@ const App: React.FC = () => {
                   >
                     [ LOAD EPISTEMIC WORKBENCH (QED) ]
                   </button>
-                  <button
+                                <button
+                    onClick={loadVcpPreset}
+                    className="px-4 py-2 bg-cyan-900/50 text-cyan-400 font-mono text-sm border border-cyan-700/50 rounded hover:bg-cyan-800/50 hover:border-cyan-500 transition-colors shadow-sm"
+                  >
+                    [ LOAD VERIFICATION CO-PROCESSOR ]
+                  </button>
+    <button
                     onClick={loadCognitiveArchaeologist}
                     className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
                   >

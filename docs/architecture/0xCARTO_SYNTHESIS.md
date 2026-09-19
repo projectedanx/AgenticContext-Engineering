@@ -63,7 +63,14 @@ C1 -->|runs| APP
 
 ## TIER 3: CI/CD Pipeline Cartograph (Sequence Diagram)
 
+
 CI/CD Pipeline Cartograph AST-to-YAML Reverse Trace complete.
+
+### Active Intervention Loop (VCP Guard)
+The repository leverages a Verification Co-Processor (VCP) mapping structural deviations:
+- **Latent Space Optimization**: Differentiable cache augmentation to pull thought vectors from unsafe basins.
+- **Topological & Epistemic Audit**: Betti signature monitoring (`Betti-1 Cycle Detection`).
+
 
 ```mermaid
 sequenceDiagram
