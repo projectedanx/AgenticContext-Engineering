@@ -46,6 +46,7 @@ The workbench implements the **Agentic Inversion Protocol**, shifting the AI par
 - **Geometric Cognition API**: Interface for controlling non-Euclidean geometric primitives and provenance tracking.
 - **Pluriversal Feature Discovery**: Conceptually maps paradoxes to generate novel feature concepts through "Chain-of-Code" enactments.
 - **V.I.P.E.R. (Visual Intent & Physical Execution Router)**: Enforces physical boundaries on generation requests using Paraconsistent Logic.
+- **Staged Advantage Estimation (SAE)**: Resolves credit assignment failures in heterogeneous prefix trees via hierarchical convex projection and Entropy-Weighted Advantage Recovery.
 - **Epistemic Dissonance Engine**: Projects contradictory constraints as rigid geometric boundaries for AI topology generation.
 - **Golden Scar Protocol Enforcer**: Implements Paraconsistent Logic to manage technical debt within the epsilon-band and calculates Topological Derivatives of stakeholder dissonance to synthesize non-stochastic semantic anchors.
 - **Scar-Driven Topological Extruder (SDTE)**: Uses human-defined failure "Scars" to route around failure nodes (FIPI) and enforce structural compliance.
