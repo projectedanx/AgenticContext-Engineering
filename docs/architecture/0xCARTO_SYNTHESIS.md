@@ -25,6 +25,7 @@ This repository is NOT a traditional autonomous "auto-solver" framework. It reje
 
 ### Epistemic Dependency Subversion & Edge-Tier Falsification
 - **ADR-014 (Edge-Tier Architecture Falsification Harness):** Automated schema mutation, adaptive rate-limiting based on telemetry, and AST parsing to prevent SRP/Business Logic bleed at the BFF boundary.
+- **[ADR-018-Staged-Advantage-Estimation.md](docs/architecture/ADR-018-Staged-Advantage-Estimation.md):** Implements Staged Advantage Estimation (SAE) with Convex Projection, Dual-Scale Spectral Balancing, and EWAR Hooks.
 
 ## TIER 2: Architecture Topology Map
 
