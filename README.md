@@ -35,7 +35,7 @@ The workbench implements the **Agentic Inversion Protocol**, shifting the AI par
 ## Key Features
 
 - **Betti-1 Attractor Protocol**: Implements Failure-Informed Prompt Inversion (FIPI) to generate structural topologies constrained by human-defined failure modes (Scars).
-- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents (e.g., AXIOM, KUT, LEXIS SOVEREIGN, AEGIS-PRIME, DIETER, ALETHEON, METROLOGIST, AURELIUS, KIRA-7, CIPHER, SYMBIONT PRIME).
+- **Sovereign Agent Presets**: Pre-loaded with identity-enforced agents (e.g., AXIOM, KUT, LEXIS SOVEREIGN, AEGIS-PRIME, DIETER, ALETHEON, METROLOGIST, AURELIUS, KIRA-7, CIPHER, SYMBIONT PRIME, VCP).
 - **Core Instruction Editor**: Define the agent's persona, core directives, and operational rules.
 - **Knowledge Base (RAG)**: Provide retrieved information from external sources to ground the agent.
 - **Tool Editor**: Define the functions and capabilities the agent can execute.
