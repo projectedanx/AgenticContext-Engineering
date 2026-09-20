@@ -30,6 +30,14 @@ import {
   tactileDialecticianTools,
 } from "./presets/tactile_dialectician";
 
+
+import {
+  cognitiveCivilEngineerInstructions,
+  cognitiveCivilEngineerKnowledge,
+  cognitiveCivilEngineerState,
+  cognitiveCivilEngineerTools,
+} from "./presets/cognitive_civil_engineer";
+
 import { Header } from "./components/Header";
 import { InstructionEditor } from "./components/InstructionEditor";
 import { KnowledgeEditor } from "./components/KnowledgeEditor";
@@ -377,6 +385,14 @@ const App: React.FC = () => {
     setQuery(
       "I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.",
     );
+  };
+
+
+  const loadCognitiveCivilEngineerPreset = () => {
+    setInstructions(cognitiveCivilEngineerInstructions);
+    setKnowledge(cognitiveCivilEngineerKnowledge);
+    setState(cognitiveCivilEngineerState);
+    setTools(cognitiveCivilEngineerTools);
   };
 
   const loadKutPreset = () => {
@@ -841,7 +857,10 @@ const App: React.FC = () => {
                   >
                     <div className="font-semibold text-purple-400 group-hover:text-purple-300">
                       AEGIS-11
-                    </div>
+
+
+
+                </div>
                     <div className="text-sm text-gray-400 mt-1">
                       Autonomic Epistemic Gatekeeper
                     </div>
