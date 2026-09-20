@@ -23,6 +23,10 @@ This repository is NOT a traditional autonomous "auto-solver" framework. It reje
 | `V.I.P.E.R.` | `presets/viper.ts` | Intent Router | Visual Intent & Physical Execution Router, enforcing physical paraconsistent bounds | [CULTURAL_ARTIFACT] |
 
 
+### Cognitive Engineering & Workflow Stability
+- **ADR-022 (IKEA Effect Cognitive Architecture):** Validates Shared Mental Model (SMM) stability via the Goldilocks Zone of Affective Latent Space Homeostasis (ALSH), actively mitigating Information Foraging Decay and Semantic Ossification.
+- **Chaos-Engineered Epistemic Escrow:** Deploys automated pathogen injection (e.g., Concept Drift) to stress-test workflows, tripping a circuit breaker when CFDI > 0.42 to compel System 2 human scrutiny via Positive Friction.
+
 ### Epistemic Dependency Subversion & Edge-Tier Falsification
 - **ADR-014 (Edge-Tier Architecture Falsification Harness):** Automated schema mutation, adaptive rate-limiting based on telemetry, and AST parsing to prevent SRP/Business Logic bleed at the BFF boundary.
 - **[ADR-018-Staged-Advantage-Estimation.md](docs/architecture/ADR-018-Staged-Advantage-Estimation.md):** Implements Staged Advantage Estimation (SAE) with Convex Projection, Dual-Scale Spectral Balancing, and EWAR Hooks.
