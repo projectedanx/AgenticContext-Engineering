@@ -80,3 +80,8 @@ Documentation is not a post-execution artifact; it is an active constraint that 
     *   Implement **ReCAP (Recursive Context-Aware Planning)** to manage long-horizon goals via dynamic context trees instead of flat sequential context, enabling Upward Backtracking upon failure.
     *   Deploy **BDI (Belief-Desire-Intention) Symbolic Filters** (System 2) to intercept and verify intuitive proposals (System 1) before execution, breaking deadlocks and resolving the "CoT deliberation penalty".
     *   Use **Mechanistic Lookback Circuit Distillation (CKA Loss)** to force causal action-belief binding during model transfer, ensuring that functional ToM metrics align with descriptive ToM capabilities.
+
+### Cognitive Engineering: The IKEA Effect & Chaos Falsification (ADR-022)
+*   **The Hazard of Frictionless UX:** Building completely frictionless, top-down AI workflows ("Agency Laundering") destroys operator buy-in and leads to rapid Semantic Ossification. Humans must have skin in the game.
+*   **Affective Latent Space Homeostasis (ALSH):** We learned that visual co-creation acts as an essential cognitive prosthetic. We must explicitly design for the "Goldilocks Zone" between excessive constraint (Bureaucratic Paralysis) and total freedom (Information Foraging Decay).
+*   **Epistemic Escrow vs. Hallucination:** Relying on post-hoc validation fails. We must actively inject Chaos Pathogens (Concept Drift, Semantic Ambiguity) to force the system's Confidence-Fidelity Divergence Index (CFDI) upwards. When CFDI > 0.42, the system must trigger an Epistemic Escrow, introducing *Positive Friction* that forces human operators to explicitly justify the path forward, logging the event in the Scar Tissue Archive.
