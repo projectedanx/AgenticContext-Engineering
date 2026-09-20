@@ -42,6 +42,15 @@ D2[SILENT_REQUIRED_ENV: LARK_ENCRYPT_KEY
 ⚠️ Not in .env.example]
 end
 
+
+subgraph COG["Cognitive & Planning Layer"]
+    P1[PEACE Meta-Architecture]
+    P2[ReCAP Context Tree]
+    P3[BDI Control Filter]
+    P1 --> P2
+    P1 --> P3
+end
+
 subgraph APP["Application Layer (root)"]
     A1[Entry Point<br/>src/index.tsx]
     A2[Core App<br/>src/App.tsx]

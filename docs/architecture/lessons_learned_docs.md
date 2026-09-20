@@ -72,3 +72,11 @@ Documentation is not a post-execution artifact; it is an active constraint that 
 *   **Regret Minimization Formulation:** The thought-action gap is mathematically formulated as an exact Action-Alignment Loss ($\mathcal{L}_{\text{Align}}$), representing the distance (bounded regret) between the expected utility of the chosen policy and the optimal Best Response given the opponent's predicted state.
 *   **Gradient Smoothness:** Implementing the hard `max` operator for Best Response creates sparse subgradients, hurting optimization. A Boltzmann LogSumExp approximation ($\tau = 0.1$) acts as a critical structural relaxation to ensure dense gradient flow, smoothing the landscape while maintaining precision.
 *   **Nash Trap Eradication:** In deterministic simulation, minimizing this differentiable penalty successfully eliminates the uncooperative Nash basin (Nash Regret = 1.0) and mathematically forces the agent into a 100% confidence optimal exploit (Regret = 0.0).
+
+### Bridging the Thought-Action Gap
+
+*   **Symptom:** Models decouple predictive ToM (knowing what the opponent will do) from strategic execution (optimizing against it), falling into the "Nash Trap" (defaulting to zero-sum randomness) or infinite planning loops (the Sussman Anomaly).
+*   **Resolution (PEACE Meta-Architecture):**
+    *   Implement **ReCAP (Recursive Context-Aware Planning)** to manage long-horizon goals via dynamic context trees instead of flat sequential context, enabling Upward Backtracking upon failure.
+    *   Deploy **BDI (Belief-Desire-Intention) Symbolic Filters** (System 2) to intercept and verify intuitive proposals (System 1) before execution, breaking deadlocks and resolving the "CoT deliberation penalty".
+    *   Use **Mechanistic Lookback Circuit Distillation (CKA Loss)** to force causal action-belief binding during model transfer, ensuring that functional ToM metrics align with descriptive ToM capabilities.
