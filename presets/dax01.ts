@@ -118,6 +118,21 @@ export const dax01Tools: Tool[] = [
       { id: uuidv4(), name: 'prLink', type: 'string', description: 'Link or status of the documentation PR.', required: true },
       { id: uuidv4(), name: 'scarId', type: 'string', description: 'The Symbolic Scar ID for internal tracking.', required: true }
     ]
+  },
+  {
+    id: uuidv4(),
+    name: 'generate_friction_topography_report',
+    description: 'Generates a structured Friction Topography Report (JSON-LD artifact).',
+    parameters: [
+      { id: uuidv4(), name: 'endpoint', type: 'string', description: 'The affected API endpoint.', required: true },
+      { id: uuidv4(), name: 'errorPattern', type: 'string', description: 'The observed error pattern.', required: true },
+      { id: uuidv4(), name: 'frequency', type: 'number', description: 'The frequency of the error.', required: true },
+      { id: uuidv4(), name: 'cfdiScore', type: 'number', description: 'The CFDI score.', required: true },
+      { id: uuidv4(), name: 'rootCauseClassification', type: 'string', description: 'The root cause classification.', required: true },
+      { id: uuidv4(), name: 'recommendedFix', type: 'string', description: 'The recommended fix.', required: true },
+      { id: uuidv4(), name: 'estimatedTtfcImpact', type: 'number', description: 'The estimated TTFC impact of the fix.', required: true },
+      { id: uuidv4(), name: 'scarIdChain', type: 'string', description: 'The Symbolic Scar ID chain.', required: true }
+    ]
   }
 ];
 
