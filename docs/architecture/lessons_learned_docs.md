@@ -3,6 +3,8 @@
 ## Overview
 ### Simulation Modules
 - **SAE Simulators (`sae_research_1_spectral.py`, `sae_research_2_admm.py`, `sae_research_3_ewar.py`)**: Demonstrates Spectral Information Discrepancy thresholds, Asynchronous Sparse ADMM projections under 15ms, and Entropy-Weighted Advantage Recovery mechanisms against Semantic Saponification.
+- **ALA Simulator (`anomaly_learning_agent_sim.py`)**: Demonstrates the physical threshold dynamics and composite risk synthesis (Shannon Entropy, Neural Sequence modeling, and KL Divergence) required to implement the REFLX_IDE HARNESS SPECIFICATION V2.9, avoiding Semantic Ossification and Sycophantic Blindness.
+
 
 This document records the insights and specific technical lessons learned during the systematic execution of a repository-wide documentation audit and update, operated under the `TACTILE_ARCHITECT_DIALECTICIAN_v1` constraints and `HICKAM-OODA RECURSIVE LOOP`.
 
