@@ -24,12 +24,18 @@ import {
   lexicalTopologyMinerState,
 } from "./presets/lexical_topology_miner";
 import {
+  pluriversalOntologistInstructions,
+  pluriversalOntologistKnowledge,
+  pluriversalOntologistTools,
+  pluriversalOntologistState,
+} from "./presets/pluriversal_ontologist";
+
+import {
   tactileDialecticianInstructions,
   tactileDialecticianKnowledge,
   tactileDialecticianState,
   tactileDialecticianTools,
 } from "./presets/tactile_dialectician";
-
 
 import {
   cognitiveCivilEngineerInstructions,
@@ -91,6 +97,7 @@ import {
   aureliusTools,
   aureliusState,
 } from "./presets/aurelius";
+
 import {
   dieterInstructions,
   dieterKnowledge,
@@ -164,7 +171,12 @@ import {
   qedTools,
   qedState,
 } from "./presets/qed";
-import { vcpInstructions, vcpKnowledge, vcpTools, vcpState } from "./presets/vcp";
+import {
+  vcpInstructions,
+  vcpKnowledge,
+  vcpTools,
+  vcpState,
+} from "./presets/vcp";
 import { CognitiveFrameworkRegistry } from "./components/CognitiveFrameworkRegistry";
 import { TopologicalPersonaSculptor } from "./components/TopologicalPersonaSculptor";
 import { PluriversalFeatureDiscovery } from "./components/PluriversalFeatureDiscovery";
@@ -386,7 +398,6 @@ const App: React.FC = () => {
       "I need an ADR detailing the migration from our monolithic Postgres DB to a distributed CockroachDB setup, including failure modes and SSR integration.",
     );
   };
-
 
   const loadCognitiveCivilEngineerPreset = () => {
     setInstructions(cognitiveCivilEngineerInstructions);
@@ -720,6 +731,13 @@ const App: React.FC = () => {
     //    );
   };
 
+  const loadPluriversalOntologistPreset = () => {
+    setInstructions(pluriversalOntologistInstructions);
+    setKnowledge(pluriversalOntologistKnowledge);
+    setTools(pluriversalOntologistTools);
+    setState(pluriversalOntologistState);
+  };
+
   const handleGenerate = async () => {
     setIsLoading(true);
     setError(null);
@@ -809,13 +827,13 @@ const App: React.FC = () => {
                   >
                     [ LOAD EPISTEMIC WORKBENCH (QED) ]
                   </button>
-                                <button
+                  <button
                     onClick={loadVcpPreset}
                     className="px-4 py-2 bg-cyan-900/50 text-cyan-400 font-mono text-sm border border-cyan-700/50 rounded hover:bg-cyan-800/50 hover:border-cyan-500 transition-colors shadow-sm"
                   >
                     [ LOAD VERIFICATION CO-PROCESSOR ]
                   </button>
-    <button
+                  <button
                     onClick={loadCognitiveArchaeologist}
                     className="px-4 py-2 bg-yellow-900/50 text-yellow-400 font-mono text-sm border border-yellow-700/50 rounded hover:bg-yellow-800/50 hover:border-yellow-500 transition-colors shadow-sm"
                   >
@@ -857,10 +875,7 @@ const App: React.FC = () => {
                   >
                     <div className="font-semibold text-purple-400 group-hover:text-purple-300">
                       AEGIS-11
-
-
-
-                </div>
+                    </div>
                     <div className="text-sm text-gray-400 mt-1">
                       Autonomic Epistemic Gatekeeper
                     </div>
@@ -950,6 +965,12 @@ const App: React.FC = () => {
                     className="px-4 py-2 bg-indigo-900/50 text-indigo-400 border border-indigo-700 rounded hover:bg-indigo-800/50 hover:text-indigo-300 font-mono text-sm transition-colors"
                   >
                     [ LOAD LEXICAL TOPOLOGY MINER ]
+                  </button>
+                  <button
+                    onClick={loadPluriversalOntologistPreset}
+                    className="px-4 py-2 bg-[#4B0082]/20 text-[#8A2BE2] border border-[#4B0082]/50 rounded hover:bg-[#4B0082]/40 hover:text-[#DDA0DD] font-mono text-sm transition-colors"
+                  >
+                    [ LOAD PLURIVERSAL ONTOLOGIST ]
                   </button>
                   <button
                     onClick={() => {
