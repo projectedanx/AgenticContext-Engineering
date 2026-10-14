@@ -13,13 +13,13 @@
   "dependencies": {
     "@google/genai": "1.25.0",
     "@testing-library/dom": "^10.4.2",
-    "concurrently": "10.0.5",
+    "concurrently": "10.0.6",
     "cors": "2.8.6",
     "dotenv": "17.4.2",
     "express": "5.2.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "uuid": "14.0.2",
+    "uuid": "14.0.3",
     "y-webrtc": "10.3.0",
     "yjs": "13.6.30"
   },
